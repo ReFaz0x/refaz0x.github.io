@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About — Refaz</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --refaz-green: #23E07E;
+            --refaz-purple: #5D31D6;
+            --refaz-yellow: #F5D143;
+            --dark: #0a0a0a;
+            --gray: #666;
+            --light-gray: #fafafa;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #fff;
+            color: var(--dark);
+            line-height: 1.8;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        nav {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 1.2rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 48px;
+            height: auto;
+        }
+
+        .logo-text {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--refaz-purple);
+            letter-spacing: 0.03em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--refaz-green);
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10rem 3rem 6rem;
+        }
+
+        .page-header {
+            margin-bottom: 5rem;
+            max-width: 900px;
+        }
+
+        .page-header h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .page-header p {
+            font-size: 1.25rem;
+            color: var(--gray);
+            max-width: 900px;
+            line-height: 1.9;
+        }
+
+        /* About Content */
+        .about-content {
+            max-width: 900px;
+            margin: 0 0 6rem 0;
+        }
+
+        .about-text h2 {
+            font-size: 2rem;
+            margin-bottom: 1.8rem;
+            font-weight: 600;
+        }
+
+        .about-text p {
+            color: var(--gray);
+            line-height: 1.9;
+            margin-bottom: 1.2rem;
+            font-size: 1.08rem;
+        }
+
+        .about-text strong {
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        /* Awards Section */
+        .awards-section {
+            margin: 6rem 0;
+        }
+
+        .awards-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .award-item {
+            background: var(--light-gray);
+            padding: 2.5rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .award-item:hover {
+            transform: translateY(-6px);
+        }
+
+        .award-badge {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 1.5rem;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .award-badge img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .award-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .award-item p {
+            color: var(--gray);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        /* Team Section */
+        .team-section {
+            margin-top: 6rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4rem;
+        }
+
+        .team-member {
+            text-align: center;
+        }
+
+        .team-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 2rem;
+            border: 4px solid var(--light-gray);
+        }
+
+        .team-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .team-role {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--refaz-purple);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .team-bio {
+            color: var(--gray);
+            line-height: 1.8;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3.5rem 3rem 2.5rem;
+            border-top: 1px solid #222;
+            margin-top: 6rem;
+        }
+
+        .footer-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+        }
+
+        .footer-logo {
+            font-weight: 700;
+            color: var(--refaz-green);
+            font-size: 1.15rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: #999;
+            text-decoration: none;
+            font-size: 0.88rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--refaz-green);
+        }
+
+        .footer-credit {
+            color: #666;
+            font-size: 0.88rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 1.2rem;
+                padding: 1rem 2rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+                font-size: 0.85rem;
+            }
+
+            main {
+                padding: 8rem 2rem 4rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+
+            .awards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="Refaz.png" alt="Refaz" class="logo-img">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="work.html">Work</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="page-header">
+            <h1>Who We Are</h1>
+            <p>
+                A research and engineering studio bridging institutional innovation with grassroots implementation in blockchain infrastructure.
+            </p>
+        </div>
+
+        <div class="about-content">
+            <div class="about-text">
+                <p>
+                    Refaz develops applied research and technical solutions for decentralized systems — from institutional compliance frameworks to community-based regenerative finance.
+                </p>
+                <p>
+                    We work supporting organizations, startups and institutions in design business, while building local-first applications for environmental data, web3 tech development, collaborative networks, and community empowerment.
+                </p>
+                <p>
+                    We translate complex technical systems into accessible implementations.
+                </p>
+            </div>
+        </div>
+
+        <!-- Team Section -->
+        <section class="team-section">
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="team-marcelo.jpg" alt="Marcelo Silva" class="team-photo">
+                    <div class="team-name">Marcelo Silva</div>
+                    <div class="team-role">Co-Founder · Research & Systems</div>
+                    <p class="team-bio">
+                        Systems architect and researcher focused on protocol design, cryptoeconomics, and regenerative infrastructure. Background in distributed systems, formal verification, and open-source communities. Led protocol research for Ethereum, Celo, and ReFi DAO.
+                    </p>
+                </div>
+
+                <div class="team-member">
+                    <img src="team-verber.jpg" alt="Verber Alves" class="team-photo">
+                    <div class="team-name">Verber Alves</div>
+                    <div class="team-role">Co-Founder · Legal Engineering & Policy</div>
+                    <p class="team-bio">
+                        Legal engineer specializing in compliance frameworks for digital assets, tokenomics design, and institutional dialogue. Bridges technical possibility with regulatory reality. Expertise in blockchain governance, smart contract law, and public policy.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Awards Section -->
+        <section class="awards-section">
+            <h2>Recognition</h2>
+            <div class="awards-grid">
+                <div class="award-item">
+                    <div class="award-badge">
+                        <img src="prize1.png" alt="G20 Tech Sprint">
+                    </div>
+                    <h3>G20 Tech Sprint</h3>
+                    <p>Selected for blockchain innovation in sustainable finance infrastructure</p>
+                </div>
+                <div class="award-item">
+                    <div class="award-badge">
+                        <img src="prize2.png" alt="National Treasury Hackathon">
+                    </div>
+                    <h3>National Treasury Hackathon</h3>
+                    <p>Tokenization & Innovation Award for green bond infrastructure</p>
+                </div>
+                <div class="award-item">
+                    <div class="award-badge">
+                        <img src="prize3.png" alt="BACEN LIFT Lab">
+                    </div>
+                    <h3>BACEN LIFT Lab</h3>
+                    <p>Selected for sustainable digital solutions in regenerative finance</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">REFAZ</div>
+            <ul class="footer-links">
+                <li><a href="https://github.com/ReFaz0x">Github</a></li>
+                <li><a href="https://www.linkedin.com/company/refaz-brasil/">LinkedIn</a></li>
+                <li><a href="https://verbersouza.github.io/">Verber</a></li>
+                <li><a href="https://marcelorefi.github.io/">Marcelo</a></li>
+            </ul>
+            <div class="footer-credit">
+                © 2024 Refaz · Engineering & Research Studio
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

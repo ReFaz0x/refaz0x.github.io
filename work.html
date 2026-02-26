@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work — Refaz</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --refaz-green: #23E07E;
+            --refaz-purple: #5D31D6;
+            --refaz-yellow: #F5D143;
+            --dark: #0a0a0a;
+            --gray: #666;
+            --light-gray: #fafafa;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #fff;
+            color: var(--dark);
+            line-height: 1.8;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        nav {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 1.2rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 48px;
+            height: auto;
+        }
+
+        .logo-text {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--refaz-purple);
+            letter-spacing: 0.03em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--refaz-green);
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10rem 3rem 6rem;
+        }
+
+        .page-header {
+            margin-bottom: 4rem;
+        }
+
+        .page-header h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 700px;
+        }
+
+        /* Project Cards */
+        .project-card {
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            border-radius: 12px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+            transform: translateY(-4px);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .project-card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .project-subtitle {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--refaz-purple);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .project-card p {
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-card ul {
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .project-card li {
+            color: var(--gray);
+            margin: 0.6rem 0;
+            line-height: 1.7;
+        }
+
+        .project-card li::marker {
+            color: var(--refaz-green);
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.9rem 1.8rem;
+            background: var(--refaz-purple);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-size: 0.85rem;
+        }
+
+        .project-link:hover {
+            background: var(--refaz-green);
+            color: var(--dark);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3.5rem 3rem 2.5rem;
+            border-top: 1px solid #222;
+        }
+
+        .footer-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+        }
+
+        .footer-logo {
+            font-weight: 700;
+            color: var(--refaz-green);
+            font-size: 1.15rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: #999;
+            text-decoration: none;
+            font-size: 0.88rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--refaz-green);
+        }
+
+        .footer-credit {
+            color: #666;
+            font-size: 0.88rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 1.2rem;
+                padding: 1rem 2rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+                font-size: 0.85rem;
+            }
+
+            main {
+                padding: 8rem 2rem 4rem;
+            }
+
+            .project-card {
+                padding: 2rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="Refaz.png" alt="Refaz" class="logo-img">
+                <span class="logo-text">REFAZ</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="work.html">Work</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="page-header">
+            <h1>Selected Work</h1>
+            <p>Real-world blockchain implementations spanning regenerative finance, institutional partnerships, and community education.</p>
+        </div>
+
+        <!-- Project 1: Ekonavi -->
+        <article class="project-card" id="ekonavi">
+            <img src="png1.png" alt="Ekonavi - Environmental Data Platform" class="project-img">
+            <h2>Ekonavi — Environmental Data Platform</h2>
+            <p class="project-subtitle">BACEN LIFT Lab · Central Bank of Brazil</p>
+            <p>
+                A blockchain-native platform for verifiable environmental and socio-economic data. Selected by the Central Bank's innovation lab (LIFT) to design data-proof solutions for regenerative finance and biodiversity-linked assets.
+            </p>
+            <ul>
+                <li>Part of the Central Bank of Brazil's LIFT Lab innovation program</li>
+                <li>Blockchain system for tamper-proof environmental and social impact data</li>
+                <li>Designed for climate finance, carbon credits, and biodiversity-linked assets</li>
+                <li>Integration with real-world monitoring systems and IoT devices</li>
+            </ul>
+            <a href="https://ekonavi.com" target="_blank" rel="noopener" class="project-link">Visit Ekonavi →</a>
+        </article>
+
+        <!-- Project 2: Green Bonds -->
+        <article class="project-card" id="treasury">
+            <img src="png2.png" alt="Tokenized Green Bonds" class="project-img">
+            <h2>Tokenized Green Bonds — Regenerative Finance Infrastructure</h2>
+            <p class="project-subtitle">National Treasury Hackathon · Brazil</p>
+            <p>
+                Blockchain-based mechanisms for sustainable finance developed at the National Treasury's official hackathon. The project integrated automation, tokenization, and transparent reporting standards aligned with international sustainability frameworks.
+            </p>
+            <ul>
+                <li>Official collaboration with Brazil's National Treasury</li>
+                <li>ISSB-aligned automation system for green bond issuance and tracking</li>
+                <li>Impact measurement and ranking framework on blockchain</li>
+                <li>Transparent reporting for institutional investors and regulators</li>
+            </ul>
+            <a href="https://www.youtube.com/live/qVJ6S1poFBM?si=G3-8qB4Z8AiY0g2R&t=6010" target="_blank" rel="noopener" class="project-link">Watch Presentation →</a>
+        </article>
+
+        <!-- Project 3: Liga -->
+        <article class="project-card" id="liga">
+            <img src="png3.png" alt="Liga - Geospatial Advisory" class="project-img">
+            <h2>Liga — Geospatial Advisory</h2>
+            <p class="project-subtitle">Independent Technical Advisory</p>
+            <p>
+                Technical and governance advisory for geospatial Web3 solutions, ensuring compliance, scalability, and responsible integration of decentralized infrastructures for location-based services and territorial governance.
+            </p>
+            <ul>
+                <li>Independent evaluation of blockchain/Web3 architecture</li>
+                <li>Geo-based solutions for governance, land registry, and data privacy</li>
+                <li>Advisory on privacy, compliance, and interoperability standards</li>
+                <li>Smart contract architecture for geospatial data management</li>
+            </ul>
+            <a href="https://www.liga.green/" target="_blank" rel="noopener" class="project-link">Visit Liga →</a>
+        </article>
+
+        <!-- Project 4: BnE -->
+        <article class="project-card" id="bne">
+            <img src="png4.png" alt="Blockchain na Escola" class="project-img">
+            <h2>Blockchain na Escola — Web3 Education Platform</h2>
+            <p class="project-subtitle">Education Program · Brazil</p>
+            <p>
+                A pioneering initiative bringing blockchain and Web3 education to public schools and universities across Brazil. The program combines gamified learning with hands-on experience using digital wallets, NFTs, and DAOs.
+            </p>
+            <ul>
+                <li>Education-as-a-Service model for digital literacy and Web3 fundamentals</li>
+                <li>Curriculum development for blockchain, cryptocurrencies, and decentralized systems</li>
+                <li>Implemented in public schools, universities, and community centers</li>
+                <li>Hands-on workshops with real Web3 tools and platforms</li>
+            </ul>
+            <a href="#contact" class="project-link">Learn More →</a>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">REFAZ</div>
+            <ul class="footer-links">
+                <li><a href="https://github.com/refaz0x">Github</a></li>
+                <li><a href="#">Mirror</a></li>
+                <li><a href="#">Farcaster</a></li>
+                <li><a href="#">Instagram</a></li>
+            </ul>
+            <div class="footer-credit">
+                © 2024 Refaz · Engineering & Research Studio
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

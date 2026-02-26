@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog — Refaz</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --refaz-green: #23E07E;
+            --refaz-purple: #5D31D6;
+            --refaz-yellow: #F5D143;
+            --dark: #0a0a0a;
+            --gray: #666;
+            --light-gray: #fafafa;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #fff;
+            color: var(--dark);
+            line-height: 1.8;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        nav {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 1.2rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 48px;
+            height: auto;
+        }
+
+        .logo-text {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--refaz-purple);
+            letter-spacing: 0.03em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--refaz-green);
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10rem 3rem 6rem;
+        }
+
+        .page-header {
+            margin-bottom: 4rem;
+        }
+
+        .page-header h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 700px;
+        }
+
+        /* Filters */
+        .blog-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.7rem 1.5rem;
+            background: var(--light-gray);
+            border: 2px solid transparent;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--gray);
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            border-color: var(--refaz-purple);
+            background: white;
+            color: var(--refaz-purple);
+        }
+
+        /* Blog Grid */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        /* Article Cards */
+        .article-card {
+            background: var(--light-gray);
+            padding: 2.5rem;
+            border-top: 3px solid var(--refaz-yellow);
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--dark);
+            display: block;
+        }
+
+        .article-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 1.2rem;
+            margin-bottom: 1.2rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gray);
+            font-weight: 600;
+        }
+
+        .article-source {
+            color: var(--refaz-purple);
+        }
+
+        .article-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            line-height: 1.4;
+            color: var(--dark);
+        }
+
+        .article-card p {
+            color: var(--gray);
+            line-height: 1.8;
+            font-size: 0.98rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3.5rem 3rem 2.5rem;
+            border-top: 1px solid #222;
+        }
+
+        .footer-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+        }
+
+        .footer-logo {
+            font-weight: 700;
+            color: var(--refaz-green);
+            font-size: 1.15rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: #999;
+            text-decoration: none;
+            font-size: 0.88rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--refaz-green);
+        }
+
+        .footer-credit {
+            color: #666;
+            font-size: 0.88rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 1.2rem;
+                padding: 1rem 2rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+                font-size: 0.85rem;
+            }
+
+            main {
+                padding: 8rem 2rem 4rem;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="Refaz.png" alt="Refaz" class="logo-img">
+                <span class="logo-text">REFAZ</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="work.html">Work</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="page-header">
+            <h1>Research & Writing</h1>
+            <p>Critical analysis, technical research, and policy perspectives on decentralized systems.</p>
+        </div>
+
+        <!-- Filters -->
+        <div class="blog-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="research">Research</button>
+            <button class="filter-btn" data-filter="policy">Policy</button>
+            <button class="filter-btn" data-filter="technical">Technical</button>
+            <button class="filter-btn" data-filter="analysis">Analysis</button>
+            <button class="filter-btn" data-filter="educational">Educational</button>
+        </div>
+
+        <div class="blog-grid">
+            <!-- Article 1 -->
+            <a href="#" class="article-card" data-category="analysis">
+                <div class="article-meta">
+                    <span class="article-source">Medium</span>
+                    <span>5 min read</span>
+                    <span>2024</span>
+                </div>
+                <h3>Why the Future of Web3 Takes Shape in Latin America</h3>
+                <p>An analysis of why Latin America is positioned to lead Web3 adoption and how grassroots projects are contributing to this transformation beyond speculation.</p>
+            </a>
+
+            <!-- Article 2 -->
+            <a href="#" class="article-card" data-category="research">
+                <div class="article-meta">
+                    <span class="article-source">Research</span>
+                    <span>15 min read</span>
+                    <span>2024</span>
+                </div>
+                <h3>Governance Without Trust: On the Limits of Smart Contract Autonomy</h3>
+                <p>A critical examination of how smart contracts encode power relations, and what human-in-the-loop mechanisms remain essential for legitimate governance.</p>
+            </a>
+
+            <!-- Article 3 -->
+            <a href="#" class="article-card" data-category="policy">
+                <div class="article-meta">
+                    <span class="article-source">Policy Brief</span>
+                    <span>Policy</span>
+                    <span>2023</span>
+                </div>
+                <h3>Digital Public Infrastructure & Decentralized Identity</h3>
+                <p>Submitted to the European Commission's open consultation on digital identity, arguing for self-sovereign identity standards in public services.</p>
+            </a>
+
+            <!-- Article 4 -->
+            <a href="#" class="article-card" data-category="technical">
+                <div class="article-meta">
+                    <span class="article-source">Technical</span>
+                    <span>8 min read</span>
+                    <span>2024</span>
+                </div>
+                <h3>Meshbook: A Local-First Community Archive</h3>
+                <p>An offline-capable documentation tool built for grassroots organizations — syncs peer-to-peer when connected, fully functional when not.</p>
+            </a>
+
+            <!-- Article 5 -->
+            <a href="#" class="article-card" data-category="analysis">
+                <div class="article-meta">
+                    <span class="article-source">Analysis</span>
+                    <span>10 min read</span>
+                    <span>2024</span>
+                </div>
+                <h3>The Real Cost of Blockchain Validation: Energy, Economics, and Equity</h3>
+                <p>Breaking down the environmental and economic implications of different consensus mechanisms — beyond the headlines.</p>
+            </a>
+
+            <!-- Article 6 -->
+            <a href="#" class="article-card" data-category="research">
+                <div class="article-meta">
+                    <span class="article-source">Case Study</span>
+                    <span>12 min read</span>
+                    <span>2023</span>
+                </div>
+                <h3>Tokenomics for Regenerative Finance: Lessons from LIFT Lab</h3>
+                <p>Insights from designing economic models for environmental asset tokenization in partnership with Brazil's Central Bank innovation lab.</p>
+            </a>
+
+            <!-- Article 7 -->
+            <a href="#" class="article-card" data-category="educational">
+                <div class="article-meta">
+                    <span class="article-source">Educational</span>
+                    <span>6 min read</span>
+                    <span>2024</span>
+                </div>
+                <h3>Teaching Blockchain in Public Schools: What We Learned</h3>
+                <p>Reflections from bringing Web3 education to underserved communities — what worked, what didn't, and why accessibility matters.</p>
+            </a>
+
+            <!-- Article 8 -->
+            <a href="#" class="article-card" data-category="analysis">
+                <div class="article-meta">
+                    <span class="article-source">Opinion</span>
+                    <span>7 min read</span>
+                    <span>2024</span>
+                </div>
+                <h3>Beyond the Hype: What Decentralization Actually Means</h3>
+                <p>A sober look at what decentralization can and cannot achieve — distinguishing technical architecture from political outcomes.</p>
+            </a>
+
+            <!-- Article 9 -->
+            <a href="#" class="article-card" data-category="research">
+                <div class="article-meta">
+                    <span class="article-source">Research</span>
+                    <span>14 min read</span>
+                    <span>2023</span>
+                </div>
+                <h3>Privacy-Preserving Data Sharing for Climate Finance</h3>
+                <p>Technical approaches to verifying environmental impact data while protecting sensitive information about land ownership and community practices.</p>
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">REFAZ</div>
+            <ul class="footer-links">
+                <li><a href="https://github.com/refaz0x">Github</a></li>
+                <li><a href="#">Mirror</a></li>
+                <li><a href="#">Farcaster</a></li>
+                <li><a href="#">Instagram</a></li>
+            </ul>
+            <div class="footer-credit">
+                © 2024 Refaz · Engineering & Research Studio
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const articles = document.querySelectorAll('.article-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                articles.forEach(article => {
+                    if (filter === 'all' || article.getAttribute('data-category') === filter) {
+                        article.style.display = 'block';
+                    } else {
+                        article.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
