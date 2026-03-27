@@ -161,22 +161,23 @@
         .blog-filters {
             display: flex;
             justify-content: center;
-            gap: 0.6rem;
-            flex-wrap: wrap;
+            gap: 0.5rem;
+            flex-wrap: nowrap;
         }
 
         .filter-btn {
-            padding: 0.55rem 1.2rem;
+            padding: 0.5rem 1rem;
             background: var(--card-bg);
             border: 2px solid transparent;
             border-radius: 8px;
-            font-size: 0.78rem;
+            font-size: 0.72rem;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.06em;
+            letter-spacing: 0.04em;
             cursor: pointer;
             transition: all 0.3s ease;
             color: var(--text-secondary);
+            white-space: nowrap;
         }
 
         .filter-btn:hover,
@@ -400,6 +401,10 @@
 
             .blog-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .blog-filters {
+                flex-wrap: wrap;
             }
 
             .footer-content {
@@ -1360,9 +1365,9 @@
             <div class="footer-logo">REFAZ</div>
             <ul class="footer-links">
                 <li><a href="https://github.com/refaz0x">Github</a></li>
-                <li><a href="#">Mirror</a></li>
-                <li><a href="#">Farcaster</a></li>
-                <li><a href="#">Instagram</a></li>
+                
+                
+                <li><a href="https://www.instagram.com/refaz_brasil/">Instagram</a></li>
             </ul>
             <div class="footer-credit">
                 © 2024 Refaz · Engineering & Research Studio
