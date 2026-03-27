@@ -18,13 +18,29 @@
             --dark: #0a0a0a;
             --gray: #666;
             --light-gray: #fafafa;
+            --bg: #fff;
+            --text: #0a0a0a;
+            --text-secondary: #666;
+            --card-bg: #fafafa;
+            --border: #e5e5e5;
+            --header-bg: rgba(255, 255, 255, 0.98);
+        }
+
+        [data-theme="dark"] {
+            --bg: #0a0a0a;
+            --text: #e8e8e8;
+            --text-secondary: #999;
+            --card-bg: #151515;
+            --border: #2a2a2a;
+            --header-bg: rgba(10, 10, 10, 0.98);
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background: #fff;
-            color: var(--dark);
+            background: var(--bg);
+            color: var(--text);
             line-height: 1.8;
+            transition: background 0.3s, color 0.3s;
         }
 
         /* Header */
@@ -32,10 +48,11 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.98);
+            background: var(--header-bg);
             backdrop-filter: blur(12px);
             z-index: 1000;
-            border-bottom: 1px solid #e5e5e5;
+            border-bottom: 1px solid var(--border);
+            transition: background 0.3s, border-color 0.3s;
         }
 
         nav {
@@ -66,6 +83,12 @@
             letter-spacing: 0.03em;
         }
 
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
         .nav-links {
             display: flex;
             gap: 3rem;
@@ -73,7 +96,7 @@
         }
 
         .nav-links a {
-            color: var(--gray);
+            color: var(--text-secondary);
             text-decoration: none;
             font-size: 0.9rem;
             text-transform: uppercase;
@@ -84,6 +107,27 @@
 
         .nav-links a:hover {
             color: var(--refaz-green);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            color: var(--text-secondary);
+            flex-shrink: 0;
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--refaz-purple);
+            color: var(--refaz-purple);
         }
 
         /* Main Content */
@@ -105,38 +149,46 @@
 
         .page-header p {
             font-size: 1.2rem;
-            color: var(--gray);
+            color: var(--text-secondary);
             max-width: 700px;
         }
 
-        /* Filters */
+        .filters-wrapper {
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+
         .blog-filters {
             display: flex;
             justify-content: center;
-            gap: 1rem;
-            margin-bottom: 4rem;
+            gap: 0.6rem;
             flex-wrap: wrap;
         }
 
         .filter-btn {
-            padding: 0.7rem 1.5rem;
-            background: var(--light-gray);
+            padding: 0.55rem 1.2rem;
+            background: var(--card-bg);
             border: 2px solid transparent;
             border-radius: 8px;
-            font-size: 0.85rem;
+            font-size: 0.78rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.06em;
             cursor: pointer;
             transition: all 0.3s ease;
-            color: var(--gray);
+            color: var(--text-secondary);
         }
 
         .filter-btn:hover,
         .filter-btn.active {
             border-color: var(--refaz-purple);
-            background: white;
+            background: var(--bg);
             color: var(--refaz-purple);
+        }
+
+
+        .filters-wrapper {
+            margin-bottom: 4rem;
         }
 
         /* Blog Grid */
@@ -148,13 +200,13 @@
 
         /* Article Cards */
         .article-card {
-            background: var(--light-gray);
+            background: var(--card-bg);
             padding: 2.5rem;
             border-top: 3px solid var(--refaz-yellow);
             transition: all 0.3s ease;
             border-radius: 12px;
             text-decoration: none;
-            color: var(--dark);
+            color: var(--text);
             display: block;
         }
 
@@ -163,37 +215,122 @@
             box-shadow: 0 12px 40px rgba(0,0,0,0.1);
         }
 
+        .article-card[data-author="verber"] {
+            border-top-color: var(--refaz-purple);
+        }
+
+        .article-card[data-author="marcelo"] {
+            border-top-color: var(--refaz-green);
+        }
+
+        .article-card[data-author="refaz"] {
+            border-top-color: var(--refaz-yellow);
+        }
+
         .article-meta {
             display: flex;
-            gap: 1.2rem;
+            gap: 1rem;
             margin-bottom: 1.2rem;
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            color: var(--gray);
+            color: var(--text-secondary);
             font-weight: 600;
+            flex-wrap: wrap;
+            align-items: center;
         }
 
         .article-source {
             color: var(--refaz-purple);
         }
 
+        .article-author {
+            background: var(--dark);
+            color: #fff;
+            padding: 0.15rem 0.55rem;
+            border-radius: 4px;
+            font-size: 0.65rem;
+        }
+
+        .article-author.verber {
+            background: var(--refaz-purple);
+        }
+
+        .article-author.marcelo {
+            background: var(--refaz-green);
+            color: var(--dark);
+        }
+
+        .article-author.refaz-author {
+            background: var(--refaz-yellow);
+            color: var(--dark);
+        }
+
         .article-card h3 {
             margin-bottom: 1rem;
             font-size: 1.3rem;
             line-height: 1.4;
-            color: var(--dark);
+            color: var(--text);
         }
 
         .article-card p {
-            color: var(--gray);
+            color: var(--text-secondary);
             line-height: 1.8;
             font-size: 0.98rem;
         }
 
+        .article-links {
+            margin-top: 0.8rem;
+            font-size: 0.82rem;
+        }
+
+        .article-links a {
+            color: var(--refaz-purple);
+            text-decoration: none;
+            font-weight: 600;
+            margin-right: 0.8rem;
+        }
+
+        .article-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Year Divider */
+        .year-divider {
+            grid-column: 1 / -1;
+            padding: 1rem 0 0.5rem;
+            border-bottom: 2px solid var(--text);
+            margin-bottom: 0;
+        }
+
+        .year-divider h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        /* No Results */
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            display: none;
+        }
+
+        /* Counter */
+        .results-count {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
         /* Footer */
         footer {
-            background: var(--dark);
+            background: #0a0a0a;
             color: white;
             padding: 3.5rem 3rem 2.5rem;
             border-top: 1px solid #222;
@@ -247,6 +384,11 @@
                 padding: 1rem 2rem;
             }
 
+            .nav-right {
+                flex-direction: column;
+                gap: 1.2rem;
+            }
+
             .nav-links {
                 gap: 1.5rem;
                 font-size: 0.85rem;
@@ -269,6 +411,10 @@
                 flex-direction: column;
                 gap: 1.2rem;
             }
+
+            .article-meta {
+                gap: 0.5rem;
+            }
         }
     </style>
 </head>
@@ -280,13 +426,16 @@
                 <img src="Refaz.png" alt="Refaz" class="logo-img">
                 <span class="logo-text">REFAZ</span>
             </a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="work.html">Work</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
-            </ul>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="work.html">Work</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">☀️</button>
+            </div>
         </nav>
     </header>
 
@@ -294,23 +443,376 @@
     <main>
         <div class="page-header">
             <h1>Research & Writing</h1>
-            <p>Critical analysis, technical research, and policy perspectives on decentralized systems.</p>
+            <p>Critical analysis, technical research, and policy perspectives on decentralized systems, regenerative finance, and the future of Web3.</p>
         </div>
 
         <!-- Filters -->
-        <div class="blog-filters">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="research">Research</button>
-            <button class="filter-btn" data-filter="policy">Policy</button>
-            <button class="filter-btn" data-filter="technical">Technical</button>
-            <button class="filter-btn" data-filter="analysis">Analysis</button>
-            <button class="filter-btn" data-filter="educational">Educational</button>
+        <div class="filters-wrapper">
+            <div class="blog-filters" id="category-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="research">Research</button>
+                <button class="filter-btn" data-filter="policy">Policy</button>
+                <button class="filter-btn" data-filter="defi">DeFi</button>
+                <button class="filter-btn" data-filter="climate">Climate</button>
+                <button class="filter-btn" data-filter="community">Community</button>
+                <button class="filter-btn" data-filter="educational">Educational</button>
+                <button class="filter-btn" data-filter="technical">Technical</button>
+                <button class="filter-btn" data-filter="analysis">Analysis</button>
+                <button class="filter-btn" data-filter="academic">Academic</button>
+            </div>
         </div>
 
-        <div class="blog-grid">
-            <!-- Article 1 -->
-            <a href="#" class="article-card" data-category="analysis">
+        <div class="results-count" id="results-count"></div>
+
+        <div class="blog-grid" id="blog-grid">
+
+            <!-- ============ 2025 ============ -->
+            <div class="year-divider" data-year="2025"><h2>2025</h2></div>
+
+            <!-- Verber — Ethereum 10 years -->
+            <a href="https://medium.com/@verbersouza/ethereum-10-years-opening-doors-for-a-prohibited-world-11a4165cdcb0" target="_blank" class="article-card" data-category="research" data-author="verber" data-year="2025">
                 <div class="article-meta">
+                    <span class="article-author verber">Verber Souza</span>
+                    <span class="article-source">Medium</span>
+                    <span>2025</span>
+                </div>
+                <h3>Ethereum 10 Years: Opening Doors for a Prohibited World</h3>
+                <p>Reflecting on Ethereum's decade as a tool for global coordination and the expansion of the infinite garden.</p>
+            </a>
+
+            <!-- Verber — Tokenização RWA -->
+            <a href="https://mirror.xyz/verb4l.eth/Zyd_SlIjxx0qVOhxoiKmvCZY_FDxabtFo6awjKR8bkA" target="_blank" class="article-card" data-category="defi" data-author="verber" data-year="2025">
+                <div class="article-meta">
+                    <span class="article-author verber">Verber Souza</span>
+                    <span class="article-source">Mirror</span>
+                    <span>2025</span>
+                </div>
+                <h3>Tokenização de Ativos Reais (RWA) em 2025</h3>
+                <p>Analysis of real-world asset tokenization trends and investment market insights for 2025.</p>
+            </a>
+
+            <!-- Marcelo — Modelling Assets -->
+            <a href="#" class="article-card" data-category="research" data-author="marcelo" data-year="2025">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">ReFaz + Ekonavi</span>
+                    <span>LIFT Lab</span>
+                    <span>2025</span>
+                </div>
+                <h3>Modelling Assets for a Sustainable Economy</h3>
+                <p>Product developed under the LIFT Lab Program by the Central Bank of Brazil and the Federation of Brazilian Banks, focused on strategic products for the national economy.</p>
+            </a>
+
+            <!-- Marcelo — Chapada to Reconcavo -->
+            <a href="https://medium.com/@celatamorg/from-chapada-to-reconcavo-when-clean-energy-hurts-4cbbd67889f3" target="_blank" class="article-card" data-category="climate" data-author="marcelo" data-year="2025">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">CeLatam</span>
+                    <span>2025</span>
+                </div>
+                <h3>From Chapada to Reconcavo: When Clean Energy Hurts</h3>
+                <p>An expedition crossing 8 cities in Chapada Diamantina and Recôncavo Baiano, understanding how "clean" energy can become a problem for local populations.</p>
+            </a>
+
+            <!-- Marcelo — Blended Finance Chapada -->
+            <a href="https://medium.com/@celatamorg/blended-finance-impact-capital-allocation-in-chapada-diamantinas-renewable-energy-projects-b7bff755b24d" target="_blank" class="article-card" data-category="research" data-author="marcelo" data-year="2025">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">CeLatam</span>
+                    <span>2025</span>
+                </div>
+                <h3>Blended Finance & Impact Capital Allocation in Chapada Diamantina's Renewable Energy Projects</h3>
+                <p>Exploring, together with Rafael Freire, the map of finance in the renewable energy field in Chapada Diamantina, Brazil's region leading the expansion of renewable energy.</p>
+            </a>
+
+            <!-- Marcelo — LatAm Web3 Research -->
+            <a href="https://www.celatam.org/insights/refi-rwa-and-stablecoins-in-latam-research-grants-know-our-grantees" target="_blank" class="article-card" data-category="research" data-author="marcelo" data-year="2025">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">CeLatam</span>
+                    <span>2025</span>
+                </div>
+                <h3>Latin America's Web3 Opportunities: Stablecoins, RWA, and ReFi Research</h3>
+                <p>Comprehensive multi-team research examining stablecoins adoption, Real World Assets tokenization, and Regenerative Finance ecosystem development in Latin America.</p>
+            </a>
+
+            <!-- Marcelo — Blockchain Rio 2025 -->
+            <a href="https://medium.com/@celatamorg/latin-americas-web3-momentum-my-journey-at-blockchain-rio-2025-97ef7b7bdb6a" target="_blank" class="article-card" data-category="community" data-author="marcelo" data-year="2025">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">CeLatam</span>
+                    <span>2025</span>
+                </div>
+                <h3>Latin America's Web3 Momentum — My Journey at Blockchain.RIO 2025</h3>
+                <p>Conference takeaways: tokenization, regulation, and builders' role in the region's growth.</p>
+            </a>
+
+            <!-- Marcelo — Scaling Impact 2025 -->
+            <a href="https://www.celatam.org/insights/scaling-impact-and-innovation-in-latin-america-our-strategy-for-2025" target="_blank" class="article-card" data-category="analysis" data-author="marcelo" data-year="2025">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">CeLatam</span>
+                    <span>2025</span>
+                </div>
+                <h3>Scaling Impact & Innovation in Latin America: Our Strategy for 2025</h3>
+                <p>2025 roadmap: priorities, selection criteria, and regional focus.</p>
+            </a>
+
+            <!-- Marcelo — Web3 Communities Handbook -->
+            <a href="https://www.canva.com/design/DAGrGKUrXWE/1OeElUOz6_H71W-dYoQIrA/view" target="_blank" class="article-card" data-category="educational" data-author="marcelo" data-year="2025">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">CeLatam</span>
+                    <span>Handbook</span>
+                    <span>2025</span>
+                </div>
+                <h3>How to Build Web3 Communities in Latin America — Handbook</h3>
+                <p>A handbook with the main concepts, challenges, and tooling for Web3 community building in Latin America.</p>
+            </a>
+
+            <!-- Marcelo — Full Research Hacking Growth -->
+            <a href="https://docsend.com/view/pmjbehm8tj2c3xin" target="_blank" class="article-card" data-category="research" data-author="marcelo" data-year="2025">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">CeLatam</span>
+                    <span>Research</span>
+                    <span>2025</span>
+                </div>
+                <h3>Full Research: Hacking Growth — Stablecoins, RWA, and ReFi in Latin America</h3>
+                <p>Comprehensive study on stablecoins, real world assets, and regenerative finance across Latin America.</p>
+            </a>
+
+            <!-- Marcelo — Mapping ReFi LatAm -->
+            <a href="https://docsend.com/view/y8cnt8exwznbb6ap" target="_blank" class="article-card" data-category="research" data-author="marcelo" data-year="2025">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">CeLatam</span>
+                    <span>Research</span>
+                    <span>2025</span>
+                </div>
+                <h3>Mapping ReFi in LatAm</h3>
+                <p>A continental mapping of Regenerative Finance initiatives and communities.</p>
+            </a>
+
+            <!-- Marcelo — Stablecoins Brazil -->
+            <a href="https://docsend.com/view/jsmqrcu97hg57jjf" target="_blank" class="article-card" data-category="research" data-author="marcelo" data-year="2025">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">CeLatam</span>
+                    <span>Research</span>
+                    <span>2025</span>
+                </div>
+                <h3>Stablecoins in Brazil</h3>
+                <p>Research on the role and adoption of stablecoins within Brazil's financial system.</p>
+            </a>
+
+            <!-- Marcelo — RWA LatAm -->
+            <a href="https://docsend.com/view/d62qjrjzwc59xh3b" target="_blank" class="article-card" data-category="defi" data-author="marcelo" data-year="2025">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">CeLatam</span>
+                    <span>Research</span>
+                    <span>2025</span>
+                </div>
+                <h3>RWA in Latin America</h3>
+                <p>Insights on tokenization of real world assets and the landscape in Latin America.</p>
+            </a>
+
+            <!-- Marcelo — GiraHub Web3 -->
+            <a href="https://paragraph.com/@0x16204069922fc4242fbbc5c664970c9601015865/witnessing-the-rise-of-gira-hub-web3" target="_blank" class="article-card" data-category="community" data-author="marcelo" data-year="2025">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">Paragraph — ReFaz</span>
+                    <span>2025</span>
+                </div>
+                <h3>Witnessing the Rise of Gira Hub Web3</h3>
+                <p>Field notes on the creation of GiraHub Web3 and why grassroots energy matters.</p>
+            </a>
+
+            <!-- Marcelo — Impact Capital Pt2 -->
+            <a href="https://medium.com/@celatamorg/the-solution-layers-blind-spot-part-2-a5f8e7305cb4" target="_blank" class="article-card" data-category="analysis" data-author="marcelo" data-year="2025">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">CeLatam</span>
+                    <span>2025</span>
+                </div>
+                <h3>The Challenge of Impact Capital Allocation | Part 2: The Solution Layer's Blind Spot</h3>
+                <p>Main challenges of impact capital allocation — the blind spots in how we think about solution layers.</p>
+            </a>
+
+            <!-- Marcelo — Impact Capital Pt1 -->
+            <a href="https://medium.com/@celatamorg/the-challenge-of-impact-capital-allocation-part-1-9cf1404f60ad" target="_blank" class="article-card" data-category="analysis" data-author="marcelo" data-year="2025">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">CeLatam</span>
+                    <span>2025</span>
+                </div>
+                <h3>The Challenge of Impact Capital Allocation | Part 1</h3>
+                <p>Where does impact capital go — and why? Exploring bottlenecks and opportunities in allocating capital for impact in Latin America.</p>
+            </a>
+
+            <!-- Meet the Builders Series -->
+            <a href="https://medium.com/@celatamorg/meet-the-builders-part-1-romina-from-eth-kipu-a86cffda6227" target="_blank" class="article-card" data-category="community" data-author="marcelo" data-year="2025">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">CeLatam</span>
+                    <span>Series</span>
+                    <span>2025</span>
+                </div>
+                <h3>Meet the Builders — Romina from ETH Kipu</h3>
+                <p>Romina shares her journey building ETH Kipu and reflections on Latin America's Web3 movement.</p>
+            </a>
+
+            <a href="https://medium.com/@celatamorg/meet-the-builders-part-2-anthony-from-celo-africa-dao-ckash-2fb682a759e0" target="_blank" class="article-card" data-category="community" data-author="marcelo" data-year="2025">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">CeLatam</span>
+                    <span>Series</span>
+                    <span>2025</span>
+                </div>
+                <h3>Meet the Builders — Anthony from Celo Africa DAO & CKash</h3>
+                <p>Anthony discusses community building and financial inclusion through Celo Africa DAO and CKash.</p>
+            </a>
+
+            <a href="https://medium.com/@celatamorg/meet-the-builders-part-3-tereza-b%C3%ADzkov%C3%A1-from-refi-medell%C3%ADn-and-funding-the-commons-12a8cb70a915" target="_blank" class="article-card" data-category="community" data-author="marcelo" data-year="2025">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">CeLatam</span>
+                    <span>Series</span>
+                    <span>2025</span>
+                </div>
+                <h3>Meet the Builders — Tereza Bízková from ReFi Medellín</h3>
+                <p>Tereza reflects on her work with ReFi Medellín and the global Funding the Commons ecosystem.</p>
+            </a>
+
+            <a href="https://medium.com/@celatamorg/meet-the-builders-part-4-luiz-from-muda-e-outras-economias-and-cambiatus-9abcc75346c8" target="_blank" class="article-card" data-category="community" data-author="marcelo" data-year="2025">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">CeLatam</span>
+                    <span>Series</span>
+                    <span>2025</span>
+                </div>
+                <h3>Meet the Builders — Luiz from Muda & Cambiatus</h3>
+                <p>Luiz shares lessons from Muda, Cambiatus, and alternative economies in Latin America.</p>
+            </a>
+
+            <a href="https://medium.com/@celatamorg/meet-the-builders-part-5-cush-from-odisea-e0f8528226f0" target="_blank" class="article-card" data-category="community" data-author="marcelo" data-year="2025">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">CeLatam</span>
+                    <span>Series</span>
+                    <span>2025</span>
+                </div>
+                <h3>Meet the Builders — Cush from Odisea</h3>
+                <p>Cush presents Odisea's vision for regenerative economies and cultural transformation.</p>
+            </a>
+
+            <a href="https://medium.com/@celatamorg/meet-the-builders-part-6-gus-from-bankless-brazil-04208b197891" target="_blank" class="article-card" data-category="community" data-author="marcelo" data-year="2025">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">CeLatam</span>
+                    <span>Series</span>
+                    <span>2025</span>
+                </div>
+                <h3>Meet the Builders — Gus from Bankless Brazil</h3>
+                <p>Gus discusses grassroots community building and the Bankless Brazil movement.</p>
+            </a>
+
+            <!-- Marcelo — Modular Carnival -->
+            <a href="https://www.celatam.org/insights/modular-carnival" target="_blank" class="article-card" data-category="technical" data-author="marcelo" data-year="2025">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">CeLatam</span>
+                    <span>2025</span>
+                </div>
+                <h3>Modular Carnival</h3>
+                <p>Notes on modular rollups and ecosystem coordination in LatAm.</p>
+            </a>
+
+            <!-- Marcelo — Pioneering Web3 Chapada -->
+            <a href="https://www.celatam.org/insights/pioneering-web3-in-chapada-diamantina" target="_blank" class="article-card" data-category="community" data-author="marcelo" data-year="2025">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">CeLatam</span>
+                    <span>2025</span>
+                </div>
+                <h3>Pioneering Web3 in Chapada Diamantina</h3>
+                <p>Local-first innovation in Bahia: pilots, learnings, and next steps.</p>
+            </a>
+
+            <!-- Marcelo — Knkt to CeLatam -->
+            <a href="https://www.celatam.org/insights/embracing-evolution-from-knkt-dao-to-celatam" target="_blank" class="article-card" data-category="community" data-author="marcelo" data-year="2025">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">CeLatam</span>
+                    <span>2025</span>
+                </div>
+                <h3>Embracing Evolution: From Knkt DAO to CeLatam</h3>
+                <p>From grassroots coordination to regional strategy.</p>
+            </a>
+
+            <!-- Marcelo — Celo Impact LatAm -->
+            <a href="https://www.celatam.org/insights/celos-impact-in-latin-america-and-celatam-mission" target="_blank" class="article-card" data-category="analysis" data-author="marcelo" data-year="2025">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">CeLatam</span>
+                    <span>2025</span>
+                </div>
+                <h3>Celo's Impact in Latin America and CeLatam Mission</h3>
+                <p>Ecosystem impact, partnerships, and a mission-driven path.</p>
+            </a>
+
+            <!-- Marcelo — Hacking Growth -->
+            <a href="https://www.celatam.org/insights/hacking-growth-in-latin-america-regenerative-finance-real-world-assets-and-stablecoins" target="_blank" class="article-card" data-category="research" data-author="marcelo" data-year="2025">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">CeLatam</span>
+                    <span>2025</span>
+                </div>
+                <h3>Hacking Growth in Latin America: ReFi, RWAs, and Stablecoins</h3>
+                <p>How on-chain tools can unlock sustainable growth in LatAm.</p>
+            </a>
+
+            <!-- Marcelo — Celo L2 -->
+            <a href="https://medium.com/@celatamorg/celos-transition-to-an-ethereum-layer-2-what-changes-7e91d32429f5" target="_blank" class="article-card" data-category="technical" data-author="marcelo" data-year="2025">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">CeLatam</span>
+                    <span>2025</span>
+                </div>
+                <h3>Celo's Transition to an Ethereum Layer 2: What Changes?</h3>
+                <p>Implications for builders and the broader ecosystem.</p>
+            </a>
+
+            <!-- Marcelo — Web3 Celo Fundamentals -->
+            <a href="https://medium.com/@celatamorg/fundamental-concepts-of-web3-and-celo-ed385d591bcc" target="_blank" class="article-card" data-category="educational" data-author="marcelo" data-year="2025">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">CeLatam</span>
+                    <span>2025</span>
+                </div>
+                <h3>Fundamental Concepts of Web3 and Celo</h3>
+                <p>Primer for practitioners entering the space.</p>
+            </a>
+
+            <!-- Marcelo — Research Open Call -->
+            <a href="https://www.celatam.org/insights/research-open-call" target="_blank" class="article-card" data-category="research" data-author="marcelo" data-year="2025">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">CeLatam</span>
+                    <span>2025</span>
+                </div>
+                <h3>Research Open Call</h3>
+                <p>Inviting researchers to explore RWAs, stablecoins, and ReFi applications.</p>
+            </a>
+
+            <!-- ============ 2024 ============ -->
+            <div class="year-divider" data-year="2024"><h2>2024</h2></div>
+
+            <!-- ReFaz originals -->
+            <a href="#" class="article-card" data-category="analysis" data-author="refaz" data-year="2024">
+                <div class="article-meta">
+                    <span class="article-author refaz-author">ReFaz</span>
                     <span class="article-source">Medium</span>
                     <span>5 min read</span>
                     <span>2024</span>
@@ -319,9 +821,9 @@
                 <p>An analysis of why Latin America is positioned to lead Web3 adoption and how grassroots projects are contributing to this transformation beyond speculation.</p>
             </a>
 
-            <!-- Article 2 -->
-            <a href="#" class="article-card" data-category="research">
+            <a href="#" class="article-card" data-category="research" data-author="refaz" data-year="2024">
                 <div class="article-meta">
+                    <span class="article-author refaz-author">ReFaz</span>
                     <span class="article-source">Research</span>
                     <span>15 min read</span>
                     <span>2024</span>
@@ -330,20 +832,9 @@
                 <p>A critical examination of how smart contracts encode power relations, and what human-in-the-loop mechanisms remain essential for legitimate governance.</p>
             </a>
 
-            <!-- Article 3 -->
-            <a href="#" class="article-card" data-category="policy">
+            <a href="#" class="article-card" data-category="technical" data-author="refaz" data-year="2024">
                 <div class="article-meta">
-                    <span class="article-source">Policy Brief</span>
-                    <span>Policy</span>
-                    <span>2023</span>
-                </div>
-                <h3>Digital Public Infrastructure & Decentralized Identity</h3>
-                <p>Submitted to the European Commission's open consultation on digital identity, arguing for self-sovereign identity standards in public services.</p>
-            </a>
-
-            <!-- Article 4 -->
-            <a href="#" class="article-card" data-category="technical">
-                <div class="article-meta">
+                    <span class="article-author refaz-author">ReFaz</span>
                     <span class="article-source">Technical</span>
                     <span>8 min read</span>
                     <span>2024</span>
@@ -352,9 +843,9 @@
                 <p>An offline-capable documentation tool built for grassroots organizations — syncs peer-to-peer when connected, fully functional when not.</p>
             </a>
 
-            <!-- Article 5 -->
-            <a href="#" class="article-card" data-category="analysis">
+            <a href="#" class="article-card" data-category="analysis" data-author="refaz" data-year="2024">
                 <div class="article-meta">
+                    <span class="article-author refaz-author">ReFaz</span>
                     <span class="article-source">Analysis</span>
                     <span>10 min read</span>
                     <span>2024</span>
@@ -363,20 +854,9 @@
                 <p>Breaking down the environmental and economic implications of different consensus mechanisms — beyond the headlines.</p>
             </a>
 
-            <!-- Article 6 -->
-            <a href="#" class="article-card" data-category="research">
+            <a href="#" class="article-card" data-category="educational" data-author="refaz" data-year="2024">
                 <div class="article-meta">
-                    <span class="article-source">Case Study</span>
-                    <span>12 min read</span>
-                    <span>2023</span>
-                </div>
-                <h3>Tokenomics for Regenerative Finance: Lessons from LIFT Lab</h3>
-                <p>Insights from designing economic models for environmental asset tokenization in partnership with Brazil's Central Bank innovation lab.</p>
-            </a>
-
-            <!-- Article 7 -->
-            <a href="#" class="article-card" data-category="educational">
-                <div class="article-meta">
+                    <span class="article-author refaz-author">ReFaz</span>
                     <span class="article-source">Educational</span>
                     <span>6 min read</span>
                     <span>2024</span>
@@ -385,9 +865,9 @@
                 <p>Reflections from bringing Web3 education to underserved communities — what worked, what didn't, and why accessibility matters.</p>
             </a>
 
-            <!-- Article 8 -->
-            <a href="#" class="article-card" data-category="analysis">
+            <a href="#" class="article-card" data-category="analysis" data-author="refaz" data-year="2024">
                 <div class="article-meta">
+                    <span class="article-author refaz-author">ReFaz</span>
                     <span class="article-source">Opinion</span>
                     <span>7 min read</span>
                     <span>2024</span>
@@ -396,9 +876,182 @@
                 <p>A sober look at what decentralization can and cannot achieve — distinguishing technical architecture from political outcomes.</p>
             </a>
 
-            <!-- Article 9 -->
-            <a href="#" class="article-card" data-category="research">
+            <!-- Verber — NFT Beyond the Hype -->
+            <div class="article-card" data-category="research" data-author="verber" data-year="2024" style="cursor:default;">
                 <div class="article-meta">
+                    <span class="article-author verber">Verber Souza</span>
+                    <span class="article-source">Prensa.li / Substack</span>
+                    <span>2024</span>
+                </div>
+                <h3>NFT: Para Além do Hype — Partes I & II</h3>
+                <p>A deep dive into NFTs beyond speculation — examining real utility and cultural significance.</p>
+                <div class="article-links">
+                    <a href="https://prensali.substack.com/p/nft-para-alem-do-hype-parte-1" target="_blank">Parte I</a>
+                    <a href="https://prensali.substack.com/p/nft-para-alem-do-hype-parte-2" target="_blank">Parte II</a>
+                </div>
+            </div>
+
+            <!-- Verber — DeFi Race -->
+            <a href="https://mirror.xyz/verb4l.eth/XY6Cu01CwkwE21-d3rkQgRIOGD2H1RlGev0GOG5oxc4" target="_blank" class="article-card" data-category="defi" data-author="verber" data-year="2024">
+                <div class="article-meta">
+                    <span class="article-author verber">Verber Souza</span>
+                    <span class="article-source">Mirror</span>
+                    <span>2024</span>
+                </div>
+                <h3>DeFi: Finanças Descentralizadas numa Perspectiva de Raça (I)</h3>
+                <p>Examining decentralized finance through the lens of race and social equity.</p>
+            </a>
+
+            <!-- Verber — ReFi -->
+            <a href="https://mirror.xyz/verb4l.eth/wkqRxq7E4e66PJ2zAzEfOMPDluCzaxnVg1HfuTuOQTk" target="_blank" class="article-card" data-category="climate" data-author="verber" data-year="2024">
+                <div class="article-meta">
+                    <span class="article-author verber">Verber Souza</span>
+                    <span class="article-source">Mirror</span>
+                    <span>2024</span>
+                </div>
+                <h3>ReFi: Tecnologia para Impacto Ambiental</h3>
+                <p>Examining regenerative finance technologies and their environmental impact potential.</p>
+            </a>
+
+            <!-- Verber — Blockchain Humanitarian -->
+            <a href="https://medium.com/@verbersouza/blockchain-for-humanitarian-crisis-a-new-paradigm-for-justice-651d6b25d449" target="_blank" class="article-card" data-category="climate" data-author="verber" data-year="2024">
+                <div class="article-meta">
+                    <span class="article-author verber">Verber Souza</span>
+                    <span class="article-source">Medium</span>
+                    <span>2024</span>
+                </div>
+                <h3>Blockchain for Humanitarian Crisis: A New Paradigm for Justice</h3>
+                <p>Exploring how blockchain technologies can transform crisis response and justice mechanisms.</p>
+            </a>
+
+            <!-- Verber — Blockchain Humanitarian Mirror -->
+            <a href="https://mirror.xyz/verb4l.eth/UCdjDOdM688cLLAJzIm8f76WRo01eM5NsEEI5akH9AI" target="_blank" class="article-card" data-category="climate" data-author="verber" data-year="2024">
+                <div class="article-meta">
+                    <span class="article-author verber">Verber Souza</span>
+                    <span class="article-source">Mirror</span>
+                    <span>2024</span>
+                </div>
+                <h3>The Use of Blockchain in Humanitarian Crises</h3>
+                <p>Examining practical applications of blockchain technology in humanitarian crisis contexts.</p>
+            </a>
+
+            <!-- Verber — Brazilian Payments Environmental -->
+            <a href="https://mirror.xyz/verb4l.eth/pt7WKXvkxQ6LUnojJCu2GBBcJcKl7ZJYGDQD5h0kquA" target="_blank" class="article-card" data-category="climate" data-author="verber" data-year="2024">
+                <div class="article-meta">
+                    <span class="article-author verber">Verber Souza</span>
+                    <span class="article-source">Mirror</span>
+                    <span>Series</span>
+                    <span>2024</span>
+                </div>
+                <h3>Series: Brazilian Payments for Environmental Services</h3>
+                <p>Analysis of payment mechanisms for environmental services in the Brazilian context.</p>
+            </a>
+
+            <!-- Verber — Blockchain Legal -->
+            <a href="https://mirror.xyz/verb4l.eth/JzEhyIskX3yl7HGbyLE-HQaHBcrxtgrBFpAaf7HV2pg" target="_blank" class="article-card" data-category="policy" data-author="verber" data-year="2024">
+                <div class="article-meta">
+                    <span class="article-author verber">Verber Souza</span>
+                    <span class="article-source">Mirror</span>
+                    <span>2024</span>
+                </div>
+                <h3>Blockchain Legal (I): Cibercultura e Direito</h3>
+                <p>First part of a series exploring the intersection of cyberculture and legal frameworks in blockchain.</p>
+            </a>
+
+            <!-- Verber — Tributação -->
+            <a href="https://mirror.xyz/verb4l.eth/putUEvGmDTtkjxnBUcJrk4boARU_JA9LIjCvbnDEZ6g" target="_blank" class="article-card" data-category="policy" data-author="verber" data-year="2024">
+                <div class="article-meta">
+                    <span class="article-author verber">Verber Souza</span>
+                    <span class="article-source">Mirror</span>
+                    <span>2024</span>
+                </div>
+                <h3>Tributação de Criptoativos: Novidades na Taxação de NFTs e Utility Tokens no Brasil</h3>
+                <p>Updates on crypto taxation, focusing on NFTs and utility tokens in Brazilian legislation.</p>
+            </a>
+
+            <!-- Marcelo — Brazilian ReFi Ecosystem -->
+            <a href="https://blog.refidao.com/the-brazilian-ecosystem-of-regenerative-finance-pt-i/" target="_blank" class="article-card" data-category="research" data-author="marcelo" data-year="2024">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">ReFiDAO Blog</span>
+                    <span>2024</span>
+                </div>
+                <h3>The Brazilian Ecosystem of Regenerative Finance — PT I</h3>
+                <p>Landscape of the Brazilian ReFi scene and coordination opportunities.</p>
+            </a>
+
+            <!-- Marcelo — ReFi Spring Retro -->
+            <a href="https://blog.refidao.com/refi-spring-2022-retrospective-2/" target="_blank" class="article-card" data-category="community" data-author="marcelo" data-year="2024">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">ReFiDAO Blog</span>
+                    <span>2024</span>
+                </div>
+                <h3>ReFi Spring 2022 Retrospective</h3>
+                <p>What we built, what we learned, and how it evolved into ReFi DAO.</p>
+            </a>
+
+            <!-- Marcelo — Brazil Cameroon -->
+            <a href="https://blog.refidao.com/the-case-for-a-refi-ecosystem-between-brazil-and-cameroon/" target="_blank" class="article-card" data-category="research" data-author="marcelo" data-year="2024">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">ReFiDAO Blog</span>
+                    <span>2024</span>
+                </div>
+                <h3>The Case for a ReFi Ecosystem between Brazil and Cameroon</h3>
+                <p>Opportunities for cross-continental collaboration.</p>
+            </a>
+
+            <!-- Marcelo — Suriname -->
+            <a href="https://blog.refidao.com/the-refi-ecosystem-in-suriname/" target="_blank" class="article-card" data-category="research" data-author="marcelo" data-year="2024">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">ReFiDAO Blog</span>
+                    <span>2024</span>
+                </div>
+                <h3>The ReFi Ecosystem in Suriname</h3>
+                <p>Snapshot and lessons from Suriname's ecosystem.</p>
+            </a>
+
+            <!-- Marcelo — Collaborative Finance -->
+            <a href="https://medium.com/@cryptocommonsassociation/collaborative-finance-intellectuals-out-of-their-caves-3aca96815cea" target="_blank" class="article-card" data-category="defi" data-author="marcelo" data-year="2024">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">CryptoCommons</span>
+                    <span>2024</span>
+                </div>
+                <h3>Collaborative Finance — Intellectuals Out of Their Caves</h3>
+                <p>On collaboration between communities and academia to produce real-world impact.</p>
+            </a>
+
+            <!-- ============ 2023 ============ -->
+            <div class="year-divider" data-year="2023"><h2>2023</h2></div>
+
+            <!-- ReFaz originals -->
+            <a href="#" class="article-card" data-category="policy" data-author="refaz" data-year="2023">
+                <div class="article-meta">
+                    <span class="article-author refaz-author">ReFaz</span>
+                    <span class="article-source">Policy Brief</span>
+                    <span>2023</span>
+                </div>
+                <h3>Digital Public Infrastructure & Decentralized Identity</h3>
+                <p>Submitted to the European Commission's open consultation on digital identity, arguing for self-sovereign identity standards in public services.</p>
+            </a>
+
+            <a href="#" class="article-card" data-category="research" data-author="refaz" data-year="2023">
+                <div class="article-meta">
+                    <span class="article-author refaz-author">ReFaz</span>
+                    <span class="article-source">Case Study</span>
+                    <span>12 min read</span>
+                    <span>2023</span>
+                </div>
+                <h3>Tokenomics for Regenerative Finance: Lessons from LIFT Lab</h3>
+                <p>Insights from designing economic models for environmental asset tokenization in partnership with Brazil's Central Bank innovation lab.</p>
+            </a>
+
+            <a href="#" class="article-card" data-category="research" data-author="refaz" data-year="2023">
+                <div class="article-meta">
+                    <span class="article-author refaz-author">ReFaz</span>
                     <span class="article-source">Research</span>
                     <span>14 min read</span>
                     <span>2023</span>
@@ -406,6 +1059,298 @@
                 <h3>Privacy-Preserving Data Sharing for Climate Finance</h3>
                 <p>Technical approaches to verifying environmental impact data while protecting sensitive information about land ownership and community practices.</p>
             </a>
+
+            <!-- Marcelo — Blockchain na Escola -->
+            <a href="https://blockchainnaescola.substack.com/p/the-journey" target="_blank" class="article-card" data-category="educational" data-author="marcelo" data-year="2023">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">Substack</span>
+                    <span>2023</span>
+                </div>
+                <h3>Empowering Education with Blockchain: The Journey of Blockchain na Escola</h3>
+                <p>Comprehensive case study documenting the growth and impact of Blockchain na Escola from pilot program to 400+ students across multiple Brazilian states.</p>
+            </a>
+
+            <!-- Marcelo — It's time ReFaz -->
+            <a href="https://www.linkedin.com/pulse/its-time-do-again-refaz-marcelo-silva" target="_blank" class="article-card" data-category="community" data-author="marcelo" data-year="2023">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">LinkedIn</span>
+                    <span>2023</span>
+                </div>
+                <h3>It's Time to Do It Again: ReFaz</h3>
+                <p>Announcement and description of ReFaz, a consulting office supporting regenerative initiatives in Brazil.</p>
+            </a>
+
+            <!-- Marcelo — Sovereign Bonds Hackathon -->
+            <a href="#" class="article-card" data-category="technical" data-author="marcelo" data-year="2023">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">Hackathon Winner</span>
+                    <span>2023</span>
+                </div>
+                <h3>Classification System for the Sovereign Sustainable Bonds of Brazil</h3>
+                <p>Project winner of 2 tracks (from 5) of the hackathon organized by the Secretary of the National Treasury of Brazil and the Central Bank.</p>
+            </a>
+
+            <!-- Marcelo — Prensa.li Series -->
+            <div class="article-card" data-category="educational" data-author="marcelo" data-year="2023" style="cursor:default;">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">Prensa.li / Substack</span>
+                    <span>2023</span>
+                </div>
+                <h3>O que são as Finanças Regenerativas (ReFi)? — Partes I & II</h3>
+                <p>Introduction to Regenerative Finance: concepts, ecosystem, and practical applications in the Brazilian context.</p>
+                <div class="article-links">
+                    <a href="https://prensali.substack.com/p/o-que-sao-financas-regenerativas-refi-parte-i" target="_blank">Parte I</a>
+                    <a href="https://prensali.substack.com/p/o-que-sao-financas-regenerativas-refi-parte-ii" target="_blank">Parte II</a>
+                </div>
+            </div>
+
+            <a href="https://prensali.substack.com/p/a-demanda-por-profissionais-de-humanidades-na-industria-web3" target="_blank" class="article-card" data-category="analysis" data-author="marcelo" data-year="2023">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">Prensa.li</span>
+                    <span>2023</span>
+                </div>
+                <h3>A Demanda por Profissionais de Humanidades na Indústria Web3</h3>
+                <p>Why humanities professionals are increasingly needed in the Web3 industry.</p>
+            </a>
+
+            <a href="https://prensali.substack.com/p/eth-rio-blockchain-a-servico-das-pessoas-parte-i" target="_blank" class="article-card" data-category="community" data-author="marcelo" data-year="2023">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">Prensa.li</span>
+                    <span>2023</span>
+                </div>
+                <h3>ETH Rio: Blockchain a Serviço das Pessoas! — Parte I</h3>
+                <p>Report on the ETH Rio conference and blockchain's role in serving people.</p>
+            </a>
+
+            <div class="article-card" data-category="defi" data-author="marcelo" data-year="2023" style="cursor:default;">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">Prensa.li</span>
+                    <span>Series</span>
+                    <span>2023</span>
+                </div>
+                <h3>Tokenização Faz Sentido para Pequenos Negócios? — Partes I–III</h3>
+                <p>Does tokenization make sense for small businesses? A three-part series exploring Web3, tokenization, and DAOs for small enterprises.</p>
+                <div class="article-links">
+                    <a href="https://prensali.substack.com/p/tokenizacao-faz-sentido-para-pequenos-negocios" target="_blank">Parte I</a>
+                    <a href="https://prensali.substack.com/p/tokenizacao-faz-sentido-para-pequenos-negocios-parte-ii" target="_blank">Parte II</a>
+                    <a href="https://prensali.substack.com/p/tokenizacao-faz-sentido-para-pequenos-negocios-parte-iii-web3-tokenizacao-e-daos" target="_blank">Parte III</a>
+                </div>
+            </div>
+
+            <div class="article-card" data-category="policy" data-author="marcelo" data-year="2023" style="cursor:default;">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">Prensa.li</span>
+                    <span>Series</span>
+                    <span>2023</span>
+                </div>
+                <h3>"Contrata-se Operador de Pirâmide Financeira" — Partes I & II</h3>
+                <p>A critical look at blockchain regulation in Brazil, from financial pyramid schemes to proper legal frameworks.</p>
+                <div class="article-links">
+                    <a href="https://prensali.substack.com/p/contrata-se-operador-de-piramide-financeira-a-regulacao-da-tecnologia-blockchain-parte-i" target="_blank">Parte I</a>
+                    <a href="https://prensali.substack.com/p/contrata-se-operador-de-piramide-financeira-a-regulacao-da-tecnologia-blockchain-no-brasil-parte-ii" target="_blank">Parte II</a>
+                </div>
+            </div>
+
+            <!-- ============ 2022 ============ -->
+            <div class="year-divider" data-year="2022"><h2>2022</h2></div>
+
+            <!-- Marcelo — What is ReFi -->
+            <a href="https://marcelosilva.substack.com/p/what-is-refi" target="_blank" class="article-card" data-category="educational" data-author="marcelo" data-year="2022">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">Substack</span>
+                    <span>2022</span>
+                </div>
+                <h3>What is ReFi? Part I</h3>
+                <p>Introduction to Regenerative Finance concepts, theoretical foundations, and practical applications including Toucan Protocol, Regen Network, and Purpose Evergreen Capital.</p>
+            </a>
+
+            <a href="https://marcelosilva.substack.com/p/what-is-refi-pt-ii" target="_blank" class="article-card" data-category="educational" data-author="marcelo" data-year="2022">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">Substack</span>
+                    <span>2022</span>
+                </div>
+                <h3>What is ReFi? Part II</h3>
+                <p>Analysis of ReFi opportunities in Brazil, addressing marginalized producers, DeFi-ReFi intersections, and introduction to ReFi Spring events.</p>
+            </a>
+
+            <a href="https://marcelosilva.substack.com/p/defi-the-economic-beyond-finances" target="_blank" class="article-card" data-category="defi" data-author="marcelo" data-year="2022">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">Substack</span>
+                    <span>2022</span>
+                </div>
+                <h3>DeFi: The Economy Beyond Finances</h3>
+                <p>Exploration of DeFi's disruptive potential beyond speculation, examining its role in systemic economic alternatives.</p>
+            </a>
+
+            <a href="https://marcelosilva.substack.com/p/supply-and-demand-for-primary-goods" target="_blank" class="article-card" data-category="analysis" data-author="marcelo" data-year="2022">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">Substack</span>
+                    <span>2022</span>
+                </div>
+                <h3>Supply and Demand for Primary Goods: Productive Justice and Productive Freedom</h3>
+                <p>Philosophical analysis connecting primary goods, human rights, and the shared responsibility between States and society.</p>
+            </a>
+
+            <a href="https://marcelosilva.substack.com/p/decentralization-of-the-monetary" target="_blank" class="article-card" data-category="defi" data-author="marcelo" data-year="2022">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">Substack</span>
+                    <span>2022</span>
+                </div>
+                <h3>Decentralization of the Monetary Structure as the Path to Reach the Full Potential of Currency</h3>
+                <p>Examination of global financial crises and the potential for decentralized monetary structures to address systemic currency treatment issues.</p>
+            </a>
+
+            <a href="https://prensali.substack.com/p/defi-para-alem-das-financas-a-economia" target="_blank" class="article-card" data-category="defi" data-author="marcelo" data-year="2022">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">Prensa.li</span>
+                    <span>2022</span>
+                </div>
+                <h3>DeFi: Para Além das Finanças, a Economia</h3>
+                <p>Beyond finance: how DeFi reshapes economic thinking and systemic alternatives.</p>
+            </a>
+
+            <a href="https://prensali.substack.com/p/o-que-e-populismo-financeiro" target="_blank" class="article-card" data-category="analysis" data-author="marcelo" data-year="2022">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">Prensa.li</span>
+                    <span>2022</span>
+                </div>
+                <h3>O que é Populismo Financeiro?</h3>
+                <p>What is financial populism and how does it shape crypto narratives?</p>
+            </a>
+
+            <a href="https://prensali.substack.com/p/eua-e-russia-definirao-lei-para-criptoativos-ainda-este-ano" target="_blank" class="article-card" data-category="policy" data-author="marcelo" data-year="2022">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">Prensa.li</span>
+                    <span>2022</span>
+                </div>
+                <h3>EUA e Rússia Definirão Lei para Criptoativos Ainda Este Ano</h3>
+                <p>Analysis of US and Russian regulatory movements for crypto assets.</p>
+            </a>
+
+            <a href="https://prensali.substack.com/p/o-intelectual-e-praca-riserio-e-a-lei-127112012" target="_blank" class="article-card" data-category="analysis" data-author="marcelo" data-year="2022">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">Prensa.li</span>
+                    <span>2022</span>
+                </div>
+                <h3>O Intelectual e a Praça: Risério e a Lei 12.711/2012</h3>
+                <p>The intellectual and the public square — reflections on Risério and Brazil's affirmative action legislation.</p>
+            </a>
+
+            <a href="https://prensali.substack.com/p/descentralizacao-como-passo-definitivo-para-o-microcredito" target="_blank" class="article-card" data-category="defi" data-author="marcelo" data-year="2022">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">Prensa.li</span>
+                    <span>2022</span>
+                </div>
+                <h3>Descentralização como Passo Definitivo para o Microcrédito</h3>
+                <p>Decentralization as the definitive step for microcredit — unlocking financial inclusion.</p>
+            </a>
+
+            <a href="https://prensali.substack.com/p/descentralizacao-da-estrutura-monetaria-como-forma-de-explorar-o-potencial-da-moeda" target="_blank" class="article-card" data-category="defi" data-author="marcelo" data-year="2022">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">Prensa.li</span>
+                    <span>2022</span>
+                </div>
+                <h3>Descentralização da Estrutura Monetária como Forma de Explorar o Potencial da Moeda</h3>
+                <p>Exploring how monetary decentralization can unlock currency's full potential.</p>
+            </a>
+
+            <a href="https://prensali.substack.com/p/oferta-e-demanda-por-bens-primarios-justica-e-liberdade-produtiva" target="_blank" class="article-card" data-category="analysis" data-author="marcelo" data-year="2022">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">Prensa.li</span>
+                    <span>2022</span>
+                </div>
+                <h3>Oferta e Demanda por Bens Primários: Justiça e Liberdade Produtiva</h3>
+                <p>Supply, demand, and primary goods through the lens of productive justice and freedom.</p>
+            </a>
+
+            <!-- Marcelo — LinkedIn ReFi Ecosystem -->
+            <a href="https://www.linkedin.com/pulse/o-ecossistema-brasileiro-das-finan%C3%A7as-regenerativas-/" target="_blank" class="article-card" data-category="research" data-author="marcelo" data-year="2022">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">LinkedIn</span>
+                    <span>2022</span>
+                </div>
+                <h3>O Ecossistema Brasileiro das Finanças Regenerativas — Parte 1</h3>
+                <p>Early mapping of the Brazilian regenerative finance ecosystem.</p>
+            </a>
+
+            <!-- ============ Academic & Early Work ============ -->
+            <div class="year-divider" data-year="academic"><h2>Academic & Early Work</h2></div>
+
+            <a href="https://periodicos.ufc.br/argumentos/article/view/31034" target="_blank" class="article-card" data-category="academic" data-author="marcelo" data-year="academic">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">Revista Argumentos (UFC)</span>
+                    <span>Academic</span>
+                </div>
+                <h3>O Núcleo Normativo e Operacional de uma Abordagem Institucional a partir das Obras de Nancy Fraser e Mangabeira Unger</h3>
+                <p>The normative and operational core of an institutional approach based on the works of Nancy Fraser and Mangabeira Unger.</p>
+            </a>
+
+            <a href="https://www.apeku.com.br/produtos/estudos-em-decolonialidade-e-genero-org-caroline-marim-e-susana-de-castro/" target="_blank" class="article-card" data-category="academic" data-author="marcelo" data-year="academic">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">Apeku</span>
+                    <span>Book Chapter</span>
+                </div>
+                <h3>Desafios da Institucionalidade no Contexto da Teoria Decolonial: Universalidade e Identidade</h3>
+                <p>Challenges of institutionality in the context of decolonial theory — universality and identity.</p>
+            </a>
+
+            <a href="https://www.agathos-international-review.com/issues/2017/15/Silva.pdf" target="_blank" class="article-card" data-category="academic" data-author="marcelo" data-year="academic">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">Agathos International Review</span>
+                    <span>Academic</span>
+                </div>
+                <h3>ANTIDESTINY, ANTIFRAGILE AND ANTIMETAPHYSICAL: The Discourse for a New Model of Institutional Development</h3>
+                <p>A discourse proposing new models of institutional development beyond traditional metaphysical frameworks.</p>
+            </a>
+
+            <a href="https://anpof.org.br/comunicacoes/coluna-anpof/filosofia-politica-liberdade-produtiva-e-tecnologia-blockchain" target="_blank" class="article-card" data-category="academic" data-author="marcelo" data-year="academic">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">Coluna ANPOF</span>
+                    <span>Academic</span>
+                </div>
+                <h3>Filosofia Política, Liberdade Produtiva e Tecnologia Blockchain</h3>
+                <p>Political philosophy, productive freedom, and blockchain technology — an academic exploration.</p>
+            </a>
+
+            <a href="https://cataloniaglobal.cat/en/elections-in-brazil-the-origins-of-polarization/" target="_blank" class="article-card" data-category="analysis" data-author="marcelo" data-year="academic">
+                <div class="article-meta">
+                    <span class="article-author marcelo">Marcelo Silva</span>
+                    <span class="article-source">Catalonia Global</span>
+                    <span>Academic</span>
+                </div>
+                <h3>Elections in Brazil, the Origins of Polarization</h3>
+                <p>Exploring the roots of political polarization in Brazilian elections.</p>
+            </a>
+
+        </div>
+
+        <div class="no-results" id="no-results">
+            No articles match the selected filters.
         </div>
     </main>
 
@@ -426,28 +1371,75 @@
     </footer>
 
     <script>
-        // Filter functionality
-        const filterBtns = document.querySelectorAll('.filter-btn');
+        // Filter state
+        let activeCategory = 'all';
+
+        const categoryBtns = document.querySelectorAll('#category-filters .filter-btn');
         const articles = document.querySelectorAll('.article-card');
+        const yearDividers = document.querySelectorAll('.year-divider');
+        const noResults = document.getElementById('no-results');
+        const resultsCount = document.getElementById('results-count');
 
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Remove active class from all buttons
-                filterBtns.forEach(b => b.classList.remove('active'));
-                // Add active class to clicked button
-                btn.classList.add('active');
+        function applyFilters() {
+            let visibleCount = 0;
 
-                const filter = btn.getAttribute('data-filter');
+            articles.forEach(article => {
+                const catMatch = activeCategory === 'all' || article.getAttribute('data-category') === activeCategory;
 
-                articles.forEach(article => {
-                    if (filter === 'all' || article.getAttribute('data-category') === filter) {
-                        article.style.display = 'block';
-                    } else {
-                        article.style.display = 'none';
+                if (catMatch) {
+                    article.style.display = '';
+                    visibleCount++;
+                } else {
+                    article.style.display = 'none';
+                }
+            });
+
+            // Show/hide year dividers based on visible articles in each year
+            yearDividers.forEach(divider => {
+                let hasVisible = false;
+                let sibling = divider.nextElementSibling;
+
+                while (sibling && !sibling.classList.contains('year-divider')) {
+                    if (sibling.classList.contains('article-card') && sibling.style.display !== 'none') {
+                        hasVisible = true;
+                        break;
                     }
-                });
+                    sibling = sibling.nextElementSibling;
+                }
+
+                divider.style.display = hasVisible ? '' : 'none';
+            });
+
+            // No results message
+            noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+
+            // Results count
+            const total = articles.length;
+            if (activeCategory === 'all') {
+                resultsCount.textContent = `${total} publications`;
+            } else {
+                resultsCount.textContent = `Showing ${visibleCount} of ${total} publications`;
+            }
+        }
+
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                activeCategory = btn.getAttribute('data-filter');
+                applyFilters();
             });
         });
+
+        // Initial count
+        applyFilters();
+
+        // Theme toggle
+        const toggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        function setTheme(t) { html.setAttribute('data-theme', t); toggle.textContent = t === 'dark' ? '🌙' : '☀️'; localStorage.setItem('refaz-theme', t); }
+        toggle.addEventListener('click', () => { setTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'); });
+        setTheme(localStorage.getItem('refaz-theme') || 'light');
     </script>
 </body>
 </html>

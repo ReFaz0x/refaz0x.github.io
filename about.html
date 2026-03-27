@@ -18,13 +18,39 @@
             --dark: #0a0a0a;
             --gray: #666;
             --light-gray: #fafafa;
+            --bg: #fff;
+            --text: #0a0a0a;
+            --text-secondary: #666;
+            --card-bg: #fafafa;
+            --border: #e5e5e5;
+            --header-bg: rgba(255, 255, 255, 0.98);
+            --footer-bg: #0a0a0a;
+            --footer-text: #fff;
+            --footer-link: #999;
+            --footer-border: #222;
+            --footer-credit: #666;
+        }
+
+        [data-theme="dark"] {
+            --bg: #0a0a0a;
+            --text: #e8e8e8;
+            --text-secondary: #999;
+            --card-bg: #151515;
+            --border: #2a2a2a;
+            --header-bg: rgba(10, 10, 10, 0.98);
+            --footer-bg: #050505;
+            --footer-text: #e8e8e8;
+            --footer-link: #777;
+            --footer-border: #1a1a1a;
+            --footer-credit: #555;
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background: #fff;
-            color: var(--dark);
+            background: var(--bg);
+            color: var(--text);
             line-height: 1.8;
+            transition: background 0.3s ease, color 0.3s ease;
         }
 
         /* Header */
@@ -32,10 +58,11 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.98);
+            background: var(--header-bg);
             backdrop-filter: blur(12px);
             z-index: 1000;
-            border-bottom: 1px solid #e5e5e5;
+            border-bottom: 1px solid var(--border);
+            transition: background 0.3s ease, border-color 0.3s ease;
         }
 
         nav {
@@ -66,6 +93,12 @@
             letter-spacing: 0.03em;
         }
 
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
         .nav-links {
             display: flex;
             gap: 3rem;
@@ -73,7 +106,7 @@
         }
 
         .nav-links a {
-            color: var(--gray);
+            color: var(--text-secondary);
             text-decoration: none;
             font-size: 0.9rem;
             text-transform: uppercase;
@@ -84,6 +117,28 @@
 
         .nav-links a:hover {
             color: var(--refaz-green);
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            background: none;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            color: var(--text-secondary);
+            flex-shrink: 0;
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--refaz-purple);
+            color: var(--refaz-purple);
         }
 
         /* Main Content */
@@ -106,7 +161,7 @@
 
         .page-header p {
             font-size: 1.25rem;
-            color: var(--gray);
+            color: var(--text-secondary);
             max-width: 900px;
             line-height: 1.9;
         }
@@ -124,14 +179,14 @@
         }
 
         .about-text p {
-            color: var(--gray);
+            color: var(--text-secondary);
             line-height: 1.9;
             margin-bottom: 1.2rem;
             font-size: 1.08rem;
         }
 
         .about-text strong {
-            color: var(--dark);
+            color: var(--text);
             font-weight: 600;
         }
 
@@ -148,18 +203,19 @@
 
         .awards-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 3rem;
-            max-width: 1100px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2.5rem;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
         .award-item {
-            background: var(--light-gray);
+            background: var(--card-bg);
             padding: 2.5rem;
             border-radius: 12px;
             text-align: center;
             transition: transform 0.3s ease;
+            border: 1px solid var(--border);
         }
 
         .award-item:hover {
@@ -181,15 +237,15 @@
         }
 
         .award-item h3 {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin-bottom: 1rem;
-            color: var(--dark);
+            color: var(--text);
         }
 
         .award-item p {
-            color: var(--gray);
+            color: var(--text-secondary);
             line-height: 1.7;
-            font-size: 0.95rem;
+            font-size: 0.92rem;
         }
 
         /* Team Section */
@@ -213,14 +269,24 @@
             border-radius: 50%;
             object-fit: cover;
             margin: 0 auto 2rem;
-            border: 4px solid var(--light-gray);
+            border: 4px solid var(--card-bg);
         }
 
         .team-name {
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
-            color: var(--dark);
+            color: var(--text);
+        }
+
+        .team-name a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .team-name a:hover {
+            color: var(--refaz-purple);
         }
 
         .team-role {
@@ -233,7 +299,7 @@
         }
 
         .team-bio {
-            color: var(--gray);
+            color: var(--text-secondary);
             line-height: 1.8;
             max-width: 500px;
             margin: 0 auto;
@@ -241,11 +307,12 @@
 
         /* Footer */
         footer {
-            background: var(--dark);
-            color: white;
+            background: var(--footer-bg);
+            color: var(--footer-text);
             padding: 3.5rem 3rem 2.5rem;
-            border-top: 1px solid #222;
+            border-top: 1px solid var(--footer-border);
             margin-top: 6rem;
+            transition: background 0.3s ease;
         }
 
         .footer-content {
@@ -271,7 +338,7 @@
         }
 
         .footer-links a {
-            color: #999;
+            color: var(--footer-link);
             text-decoration: none;
             font-size: 0.88rem;
             text-transform: uppercase;
@@ -284,16 +351,27 @@
         }
 
         .footer-credit {
-            color: #666;
+            color: var(--footer-credit);
             font-size: 0.88rem;
         }
 
         /* Responsive */
+        @media (max-width: 1024px) {
+            .awards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         @media (max-width: 768px) {
             nav {
                 flex-direction: column;
                 gap: 1.2rem;
                 padding: 1rem 2rem;
+            }
+
+            .nav-right {
+                flex-direction: column;
+                gap: 1.2rem;
             }
 
             .nav-links {
@@ -338,13 +416,16 @@
             <a href="index.html" class="logo">
                 <img src="Refaz.png" alt="Refaz" class="logo-img">
             </a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="work.html">Work</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
-            </ul>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="work.html">Work</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">☀️</button>
+            </div>
         </nav>
     </header>
 
@@ -376,7 +457,7 @@
             <div class="team-grid">
                 <div class="team-member">
                     <img src="team-marcelo.jpg" alt="Marcelo Silva" class="team-photo">
-                    <div class="team-name">Marcelo Silva</div>
+                    <div class="team-name"><a href="https://marcelorefi.github.io/" target="_blank" rel="noopener">Marcelo Silva</a></div>
                     <div class="team-role">Co-Founder · Research & Systems</div>
                     <p class="team-bio">
                         Systems architect and researcher focused on protocol design, cryptoeconomics, and regenerative infrastructure. Background in distributed systems, formal verification, and open-source communities. Led protocol research for Ethereum, Celo, and ReFi DAO.
@@ -385,7 +466,7 @@
 
                 <div class="team-member">
                     <img src="team-verber.jpg" alt="Verber Alves" class="team-photo">
-                    <div class="team-name">Verber Alves</div>
+                    <div class="team-name"><a href="https://verbersouza.github.io/" target="_blank" rel="noopener">Verber Alves</a></div>
                     <div class="team-role">Co-Founder · Legal Engineering & Policy</div>
                     <p class="team-bio">
                         Legal engineer specializing in compliance frameworks for digital assets, tokenomics design, and institutional dialogue. Bridges technical possibility with regulatory reality. Expertise in blockchain governance, smart contract law, and public policy.
@@ -419,6 +500,13 @@
                     <h3>BACEN LIFT Lab</h3>
                     <p>Selected for sustainable digital solutions in regenerative finance</p>
                 </div>
+                <div class="award-item">
+                    <div class="award-badge">
+                        <img src="prize4.png" alt="Blocknews Best Educational Project">
+                    </div>
+                    <h3>Blocknews — Best Educational Project</h3>
+                    <p>Blockchain na Escola awarded best educational project in blockchain by Blocknews</p>
+                </div>
             </div>
         </section>
     </main>
@@ -438,5 +526,25 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        const toggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+
+        function setTheme(theme) {
+            html.setAttribute('data-theme', theme);
+            toggle.textContent = theme === 'dark' ? '🌙' : '☀️';
+            localStorage.setItem('refaz-theme', theme);
+        }
+
+        toggle.addEventListener('click', () => {
+            const current = html.getAttribute('data-theme');
+            setTheme(current === 'dark' ? 'light' : 'dark');
+        });
+
+        // Load saved theme
+        const saved = localStorage.getItem('refaz-theme') || 'light';
+        setTheme(saved);
+    </script>
 </body>
 </html>

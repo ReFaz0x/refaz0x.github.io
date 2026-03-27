@@ -3,944 +3,398 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Refaz — Engineering & Research Studio</title>
+    <title>Refaz — Legal Engineering & Research Studio</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
             --refaz-green: #23E07E;
             --refaz-purple: #5D31D6;
             --refaz-yellow: #F5D143;
-            --dark: #0a0a0a;
-            --gray: #666;
-            --light-gray: #fafafa;
+            --bg: #fff;
+            --text: #0a0a0a;
+            --text-secondary: #666;
+            --card-bg: #fafafa;
+            --card-bg-alt: #fff;
+            --border: #e5e5e5;
+            --header-bg: rgba(255, 255, 255, 0.98);
+            --solution-bg: #fafafa;
+            --tag-border: #ddd;
+            --solution-number: #e0e0e0;
+            --work-grad-end: #fff;
+            --work-badge-bg: #fafafa;
+            --work-badge-border: #e5e5e5;
+        }
+
+        [data-theme="dark"] {
+            --bg: #0a0a0a;
+            --text: #e8e8e8;
+            --text-secondary: #999;
+            --card-bg: #151515;
+            --card-bg-alt: #151515;
+            --border: #2a2a2a;
+            --header-bg: rgba(10, 10, 10, 0.98);
+            --solution-bg: #111;
+            --tag-border: #333;
+            --solution-number: #333;
+            --work-grad-end: #0a0a0a;
+            --work-badge-bg: #151515;
+            --work-badge-border: #2a2a2a;
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background: #fff;
-            color: var(--dark);
+            background: var(--bg);
+            color: var(--text);
             line-height: 1.9;
             overflow-x: hidden;
+            transition: background 0.3s, color 0.3s;
         }
 
-        h1, h2, h3 {
-            font-weight: 600;
-            line-height: 1.2;
-        }
-
+        h1, h2, h3 { font-weight: 600; line-height: 1.2; }
         h1 { font-size: clamp(3rem, 7vw, 5.5rem); }
         h2 { font-size: clamp(2rem, 5vw, 3.5rem); }
         h3 { font-size: clamp(1.3rem, 2.8vw, 2rem); }
 
-        /* Header */
         header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.98);
+            position: fixed; top: 0; width: 100%;
+            background: var(--header-bg);
             backdrop-filter: blur(12px);
             z-index: 1000;
-            border-bottom: 1px solid #e5e5e5;
+            border-bottom: 1px solid var(--border);
+            transition: background 0.3s, border-color 0.3s;
         }
 
         nav {
-            max-width: 1600px;
-            margin: 0 auto;
-            padding: 1.2rem 3rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            max-width: 1600px; margin: 0 auto; padding: 1.2rem 3rem;
+            display: flex; justify-content: space-between; align-items: center;
         }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            text-decoration: none;
+        .logo { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
+        .logo-img { width: 48px; height: auto; animation: logoPulse 4s ease-in-out infinite; }
+        @keyframes logoPulse {
+            0%, 100% { filter: drop-shadow(0 0 0px transparent); }
+            50% { filter: drop-shadow(0 0 8px rgba(93,49,214,0.5)); }
         }
 
-        .logo-img {
-            width: 48px;
-            height: auto;
-        }
-
-        .logo-text {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--refaz-purple);
-            letter-spacing: 0.03em;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 3rem;
-            list-style: none;
-        }
-
+        .nav-right { display: flex; align-items: center; gap: 2.5rem; }
+        .nav-links { display: flex; gap: 3rem; list-style: none; }
         .nav-links a {
-            color: var(--gray);
-            text-decoration: none;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            transition: color 0.3s;
-            font-weight: 500;
+            color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;
+            text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.3s; font-weight: 500;
         }
+        .nav-links a:hover { color: var(--refaz-green); }
 
-        .nav-links a:hover {
-            color: var(--refaz-green);
+        .theme-toggle {
+            background: none; border: 2px solid var(--border); border-radius: 8px;
+            width: 40px; height: 40px; cursor: pointer; display: flex;
+            align-items: center; justify-content: center; font-size: 1.1rem;
+            transition: all 0.3s; color: var(--text-secondary); flex-shrink: 0;
         }
+        .theme-toggle:hover { border-color: var(--refaz-purple); color: var(--refaz-purple); }
 
-        /* Sections */
-        section {
-            max-width: 1600px;
-            margin: 0 auto;
-            padding: 6rem 3rem;
-        }
+        section { max-width: 1600px; margin: 0 auto; padding: 6rem 3rem; }
+        .section-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.18em; margin-bottom: 1.8rem; font-weight: 700; }
 
-        .section-label {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.18em;
-            margin-bottom: 1.8rem;
-            font-weight: 700;
-        }
-
-        /* Hero */
         #hero {
-            padding-top: 6rem;
-            background: #fff;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
+            padding-top: 6rem; background: var(--bg); min-height: 100vh;
+            display: flex; flex-direction: column; justify-content: center;
+            position: relative; overflow: hidden; transition: background 0.3s;
         }
-
-        #hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 50%;
-            height: 100%;
-            opacity: 0;
-            z-index: 0;
-        }
-
-        #hero .section-label {
-            color: var(--refaz-purple);
-        }
+        #hero .section-label { color: var(--refaz-purple); }
 
         .hero-content {
-            max-width: 1400px;
+            max-width: 1400px; position: relative; z-index: 1;
+            display: grid; grid-template-columns: 1fr 500px; gap: 3rem; align-items: center;
+        }
+        .hero-text { max-width: 700px; }
+        .hero-image-wrapper {
             position: relative;
-            z-index: 1;
-            display: grid;
-            grid-template-columns: 1fr 500px;
-            gap: 3rem;
-            align-items: center;
+            border-radius: 16px;
+            padding: 2px;
+            background: linear-gradient(135deg, var(--refaz-purple), var(--refaz-green), var(--refaz-yellow), var(--refaz-purple));
+            background-size: 300% 300%;
+            animation: borderGlow 6s ease infinite;
         }
 
-        .hero-text {
-            max-width: 700px;
+        .hero-image-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: -6px;
+            right: -6px;
+            bottom: -6px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, var(--refaz-purple), var(--refaz-green), var(--refaz-yellow), var(--refaz-purple));
+            background-size: 300% 300%;
+            animation: borderGlow 6s ease infinite;
+            filter: blur(16px);
+            opacity: 0.45;
+            z-index: -1;
         }
 
-        .hero-image {
-            width: 100%;
-            height: auto;
-            border-radius: 12px;
-            margin-left: 0;
+        @keyframes borderGlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
+
+        .hero-image { width: 100%; height: auto; border-radius: 14px; display: block; }
 
         .hero-tagline {
-            font-size: 1.05rem;
-            text-transform: uppercase;
-            letter-spacing: 0.18em;
-            color: var(--refaz-purple);
-            margin-bottom: 1.25rem;
-            font-weight: 700;
+            font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.18em;
+            color: var(--refaz-purple); margin-bottom: 1.25rem; font-weight: 700;
         }
+        .hero-title { margin-bottom: 1.5rem; font-weight: 700; word-spacing: -0.15em; }
+        .hero-title .for { color: var(--text); font-weight: 400; }
+        .hero-title .decentralized { color: var(--refaz-green); font-weight: 700; display: block; margin-top: -0.8rem; }
+        .hero-title .future { color: var(--text); font-weight: 400; }
+        .hero-subtitle { font-size: 1.25rem; color: var(--text-secondary); margin-bottom: 1.75rem; max-width: 720px; line-height: 1.8; font-weight: 500; }
 
-        .hero-title {
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-            word-spacing: -0.15em;
-        }
+        .cta-buttons { display: flex; gap: 1.8rem; flex-wrap: wrap; }
+        .btn { padding: 1.1rem 2.2rem; text-decoration: none; font-weight: 600; border-radius: 8px; transition: all 0.3s; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.06em; }
+        .btn-primary { background: var(--refaz-yellow); color: #0a0a0a; }
+        .btn-primary:hover { background: #ffd700; transform: translateY(-3px); box-shadow: 0 6px 20px rgba(245,209,67,0.3); }
+        .btn-secondary { color: var(--text); border: 2px solid var(--text); }
+        .btn-secondary:hover { background: var(--text); color: var(--bg); }
 
-        .hero-title .for {
-            color: var(--dark);
-            font-weight: 400;
-        }
-
-        .hero-title .decentralized {
-            color: var(--refaz-green);
-            font-weight: 700;
-            font-style: normal;
-            display: block;
-            margin-top: -0.8rem;
-        }
-
-        .hero-title .future {
-            color: var(--dark);
-            font-weight: 400;
-        }
-
-        .hero-subtitle {
-            font-size: 1.25rem;
-            color: var(--gray);
-            margin-bottom: 1.75rem;
-            max-width: 720px;
-            line-height: 1.8;
-            font-weight: 500;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1.8rem;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 1.1rem 2.2rem;
-            text-decoration: none;
-            font-weight: 600;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-        }
-
-        .btn-primary {
-            background: var(--refaz-yellow);
-            color: var(--dark);
-        }
-
-        .btn-primary:hover {
-            background: #ffd700;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(245, 209, 67, 0.3);
-        }
-
-        .btn-secondary {
-            color: var(--dark);
-            border: 2px solid var(--dark);
-        }
-
-        .btn-secondary:hover {
-            background: var(--dark);
-            color: white;
-        }
-
-        /* Solutions Section - Compacted */
         #solutions {
-            background: var(--light-gray);
-            color: var(--dark);
-            padding: 1.5rem 4rem 3rem;
-            border-top: 1px solid #e5e5e5;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            background: var(--solution-bg); color: var(--text); padding: 1.5rem 4rem 3rem;
+            border-top: 1px solid var(--border); min-height: 100vh;
+            display: flex; flex-direction: column; justify-content: center; transition: background 0.3s;
         }
-
-        #solutions .section-label {
-            color: var(--refaz-yellow);
-        }
-
-        .solutions-intro {
-            margin-bottom: 4rem;
-            text-align: center;
-        }
-
-        .solutions-intro h2 {
-            color: var(--dark);
-            font-size: clamp(2.2rem, 4.5vw, 3.5rem);
-            font-weight: 400;
-        }
-
-        .solutions-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 3rem;
-        }
-
+        #solutions .section-label { color: var(--refaz-yellow); }
+        .solutions-intro { margin-bottom: 4rem; text-align: center; }
+        .solutions-intro h2 { color: var(--text); font-size: clamp(2.2rem, 4.5vw, 3.5rem); font-weight: 400; }
+        .solutions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; }
         .solution-item {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            border: 1px solid #e5e5e5;
-            transition: all 0.3s ease;
+            background: var(--card-bg-alt); padding: 2rem; border-radius: 12px;
+            border: 1px solid var(--border); transition: all 0.4s; position: relative; overflow: hidden;
         }
-
-        .solution-item:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.08);
-            border-color: var(--refaz-purple);
+        .solution-item::after {
+            content: ''; position: absolute; top: -1px; left: -1px; right: -1px; bottom: -1px;
+            border-radius: 12px; padding: 2px;
+            background: linear-gradient(135deg, var(--refaz-purple), var(--refaz-green), var(--refaz-yellow));
+            background-size: 300% 300%;
+            animation: borderGlow 6s ease infinite;
+            opacity: 0; transition: opacity 0.4s; z-index: -1;
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor; mask-composite: exclude;
         }
-
-        .solution-header {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .solution-number {
-            font-size: 2.5rem;
-            font-weight: 300;
-            color: #e0e0e0;
-            line-height: 1;
-            flex-shrink: 0;
-        }
-
-        .solution-titles {
-            flex: 1;
-        }
-
-        .solution-category {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--gray);
-            font-weight: 600;
-            margin-bottom: 0.3rem;
-        }
-
-        .solution-item h3 {
-            font-size: 1.3rem;
-            margin: 0;
-            color: var(--dark);
-        }
-
-        .solution-item p {
-            color: var(--gray);
-            font-size: 0.95rem;
-            line-height: 1.7;
-            margin-bottom: 1.2rem;
-        }
-
-        .solution-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            justify-content: center;
-        }
-
+        .solution-item:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(93,49,214,0.15); border-color: transparent; }
+        .solution-item:hover::after { opacity: 1; }
+        .solution-header { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1rem; }
+        .solution-number { font-size: 2.5rem; font-weight: 300; color: var(--solution-number); line-height: 1; flex-shrink: 0; }
+        .solution-titles { flex: 1; }
+        .solution-category { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-secondary); font-weight: 600; margin-bottom: 0.3rem; }
+        .solution-item h3 { font-size: 1.3rem; margin: 0; color: var(--text); }
+        .solution-item p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.2rem; }
+        .solution-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
         .tag {
-            font-size: 0.65rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            padding: 0.4rem 0.8rem;
-            border: 1px solid #ddd;
-            color: var(--gray);
-            font-weight: 600;
+            font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em;
+            padding: 0.4rem 0.8rem; border: 1px solid var(--tag-border);
+            color: var(--text-secondary); font-weight: 600; transition: all 0.3s; cursor: default;
+        }
+        .solution-item:hover .tag {
+            border-color: var(--refaz-green); color: var(--refaz-green);
+            box-shadow: 0 0 6px rgba(35,224,126,0.25), inset 0 0 6px rgba(35,224,126,0.08);
         }
 
-        /* Work Section - Visual Badges */
         #work {
-            background: linear-gradient(180deg, var(--dark) 0%, var(--dark) 60%, #fff 60%, #fff 100%);
-            padding: 5rem 3rem 5rem;
-            text-align: center;
-            position: relative;
+            background: linear-gradient(180deg, #0a0a0a 0%, #0a0a0a 60%, var(--work-grad-end) 60%, var(--work-grad-end) 100%);
+            padding: 5rem 3rem; text-align: center; position: relative; transition: background 0.3s;
         }
-
-        #work::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 60%;
-            background: 
-                linear-gradient(45deg, transparent 48%, rgba(35, 224, 126, 0.03) 49%, rgba(35, 224, 126, 0.03) 51%, transparent 52%),
-                linear-gradient(-45deg, transparent 48%, rgba(93, 49, 214, 0.03) 49%, rgba(93, 49, 214, 0.03) 51%, transparent 52%);
-            background-size: 40px 40px;
-            opacity: 0.4;
-            z-index: 0;
-        }
-
-        #work::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 60%;
-            background: radial-gradient(circle at 30% 50%, rgba(93, 49, 214, 0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 50%, rgba(35, 224, 126, 0.15) 0%, transparent 50%);
-            z-index: 1;
-        }
-
-        #work .section-label {
-            color: var(--refaz-green);
-            position: relative;
-            z-index: 2;
-        }
-
-        .work-intro {
-            margin-bottom: 4rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .work-intro h2 {
-            font-size: clamp(2.2rem, 4.5vw, 3.5rem);
-            margin-bottom: 1.5rem;
-            font-weight: 400;
-            color: white;
-        }
-
-        .work-intro p {
-            font-size: 1.15rem;
-            color: #ccc;
-            max-width: 800px;
-            margin: 0 auto 2.5rem;
-        }
-
-        .work-badges {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto 3rem;
-            position: relative;
-            z-index: 2;
-        }
-
+        #work::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 60%; background: linear-gradient(45deg, transparent 48%, rgba(35,224,126,0.03) 49%, rgba(35,224,126,0.03) 51%, transparent 52%), linear-gradient(-45deg, transparent 48%, rgba(93,49,214,0.03) 49%, rgba(93,49,214,0.03) 51%, transparent 52%); background-size: 40px 40px; opacity: 0.4; z-index: 0; }
+        #work::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 60%; background: radial-gradient(circle at 30% 50%, rgba(93,49,214,0.15) 0%, transparent 50%), radial-gradient(circle at 70% 50%, rgba(35,224,126,0.15) 0%, transparent 50%); z-index: 1; }
+        #work .section-label { color: var(--refaz-green); position: relative; z-index: 2; }
+        .work-intro { margin-bottom: 4rem; position: relative; z-index: 2; }
+        .work-intro h2 { font-size: clamp(2.2rem, 4.5vw, 3.5rem); margin-bottom: 1.5rem; font-weight: 400; color: white; }
+        .work-intro p { font-size: 1.15rem; color: #ccc; max-width: 800px; margin: 0 auto 2.5rem; }
+        .work-badges { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; max-width: 1200px; margin: 0 auto 3rem; position: relative; z-index: 2; }
         .work-badge {
-            background: var(--light-gray);
-            padding: 2.5rem 1.5rem;
-            border-radius: 12px;
-            border: 1px solid #e5e5e5;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: var(--dark);
+            background: var(--work-badge-bg); padding: 2.5rem 1.5rem; border-radius: 12px;
+            border: 1px solid var(--work-badge-border); transition: all 0.3s;
+            text-decoration: none; color: var(--text); position: relative; overflow: hidden;
         }
-
-        .work-badge:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 36px rgba(0,0,0,0.1);
-            border-color: var(--refaz-green);
+        .work-badge::before {
+            content: ''; position: absolute; top: -100%; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, transparent, var(--refaz-green), transparent);
+            box-shadow: 0 0 15px var(--refaz-green), 0 0 30px rgba(35,224,126,0.3);
+            opacity: 0; transition: opacity 0.3s; z-index: 3;
         }
-
-        .badge-img {
-            width: 140px;
-            height: 140px;
-            display: block;
-            margin: 0 auto 1.5rem;
-            object-fit: cover;
-            border-radius: 12px;
+        .work-badge:hover::before {
+            opacity: 1;
+            animation: scanLine 1.5s ease-in-out infinite;
         }
-
-        .badge-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.4rem;
+        @keyframes scanLine {
+            0% { top: -5%; }
+            100% { top: 105%; }
         }
+        .work-badge:hover { transform: translateY(-6px); box-shadow: 0 12px 36px rgba(0,0,0,0.1); border-color: var(--refaz-green); }
+        .badge-img { width: 140px; height: 140px; display: block; margin: 0 auto 1.5rem; object-fit: cover; border-radius: 12px; }
+        .badge-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.4rem; }
+        .badge-type { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary); font-weight: 600; }
+        .work-cta { margin-top: 2rem; position: relative; z-index: 2; }
+        .btn-work { display: inline-block; padding: 1.1rem 2.5rem; background: var(--refaz-purple); color: white; text-decoration: none; font-weight: 600; border-radius: 8px; transition: all 0.3s; text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.9rem; }
+        .btn-work:hover { background: var(--refaz-green); color: #0a0a0a; transform: translateY(-3px); }
 
-        .badge-type {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--gray);
-            font-weight: 600;
-        }
+        #impact { position: relative; background: #0a0a0a; color: white; min-height: 70vh; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 6rem 3rem; }
+        #impact::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: url('https://private-user-images.githubusercontent.com/169056366/421526299-845a26a0-8fa2-4cbe-a48e-cc6668016f2c.jpg?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzE4ODY4MjAsIm5iZiI6MTc3MTg4NjUyMCwicGF0aCI6Ii8xNjkwNTYzNjYvNDIxNTI2Mjk5LTg0NWEyNmEwLThmYTItNGNiZS1hNDhlLWNjNjY2ODAxNmYyYy5qcGc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMjIzJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDIyM1QyMjQyMDBaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1kMTQ1ZmQ5NWE2M2ZlOGQ1N2RjYmIyY2Q2Yzk1NjFiNWFjMjMxNjA5YmZjNmJkZWJlYzdiMjEwYjQ3Zjg3ZGNiJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.gErED0hECegxLuKjRIUyORTMjKd9aXtfOlIIopahpAw'); background-size: cover; background-position: center; opacity: 0.2; z-index: 0; }
+        #impact::after { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(180deg, rgba(10,10,10,0.7) 0%, rgba(10,10,10,0.85) 100%); z-index: 1; }
+        .impact-content { position: relative; z-index: 2; text-align: center; max-width: 1000px; padding: 0 2rem; }
+        .impact-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.18em; color: var(--refaz-yellow); margin-bottom: 2rem; font-weight: 700; }
+        .impact-content h2 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1.5rem; color: white; font-weight: 600; }
+        .impact-description { font-size: 1.2rem; line-height: 1.9; color: #ccc; margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto; }
+        .impact-partners { display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap; margin-top: 3rem; }
+        .partner-badge { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.12em; color: #999; font-weight: 600; padding: 1.5rem 2rem; border: 1px solid #444; border-radius: 6px; text-align: center; max-width: 320px; }
+        .partner-name { font-size: 0.9rem; color: white; margin-bottom: 0.8rem; font-weight: 700; }
+        .partner-themes { font-size: 0.7rem; color: #666; line-height: 1.6; text-transform: none; letter-spacing: 0.05em; }
 
-        .work-cta {
-            margin-top: 2rem;
-            position: relative;
-            z-index: 2;
-        }
+        #contact { text-align: center; background: #0a0a0a; color: white; padding: 6rem 3rem; }
+        .contact-content { max-width: 800px; margin: 0 auto; }
+        .contact-content .section-label { color: var(--refaz-yellow); }
+        .contact-content h2 { margin-bottom: 3.5rem; color: white; }
+        .contact-button { display: inline-block; padding: 1.3rem 3.5rem; background: var(--refaz-green); color: #0a0a0a; text-decoration: none; font-weight: 700; font-size: 1.05rem; border-radius: 8px; transition: all 0.3s; text-transform: uppercase; letter-spacing: 0.06em; }
+        .contact-button:hover { background: var(--refaz-yellow); transform: translateY(-3px); }
 
-        .btn-work {
-            display: inline-block;
-            padding: 1.1rem 2.5rem;
-            background: var(--refaz-purple);
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            font-size: 0.9rem;
-        }
+        footer { background: #0a0a0a; color: white; padding: 3.5rem 3rem 2.5rem; border-top: 1px solid #222; }
+        .footer-content { max-width: 1600px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2.5rem; }
+        .footer-logo { font-weight: 700; color: var(--refaz-green); font-size: 1.15rem; }
+        .footer-links { display: flex; gap: 2.5rem; list-style: none; }
+        .footer-links a { color: #999; text-decoration: none; font-size: 0.88rem; text-transform: uppercase; letter-spacing: 0.06em; transition: color 0.3s; }
+        .footer-links a:hover { color: var(--refaz-green); }
+        .footer-credit { color: #666; font-size: 0.88rem; }
 
-        .btn-work:hover {
-            background: var(--refaz-green);
-            color: var(--dark);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(93, 49, 214, 0.3);
-        }
-
-        /* Impact Section */
-        #impact {
-            position: relative;
-            background: var(--dark);
-            color: white;
-            min-height: 70vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            padding: 6rem 3rem;
-        }
-
-        #impact::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url('https://private-user-images.githubusercontent.com/169056366/421526299-845a26a0-8fa2-4cbe-a48e-cc6668016f2c.jpg?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzE4ODY4MjAsIm5iZiI6MTc3MTg4NjUyMCwicGF0aCI6Ii8xNjkwNTYzNjYvNDIxNTI2Mjk5LTg0NWEyNmEwLThmYTItNGNiZS1hNDhlLWNjNjY2ODAxNmYyYy5qcGc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMjIzJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDIyM1QyMjQyMDBaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1kMTQ1ZmQ5NWE2M2ZlOGQ1N2RjYmIyY2Q2Yzk1NjFiNWFjMjMxNjA5YmZjNmJkZWJlYzdiMjEwYjQ3Zjg3ZGNiJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.gErED0hECegxLuKjRIUyORTMjKd9aXtfOlIIopahpAw');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.2;
-            z-index: 0;
-        }
-
-        #impact::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(180deg, rgba(10,10,10,0.7) 0%, rgba(10,10,10,0.85) 100%);
-            z-index: 1;
-        }
-
-        .impact-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            max-width: 1000px;
-            padding: 0 2rem;
-        }
-
-        .impact-label {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.18em;
-            color: var(--refaz-yellow);
-            margin-bottom: 2rem;
-            font-weight: 700;
-        }
-
-        .impact-content h2 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin-bottom: 1.5rem;
-            color: white;
-            font-weight: 600;
-        }
-
-        .impact-description {
-            font-size: 1.2rem;
-            line-height: 1.9;
-            color: #ccc;
-            margin-bottom: 3rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .impact-partners {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin-top: 3rem;
-        }
-
-        .partner-badge {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: #999;
-            font-weight: 600;
-            padding: 1.5rem 2rem;
-            border: 1px solid #444;
-            border-radius: 6px;
-            text-align: center;
-            max-width: 320px;
-        }
-
-        .partner-name {
-            font-size: 0.9rem;
-            color: white;
-            margin-bottom: 0.8rem;
-            font-weight: 700;
-        }
-
-        .partner-themes {
-            font-size: 0.7rem;
-            color: #666;
-            line-height: 1.6;
-            text-transform: none;
-            letter-spacing: 0.05em;
-        }
-
-        /* Contact Section */
-        #contact {
-            text-align: center;
-            background: var(--dark);
-            color: white;
-            padding: 6rem 3rem;
-        }
-
-        .contact-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .contact-content .section-label {
-            color: var(--refaz-yellow);
-        }
-
-        .contact-content h2 {
-            margin-bottom: 3.5rem;
-            color: white;
-        }
-
-        .contact-button {
-            display: inline-block;
-            padding: 1.3rem 3.5rem;
-            background: var(--refaz-green);
-            color: var(--dark);
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.05rem;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-        }
-
-        .contact-button:hover {
-            background: var(--refaz-yellow);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 24px rgba(35, 224, 126, 0.3);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: 3.5rem 3rem 2.5rem;
-            border-top: 1px solid #222;
-        }
-
-        .footer-content {
-            max-width: 1600px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 2.5rem;
-        }
-
-        .footer-logo {
-            font-weight: 700;
-            color: var(--refaz-green);
-            font-size: 1.15rem;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-        }
-
-        .footer-links a {
-            color: #999;
-            text-decoration: none;
-            font-size: 0.88rem;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: var(--refaz-green);
-        }
-
-        .footer-credit {
-            color: #666;
-            font-size: 0.88rem;
-        }
-
-        /* Responsive */
         @media (max-width: 1024px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .hero-image {
-                max-width: 500px;
-                margin: 0 auto;
-            }
-
-            .solutions-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .work-badges {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            .hero-content { grid-template-columns: 1fr; gap: 3rem; }
+            .hero-image-wrapper { max-width: 500px; margin: 0 auto; }
+            .solutions-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .work-badges { grid-template-columns: repeat(2, 1fr); }
         }
-
         @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                gap: 1.2rem;
-                padding: 1rem 2rem;
-            }
-
-            .nav-links {
-                gap: 1.5rem;
-                font-size: 0.85rem;
-            }
-
-            section {
-                padding: 4rem 2rem;
-            }
-
-            #hero {
-                padding-top: 8rem;
-            }
-
-            #solutions {
-                padding: 4rem 2rem;
-            }
-
-            .work-badges {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .footer-links {
-                flex-direction: column;
-                gap: 1.2rem;
-            }
+            nav { flex-direction: column; gap: 1.2rem; padding: 1rem 2rem; }
+            .nav-right { flex-direction: column; gap: 1.2rem; }
+            .nav-links { gap: 1.5rem; font-size: 0.85rem; }
+            section { padding: 4rem 2rem; }
+            #hero { padding-top: 8rem; }
+            #solutions { padding: 4rem 2rem; }
+            .work-badges { grid-template-columns: 1fr; }
+            .footer-content { flex-direction: column; text-align: center; }
+            .footer-links { flex-direction: column; gap: 1.2rem; }
         }
+        html { scroll-behavior: smooth; }
 
-        html {
-            scroll-behavior: smooth;
+        /* 6. Fade in on scroll */
+        .reveal {
+            opacity: 0; transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
         }
+        .reveal.visible {
+            opacity: 1; transform: translateY(0);
+        }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.35s; }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <nav>
-            <a href="index.html" class="logo">
-                <img src="Refaz.png" alt="Refaz" class="logo-img">
-            </a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="work.html">Work</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+            <a href="index.html" class="logo"><img src="Refaz.png" alt="Refaz" class="logo-img"></a>
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="work.html">Work</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">☀️</button>
+            </div>
         </nav>
     </header>
 
-    <!-- Hero Section -->
     <section id="hero">
         <div class="hero-content">
             <div class="hero-text">
-                <div class="hero-tagline">Engineering & Research Studio</div>
+                <div class="hero-tagline">Legal Engineering & Research Studio</div>
                 <h1 class="hero-title">
-                    <span class="for">For the</span>
-                    <span class="decentralized">Decentralized</span>
-                    <span class="future">Future</span>
+                    <span class="for">Building</span>
+                    <span class="decentralized">Regenerative</span>
+                    <span class="future">Technology</span>
                 </h1>
-                <p class="hero-subtitle">
-                    Critical research. Real implementations.<br>
-                    No hype — just code that matters.
-                </p>
+                <p class="hero-subtitle">Research, law and technology working together.<br>Building systems that create real-world impact.</p>
                 <div class="cta-buttons">
                     <a href="#solutions" class="btn btn-primary">Our Solutions →</a>
                     <a href="work.html" class="btn btn-secondary">See Our Work</a>
                 </div>
             </div>
-            <div>
-                <img src="front.png" alt="Refaz Studio" class="hero-image">
-            </div>
+            <div class="hero-image-wrapper"><img src="front.png" alt="Refaz Studio" class="hero-image"></div>
         </div>
     </section>
 
-    <!-- Solutions Section - Compacted -->
     <section id="solutions">
-        <div class="solutions-intro">
-            <div class="section-label">Solutions</div>
-            <h2>Tech Stack</h2>
-        </div>
-        
+        <div class="solutions-intro reveal"><div class="section-label">Solutions</div><h2>Tech Stack</h2></div>
         <div class="solutions-grid">
-            <div class="solution-item">
-                <div class="solution-header">
-                    <div class="solution-number">01</div>
-                    <div class="solution-titles">
-                        <div class="solution-category">Protocol Research · Blockchain</div>
-                        <h3>Critical Infrastructure Studies</h3>
-                    </div>
-                </div>
-                <p>
-                    We dissect blockchain protocols, consensus mechanisms, and cryptographic primitives — rigorous analysis for builders and policymakers.
-                </p>
-                <div class="solution-tags">
-                    <span class="tag">Consensus</span>
-                    <span class="tag">Cryptography</span>
-                    <span class="tag">Legal Design</span>
-                </div>
-            </div>
-
-            <div class="solution-item">
-                <div class="solution-header">
-                    <div class="solution-number">02</div>
-                    <div class="solution-titles">
-                        <div class="solution-category">Local-First Systems · Blockchain</div>
-                        <h3>Resilient by Design</h3>
-                    </div>
-                </div>
-                <p>
-                    We prototype and deploy local-first applications — software that works offline, syncs peer-to-peer, and ensures data sovereignty.
-                </p>
-                <div class="solution-tags">
-                    <span class="tag">ReFi</span>
-                    <span class="tag">Superintelligence</span>
-                    <span class="tag">Data Sovereignty</span>
-                </div>
-            </div>
-
-            <div class="solution-item">
-                <div class="solution-header">
-                    <div class="solution-number">03</div>
-                    <div class="solution-titles">
-                        <div class="solution-category">Institutional Dialogue · Blockchain</div>
-                        <h3>Bridging Worlds</h3>
-                    </div>
-                </div>
-                <p>
-                    We translate decentralized system design into accessible frameworks for regulators, civil society, and public institutions.
-                </p>
-                <div class="solution-tags">
-                    <span class="tag">Policy</span>
-                    <span class="tag">Governance</span>
-                    <span class="tag">Public Goods</span>
-                </div>
-            </div>
+            <div class="solution-item reveal reveal-delay-1"><div class="solution-header"><div class="solution-number">01</div><div class="solution-titles"><div class="solution-category">Protocol Research · Blockchain</div><h3>Critical Infrastructure Studies</h3></div></div><p>We dissect blockchain protocols, consensus mechanisms, and cryptographic primitives — rigorous analysis for builders and policymakers.</p><div class="solution-tags"><span class="tag">Consensus</span><span class="tag">Cryptography</span><span class="tag">Legal Design</span></div></div>
+            <div class="solution-item reveal reveal-delay-2"><div class="solution-header"><div class="solution-number">02</div><div class="solution-titles"><div class="solution-category">Local-First Systems · Blockchain</div><h3>Resilient by Design</h3></div></div><p>We prototype and deploy local-first applications — software that works offline, syncs peer-to-peer, and ensures data sovereignty.</p><div class="solution-tags"><span class="tag">ReFi</span><span class="tag">Superintelligence</span><span class="tag">Data Sovereignty</span></div></div>
+            <div class="solution-item reveal reveal-delay-3"><div class="solution-header"><div class="solution-number">03</div><div class="solution-titles"><div class="solution-category">Institutional Dialogue · Blockchain</div><h3>Bridging Worlds</h3></div></div><p>We translate decentralized system design into accessible frameworks for regulators, civil society, and public institutions.</p><div class="solution-tags"><span class="tag">Policy</span><span class="tag">Governance</span><span class="tag">Public Goods</span></div></div>
         </div>
     </section>
 
-    <!-- Work Section - Visual Badges -->
     <section id="work">
-        <div class="work-intro">
-            <div class="section-label">Selected Work</div>
-            <h2>Grassroots to Code</h2>
-            <p>
-                Blockchain infrastructure for regenerative finance, institutional partnerships, and Web3 education — addressing real-world challenges from crises management to community empowerment.
-            </p>
-        </div>
-
+        <div class="work-intro reveal"><div class="section-label">Selected Work</div><h2>Grassroots to Code</h2><p>Blockchain infrastructure for regenerative finance, institutional partnerships, and Web3 education — addressing real-world challenges from crises management to community empowerment.</p></div>
         <div class="work-badges">
-            <a href="work.html#ekonavi" class="work-badge">
-                <img src="png1.png" alt="Environmental Data" class="badge-img">
-                <div class="badge-title">Environmental Data</div>
-                <div class="badge-type">BACEN LIFT Lab</div>
-            </a>
-
-            <a href="work.html#treasury" class="work-badge">
-                <img src="png2.png" alt="Regenerative Finance" class="badge-img">
-                <div class="badge-title">Regenerative Finance</div>
-                <div class="badge-type">National Treasury</div>
-            </a>
-
-            <a href="work.html#liga" class="work-badge">
-                <img src="png3.png" alt="Crises & Risk Management" class="badge-img">
-                <div class="badge-title">Crises & Risk Management</div>
-                <div class="badge-type">Technical Advisory</div>
-            </a>
-
-            <a href="work.html#bne" class="work-badge">
-                <img src="png4.png" alt="Web3 Education Platform" class="badge-img">
-                <div class="badge-title">Web3 Education Platform</div>
-                <div class="badge-type">Education Program</div>
-            </a>
+            <a href="work.html#ekonavi" class="work-badge reveal reveal-delay-1"><img src="png1.png" alt="Environmental Data" class="badge-img"><div class="badge-title">Environmental Data</div><div class="badge-type">BACEN LIFT Lab</div></a>
+            <a href="work.html#treasury" class="work-badge reveal reveal-delay-2"><img src="png2.png" alt="Regenerative Finance" class="badge-img"><div class="badge-title">Regenerative Finance</div><div class="badge-type">National Treasury</div></a>
+            <a href="work.html#liga" class="work-badge reveal reveal-delay-3"><img src="png3.png" alt="Crises & Risk Management" class="badge-img"><div class="badge-title">Crises & Risk Management</div><div class="badge-type">Technical Advisory</div></a>
+            <a href="work.html#bne" class="work-badge reveal reveal-delay-4"><img src="png4.png" alt="Web3 Education Platform" class="badge-img"><div class="badge-title">Web3 Education Platform</div><div class="badge-type">Education Program</div></a>
         </div>
-
-        <div class="work-cta">
-            <a href="work.html" class="btn-work">View Full Portfolio →</a>
-        </div>
+        <div class="work-cta"><a href="work.html" class="btn-work">View Full Portfolio →</a></div>
     </section>
 
-    <!-- Impact Section -->
     <section id="impact">
         <div class="impact-content">
-            <div class="impact-label">Institutional Impact</div>
-            <h2>Research at Scale</h2>
-            <p class="impact-description">
-                From academic research to institutional implementation. Our work spans central bank innovation labs, national treasury hackathons, and protocol research for leading Web3 ecosystems — bridging technical possibility with governance reality.
-            </p>
+            <div class="impact-label reveal">Institutional Impact</div><h2 class="reveal">Research at Scale</h2>
+            <p class="impact-description reveal">From academic research to institutional implementation. Our work spans central bank innovation labs, national treasury hackathons, and protocol research for leading Web3 ecosystems — bridging technical possibility with governance reality.</p>
             <div class="impact-partners">
-                <div class="partner-badge">
-                    <div class="partner-name">REGENERATIVE FINANCE</div>
-                    <div class="partner-themes">Financial Innovation · ISSB Standards · Sustainability Frameworks · Digital Asset Infrastructure</div>
-                </div>
-                <div class="partner-badge">
-                    <div class="partner-name">INSTITUTIONAL INFRASTRUCTURE</div>
-                    <div class="partner-themes">Digital Asset Issuance · Verification Systems · Interoperability Standards · Tokenization</div>
-                </div>
-                <div class="partner-badge">
-                    <div class="partner-name">WEB3 PROTOCOL RESEARCH</div>
-                    <div class="partner-themes">Tokenomics Design · Governance Models · Smart Contract Architecture · Legal Frameworks</div>
-                </div>
+                <div class="partner-badge reveal reveal-delay-1"><div class="partner-name">REGENERATIVE FINANCE</div><div class="partner-themes">Financial Innovation · ISSB Standards · Sustainability Frameworks · Digital Asset Infrastructure</div></div>
+                <div class="partner-badge reveal reveal-delay-2"><div class="partner-name">INSTITUTIONAL INFRASTRUCTURE</div><div class="partner-themes">Digital Asset Issuance · Verification Systems · Interoperability Standards · Tokenization</div></div>
+                <div class="partner-badge reveal reveal-delay-3"><div class="partner-name">WEB3 PROTOCOL RESEARCH</div><div class="partner-themes">Tokenomics Design · Governance Models · Smart Contract Architecture · Legal Frameworks</div></div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact">
-        <div class="contact-content">
-            <div class="section-label">Get in Touch</div>
-            <h2>Let's work on what matters.</h2>
-            <a href="mailto:brasil@refaz.xyz" class="contact-button">brasil@refaz.xyz →</a>
-        </div>
+        <div class="contact-content reveal"><div class="section-label">Get in Touch</div><h2>Let's work on what matters.</h2><a href="/cdn-cgi/l/email-protection#3153435042585d71435457504b1f49484b" class="contact-button"><span class="__cf_email__" data-cfemail="e6849487958f8aa6948380879cc89e9f9c">[email&#160;protected]</span> →</a></div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-logo">REFAZ</div>
-            <ul class="footer-links">
-                <li><a href="https://github.com/refaz0x">Github</a></li>
-                <li><a href="#">Mirror</a></li>
-                <li><a href="#">Farcaster</a></li>
-                <li><a href="#">Instagram</a></li>
-            </ul>
-            <div class="footer-credit">
-                © 2024 Refaz · Engineering & Research Studio
-            </div>
+            <ul class="footer-links"><li><a href="https://github.com/refaz0x">Github</a></li><li><a href="#">Mirror</a></li><li><a href="#">Farcaster</a></li><li><a href="#">Instagram</a></li></ul>
+            <div class="footer-credit">© 2024 Refaz · Engineering & Research Studio</div>
         </div>
     </footer>
+
+    <script>
+        const toggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        function setTheme(t) { html.setAttribute('data-theme', t); toggle.textContent = t === 'dark' ? '🌙' : '☀️'; localStorage.setItem('refaz-theme', t); }
+        toggle.addEventListener('click', () => { setTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'); });
+        setTheme(localStorage.getItem('refaz-theme') || 'light');
+
+        // Scroll reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.12 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
 </body>
 </html>
