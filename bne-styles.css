@@ -1,0 +1,36 @@
+/* BnE — Blockchain na Escola
+   Specific overrides only. Base styles in refaz.css */
+
+/* BnE sub-nav */
+.bne-subnav {
+  border-bottom: 1px solid var(--ink);
+  background: var(--bg-card);
+}
+.bne-subnav-inner {
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 0 64px;
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+}
+.bne-subnav-inner a {
+  display: block;
+  padding: 10px 0;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  color: var(--ink-sub);
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+}
+.bne-subnav-inner a:hover,
+.bne-subnav-inner a.active {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}
+@media (max-width: 768px) {
+  .bne-subnav-inner { padding: 0 16px; }
+}

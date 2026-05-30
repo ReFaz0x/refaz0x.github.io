@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mídia — ReFaz</title>
+  <link rel="stylesheet" href="refaz.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html">ReFaz</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="projects.html">Projetos</a></li>
+      <li><a href="publications.html">Pesquisa</a></li>
+      <li><a href="about.html">Sobre</a></li>
+      <li><a href="bne/index.html">BnE</a></li>
+      <li><a href="Contact.html" class="nav-cta">Contato</a></li>
+    </ul>
+    <button class="nav-mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+  </div>
+</nav>
+
+<main>
+  <div class="wrap">
+
+    <section class="hero">
+      <span class="section-label">Mídia & Conteúdo</span>
+      <h1 class="hero-quote">Artigos, vídeos e séries educativas.</h1>
+    </section>
+
+    <section class="section">
+      <span class="section-label">Destaques</span>
+      <div class="grid-2">
+        <div class="card">
+          <span class="card-label">Artigo</span>
+          <h3 class="card-title"><a href="https://www.linkedin.com/pulse/its-time-do-again-refaz-marcelo-silva" target="_blank" rel="noopener" style="text-decoration:none;">It's time to do it again — ReFaz</a></h3>
+          <hr>
+          <p class="card-body">As razões por trás da criação da ReFaz.</p>
+          <a class="card-link" href="https://www.linkedin.com/pulse/its-time-do-again-refaz-marcelo-silva" target="_blank">Ler →</a>
+        </div>
+        <div class="card">
+          <span class="card-label">Série Visual</span>
+          <h3 class="card-title">Posts Educativos (DeFi / ReFi)</h3>
+          <hr>
+          <p class="card-body">Play-to-earn, DeFi pela perspectiva blockchain, ReFi e economia regenerativa.</p>
+          <a class="card-link" href="https://www.instagram.com/refaz0x/" target="_blank">Ver Instagram →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <span class="section-label">Pesquisa</span>
+      <p style="font-size:14px; color:var(--ink-sub);">Para publicações e estudos completos, acesse a seção de pesquisa.</p>
+      <a class="btn btn-secondary" style="margin-top:16px; display:inline-block;" href="publications.html">Ver Publicações →</a>
+    </section>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">ReFaz</div>
+      <div class="footer-tagline">Infraestrutura de Impacto</div>
+      <div class="footer-copy">© <span id="yr"></span> ReFaz</div>
+    </div>
+    <ul class="footer-links">
+      <li><a href="https://linkedin.com/company/refaz" target="_blank">LinkedIn</a></li>
+      <li><a href="https://github.com/ReFaz0x" target="_blank">GitHub</a></li>
+      <li><a href="mailto:hello@refaz.studio">hello@refaz.studio</a></li>
+    </ul>
+  </div>
+</footer>
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
