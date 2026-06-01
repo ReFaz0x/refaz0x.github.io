@@ -1,180 +1,408 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ReFaz — Infraestrutura de Impacto</title>
-  <meta name="description" content="ReFaz é uma boutique de inovação Web3 — a infraestrutura que conecta capital de impacto a projetos regenerativos na América Latina.">
-  <link rel="stylesheet" href="refaz.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RE/FAZ — Infraestrutura Web3 · Brasil</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="home.css">
 </head>
 <body>
 
-<nav class="nav">
-  <div class="nav-inner">
-    <a class="nav-brand" href="index.html">ReFaz</a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="projects.html">Projetos</a></li>
-      <li><a href="publications.html">Pesquisa</a></li>
-      <li><a href="about.html">Sobre</a></li>
-      <li><a href="bne/index.html">BnE</a></li>
-      <li><a href="Contact.html" class="nav-cta">Contato</a></li>
-    </ul>
-    <button class="nav-mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="wrap nav__in">
+    <a class="logo" href="#top" aria-label="RE/FAZ"><img src="Refaz.png" alt="RE/FAZ"></a>
+    <button class="nav__toggle nav__cta" id="navToggle" aria-label="Menu">menu</button>
+    <nav class="nav__links" id="navLinks">
+      <a href="#projetos">Projetos</a>
+      <a href="#pesquisa">Pesquisa</a>
+      <a href="#sobre">Sobre</a>
+      <a href="https://blockchainnaescola.github.io/website/" target="_blank" rel="noopener">Blockchain na Escola</a>
+      <a class="nav__cta" href="mailto:contato@refaz.xyz">Fale com a gente</a>
+    </nav>
   </div>
-</nav>
+</header>
 
-<main>
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="section hero" data-screen-label="Hero">
   <div class="wrap">
-
-    <!-- HERO -->
-    <section class="hero">
-      <span class="section-label">Boutique de Inovação Web3 · América Latina</span>
-      <h1 class="hero-quote">"A lacuna da alocação de capital de impacto."</h1>
-      <p class="hero-sub">Bilhões em capital de impacto paralisados. Projetos regenerativos não conseguem provar impacto na linguagem do capital — alocadores desconhecem as regras regulatórias locais. A ReFaz é a infraestrutura que conecta esses dois mundos.</p>
-
-      <div class="hero-chips">
-        <span class="chip chip-ochre">R$ 4Bi TAM</span>
-        <span class="chip">29+ Países</span>
-        <span class="chip">135 Clientes ativos</span>
-        <span class="chip chip-moss">LIFT Lab · G20 · STN</span>
+    <div class="hero__grid">
+      <div>
+        <p class="eyebrow">INFRAESTRUTURA WEB3 · BRASIL</p>
+        <h1 class="h-lg">A lacuna da alocação de capital de impacto</h1>
+        <p class="lede hero__lede">Projetos regenerativos não provam impacto na linguagem do capital, startups nativas da Web3 navegam com incerteza a regulação local, e alocadores têm seu capital bloqueado pela falta de compliance adequado. A ReFaz conecta esses mundos.</p>
       </div>
-
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="projects.html">Conheça a Metodologia</a>
-        <a class="btn btn-secondary" href="about.html">Sobre o Time</a>
-      </div>
-    </section>
-
-    <!-- VALIDATION -->
-    <section class="section">
-      <span class="section-label">Validação Institucional</span>
-      <p class="section-sub">Não vencemos competições de startups — somos validados pelas instituições que escrevem as regras do jogo financeiro e governamental no Brasil.</p>
-      <div class="grid-3">
-        <div class="badge">
-          <span class="badge-dot"></span>
-          STN / ENAP — Tesouro Nacional
-        </div>
-        <div class="badge">
-          <span class="badge-dot"></span>
-          G20 TechSprint — BIS Innovation Hub
-        </div>
-        <div class="badge">
-          <span class="badge-dot"></span>
-          LIFT Lab — Banco Central do Brasil
-        </div>
-      </div>
-    </section>
-
-    <!-- TRACTION STATS -->
-    <section class="section">
-      <span class="section-label">Tração & Resultados</span>
-      <div class="grid-4">
-        <div class="stat-block">
-          <div class="stat-num">135</div>
-          <div class="stat-label">Clientes ativos</div>
-        </div>
-        <div class="stat-block">
-          <div class="stat-num">100</div>
-          <div class="stat-label">Usuários Balaio</div>
-        </div>
-        <div class="stat-block">
-          <div class="stat-num">$45k</div>
-          <div class="stat-label">USD em subsídios Web3</div>
-        </div>
-        <div class="stat-block">
-          <div class="stat-num">30k</div>
-          <div class="stat-label">Certificados emitidos</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- VERTICALS -->
-    <section class="section">
-      <span class="section-label">A Solução — 4 Verticais</span>
-      <h2 class="section-title">A camada de infraestrutura intermediária</h2>
-      <p class="section-sub">Uma boutique de inovação Web3 atacando o problema central através de quatro verticais integradas.</p>
-      <div class="grid-2">
-        <div class="card">
-          <span class="card-label">01 — Metodologia</span>
-          <h3 class="card-title">Metodologia de Impacto</h3>
-          <p class="card-body">ISSB / IFRS S1&S2 + blockchain. Transformamos projetos de impacto em ativos perfeitamente legíveis para o asset manager global.</p>
-          <a class="card-link" href="projects.html">Ver Metodologia →</a>
-        </div>
-        <div class="card">
-          <span class="card-label">02 — Produto</span>
-          <h3 class="card-title">Balaio</h3>
-          <p class="card-body">Execução transparente de orçamentos + marketplace microdigital. Infraestrutura financeira para economias locais.</p>
-          <a class="card-link" href="projects.html">Explorar Balaio →</a>
-        </div>
-        <div class="card">
-          <span class="card-label">03 — Infraestrutura</span>
-          <h3 class="card-title">Rasta & Fiel Wallet</h3>
-          <p class="card-body">Infra blockchain para economia criativa e cultura brasileira. 30 usuários em pré-lançamento.</p>
-          <a class="card-link" href="projects.html">Ver Projeto →</a>
-        </div>
-        <div class="card">
-          <span class="card-label">04 — EdTech</span>
-          <h3 class="card-title">Blockchain na Escola</h3>
-          <p class="card-body">EdTech + impacto social. De zero conhecimento em blockchain a vencedor de hackathon — 30k certificados emitidos.</p>
-          <a class="card-link" href="bne/index.html">Ir para BnE →</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- FEATURED LINKS -->
-    <section class="section">
-      <span class="section-label">Navegue pelo Estúdio</span>
-      <div style="display:flex; flex-direction:column; gap:1px; border:1px solid var(--ink);">
-        <a href="publications.html" style="text-decoration:none;">
-          <div class="featured-card" style="border:none; border-bottom:1px solid var(--ink);">
-            <span class="featured-card-icon">📄</span>
-            <div>
-              <div class="featured-card-title">Pesquisa & Publicações</div>
-              <div class="featured-card-body">Artigos, estudos e apresentações sobre ReFi, RWAs, stablecoins e inovação local-first.</div>
-              <span class="featured-card-cta">Explorar →</span>
-            </div>
+      <div>
+        <div class="statpanel">
+          <div class="stat">
+            <span class="material-symbols-outlined">public</span>
+            <div><div class="stat__v">29+</div><div class="stat__l">países</div></div>
           </div>
-        </a>
-        <a href="about.html" style="text-decoration:none;">
-          <div class="featured-card" style="border:none; border-bottom:1px solid var(--ink);">
-            <span class="featured-card-icon">👤</span>
-            <div>
-              <div class="featured-card-title">Sobre o Time</div>
-              <div class="featured-card-body">Verber Souza e Marcelo Silva PhD — o contexto é o nosso produto.</div>
-              <span class="featured-card-cta">Conhecer →</span>
-            </div>
+          <div class="stat">
+            <span class="material-symbols-outlined">savings</span>
+            <div><div class="stat__v">$45k</div><div class="stat__l">em subsídios Web3</div></div>
           </div>
-        </a>
-        <a href="impact.html" style="text-decoration:none;">
-          <div class="featured-card" style="border:none;">
-            <span class="featured-card-icon">📊</span>
-            <div>
-              <div class="featured-card-title">Impacto M&E</div>
-              <div class="featured-card-body">Monitoramento e avaliação — metodologia, dados e resultados verificáveis.</div>
-              <span class="featured-card-cta">Ver Impacto →</span>
-            </div>
+          <div class="stat">
+            <span class="material-symbols-outlined">groups</span>
+            <div><div class="stat__v">135</div><div class="stat__l">clientes ativos</div></div>
           </div>
-        </a>
+        </div>
+        <div class="chips">
+          <span class="chip">STN / Tesouro Nacional</span>
+          <span class="chip">G20 TechSprint</span>
+          <span class="chip">LIFT Lab / BCB</span>
+        </div>
       </div>
-    </section>
+    </div>
+    <figure class="hero__banner">
+      <img src="assets/refaz-hero.jpeg" alt="ReFaz — arte editorial halftone/glitch">
+      <figcaption class="caption">ReFaz · Brasil · 2025</figcaption>
+    </figure>
+  </div>
+</section>
 
-  </div><!-- /wrap -->
+<!-- ============ DIAGNÓSTICO ============ -->
+<section class="section" id="sobre" data-screen-label="Diagnóstico">
+  <div class="wrap">
+    <div class="intro intro--solo">
+      <p class="label label--terra">DIAGNÓSTICO</p>
+      <h2 class="h-md">Dois ecossistemas bloqueados, a mesma causa raiz</h2>
+    </div>
+    <div class="grid-3">
+      <div class="cell">
+        <div class="cell__head"><span class="cell__n">01</span><span class="material-symbols-outlined">forest</span></div>
+        <div class="cell__t">Geradores de Impacto Socioambiental</div>
+        <p class="cell__b">Não conseguem demonstrar resultados na linguagem e no formato exigidos pelas rígidas estruturas de compliance do capital internacional.</p>
+      </div>
+      <div class="cell">
+        <div class="cell__head"><span class="cell__n">02</span><span class="material-symbols-outlined">rocket_launch</span></div>
+        <div class="cell__t">Startups Web3 Brasileiras</div>
+        <p class="cell__b">Navegam o risco da inovação dentro de um ambiente altamente regulado e, por falta de acesso ao know-how da regulação, ficam fora do radar dos alocadores.</p>
+      </div>
+      <div class="cell">
+        <div class="cell__head"><span class="cell__n">03</span><span class="material-symbols-outlined">account_balance</span></div>
+        <div class="cell__t">Alocadores de Capital</div>
+        <p class="cell__b">Não conseguem acessar iniciativas geradoras de impacto real e startups com crescimento comprovado.</p>
+      </div>
+    </div>
+    <div class="callout"><b>CAUSA RAIZ</b> — Assimetria de informação eleva o custo de confiança e paralisa a alocação de capital.</div>
+  </div>
+</section>
+
+<!-- ============ A SOLUÇÃO ============ -->
+<section class="section" id="projetos" data-screen-label="A Solução">
+  <div class="wrap">
+    <div class="intro">
+      <div>
+        <p class="label label--slate">A SOLUÇÃO</p>
+        <h2 class="h-md">Estratégia e tecnologia para o desenvolvimento social</h2>
+      </div>
+      <p class="lede">Uma boutique Web3 atacando o problema central através de quatro verticais integradas.</p>
+    </div>
+    <div class="sol">
+      <article class="sol__item">
+        <span class="material-symbols-outlined">verified</span>
+        <h3>Metodologia de Impacto</h3>
+        <p>ISSB / IFRS S1&amp;S2 + blockchain timestamping</p>
+        <div class="sol__meta"><span class="tag">ATIVO</span></div>
+      </article>
+      <article class="sol__item">
+        <span class="material-symbols-outlined">storefront</span>
+        <h3>Balaio</h3>
+        <p>Execução transparente de orçamentos + marketplace microdigital</p>
+        <div class="sol__meta"><span class="tag--neutral tag">692 tasks criadas</span><a class="sol__link" href="https://usebalaio.com" target="_blank" rel="noopener">usebalaio.com</a></div>
+      </article>
+      <article class="sol__item">
+        <span class="material-symbols-outlined">account_balance_wallet</span>
+        <h3>Rasta &amp; Fiel Wallet</h3>
+        <p>Infra blockchain para economia criativa e cultura brasileira</p>
+        <div class="sol__meta"><span class="tag--neutral tag">40 usuários · rodada de testes</span><a class="sol__link" href="https://app.cryptorastas.com" target="_blank" rel="noopener">app.cryptorastas.com</a></div>
+      </article>
+      <article class="sol__item">
+        <span class="material-symbols-outlined">school</span>
+        <h3>Blockchain na Escola</h3>
+        <p>EdTech + impacto social</p>
+        <div class="sol__meta"><span class="tag--neutral tag">30k+ certificados emitidos</span><a class="sol__link" href="https://blockchainnaescola.github.io/website/" target="_blank" rel="noopener">blockchainnaescola.github.io/website/</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMO FUNCIONA ============ -->
+<section class="section" id="pesquisa" data-screen-label="Como Funciona">
+  <div class="wrap">
+    <div class="intro intro--solo">
+      <p class="label label--ochre">COMO FUNCIONA</p>
+      <h2 class="h-md">100% alinhado com os padrões globais IFRS S1 &amp; S2</h2>
+    </div>
+    <div class="flow">
+      <div class="flow__step">
+        <span class="material-symbols-outlined">login</span>
+        <div class="flow__k">ENTRADA</div>
+        <div class="flow__v">Projetos de Impacto</div>
+      </div>
+      <div class="flow__arrow">→</div>
+      <div class="flow__step flow__step--motor">
+        <span class="material-symbols-outlined">settings_suggest</span>
+        <div class="flow__k">MOTOR REFAZ</div>
+        <div class="flow__v">
+          <ul>
+            <li>ISSB / IFRS S1&amp;S2</li>
+            <li>Certificação ReFaz</li>
+            <li>Blockchain Timestamping</li>
+          </ul>
+        </div>
+      </div>
+      <div class="flow__arrow">→</div>
+      <div class="flow__step">
+        <span class="material-symbols-outlined">output</span>
+        <div class="flow__k">SAÍDA</div>
+        <div class="flow__v">Ativo perfeitamente legível para o asset manager global</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRAÇÃO & VALIDAÇÃO ============ -->
+<section class="section" data-screen-label="Tração & Validação">
+  <div class="wrap">
+    <div class="intro">
+      <div>
+        <p class="label label--moss">TRAÇÃO &amp; VALIDAÇÃO</p>
+        <h2 class="h-md">Validado onde realmente importa</h2>
+      </div>
+      <p class="lede">Não vencemos competições de startups — somos validados pelas instituições que escrevem as regras do jogo financeiro e governamental no Brasil.</p>
+    </div>
+    <div class="track">
+      <div class="milestone">
+        <div class="milestone__yr">2023</div>
+        <div class="milestone__badge">STN / ENAP</div>
+      </div>
+      <div class="milestone">
+        <div class="milestone__yr">2024</div>
+        <div class="milestone__badge">G20 TechSprint</div>
+      </div>
+      <div class="milestone">
+        <div class="milestone__yr">2025</div>
+        <div class="milestone__badge">LIFT Lab / BCB</div>
+      </div>
+      <div class="track__end">▶</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MÉTRICAS DE USO ============ -->
+<section class="section" data-screen-label="Métricas de Uso">
+  <div class="wrap">
+    <div class="intro intro--solo">
+      <p class="label label--terra">MÉTRICAS DE USO</p>
+      <h2 class="h-md">Impacto em números reais</h2>
+    </div>
+    <div class="metrics">
+      <div class="metric">
+        <span class="material-symbols-outlined">task_alt</span>
+        <div class="metric__n">692</div>
+        <div class="metric__l">tasks criadas · Balaio</div>
+        <a class="metric__src" href="https://usebalaio.com" target="_blank" rel="noopener">usebalaio.com</a>
+      </div>
+      <div class="metric">
+        <span class="material-symbols-outlined">account_balance_wallet</span>
+        <div class="metric__n">40</div>
+        <div class="metric__l">usuários · RastaWallet</div>
+        <a class="metric__src" href="https://app.cryptorastas.com" target="_blank" rel="noopener">app.cryptorastas.com</a>
+      </div>
+      <div class="metric">
+        <span class="material-symbols-outlined">verified</span>
+        <div class="metric__n">4.000+</div>
+        <div class="metric__l">certificados onchain · BnE via 101.xyz</div>
+        <a class="metric__src" href="https://101.xyz" target="_blank" rel="noopener">101.xyz</a>
+      </div>
+      <div class="metric">
+        <span class="material-symbols-outlined">workspace_premium</span>
+        <div class="metric__n">26.000+</div>
+        <div class="metric__l">certificados emitidos · Blockchain na Escola</div>
+        <span class="metric__src"></span>
+      </div>
+      <div class="metric">
+        <span class="material-symbols-outlined">school</span>
+        <div class="metric__n">840</div>
+        <div class="metric__l">estudantes · Intro to Web3 EduLatam</div>
+        <span class="metric__src"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLIENTES & ECOSSISTEMAS ============ -->
+<section class="section" data-screen-label="Clientes & Ecossistemas">
+  <div class="wrap">
+    <div class="intro intro--solo">
+      <p class="label label--slate">CLIENTES &amp; ECOSSISTEMAS</p>
+      <h2 class="h-md">Quem confia no nosso trabalho</h2>
+    </div>
+    <div class="dir">
+      <article class="dir__item">
+        <div class="dir__name"><a href="https://ekonavi.com" target="_blank" rel="noopener">Ekonavi</a></div>
+        <p class="dir__d">Rankeamento de impacto para 17 projetos + cohort sobre mercado de carbono</p>
+      </article>
+      <article class="dir__item">
+        <div class="dir__name"><a href="https://gooddollar.org" target="_blank" rel="noopener">GoodDollar</a></div>
+        <p class="dir__d">Aceitos no programa Good Builders para impulsionar demanda pelo token da rede</p>
+      </article>
+      <article class="dir__item">
+        <div class="dir__logo"><a href="https://optimism.io" target="_blank" rel="noopener"><img src="https://cryptologos.cc/logos/optimism-ethereum-op-logo.png" alt="Optimism" loading="lazy"></a></div>
+        <div class="dir__name"><a href="https://optimism.io" target="_blank" rel="noopener">Optimism</a></div>
+        <p class="dir__d">Blockchain na Escola reconhecida via Retro Funding · $10k USD</p>
+      </article>
+      <article class="dir__item">
+        <div class="dir__logo"><a href="https://ethereum.foundation" target="_blank" rel="noopener"><img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" alt="Ethereum Foundation" loading="lazy"></a></div>
+        <div class="dir__name"><a href="https://ethereum.foundation" target="_blank" rel="noopener">Ethereum Foundation</a></div>
+        <p class="dir__d">Impact Gift Initiative · contribuições ao ecossistema Ethereum</p>
+      </article>
+      <article class="dir__item">
+        <div class="dir__logo"><a href="https://near.org" target="_blank" rel="noopener"><img src="https://cryptologos.cc/logos/near-protocol-near-logo.png" alt="NEAR Protocol" loading="lazy"></a></div>
+        <div class="dir__name"><a href="https://near.org" target="_blank" rel="noopener">NEAR Protocol</a></div>
+        <p class="dir__d">Blockchain na Escola selecionada como parceira de ecossistema</p>
+      </article>
+      <article class="dir__item">
+        <div class="dir__logo"><a href="https://polygon.technology" target="_blank" rel="noopener"><img src="https://cryptologos.cc/logos/polygon-matic-logo.png" alt="Polygon" loading="lazy"></a></div>
+        <div class="dir__name"><a href="https://polygon.technology" target="_blank" rel="noopener">Polygon</a></div>
+        <p class="dir__d">30k+ certificados do Blockchain na Escola emitidos onchain na rede</p>
+      </article>
+      <article class="dir__item">
+        <div class="dir__logo"><a href="https://gnosis.io" target="_blank" rel="noopener"><img src="https://cryptologos.cc/logos/gnosis-gno-logo.png" alt="Gnosis" loading="lazy"></a></div>
+        <div class="dir__name"><a href="https://gnosis.io" target="_blank" rel="noopener">Gnosis</a></div>
+        <p class="dir__d">Balaio funcionando na rede, aceitando CRC e integrado à carteira Circles</p>
+      </article>
+      <article class="dir__item">
+        <div class="dir__logo"><a href="https://celo.org" target="_blank" rel="noopener"><img src="https://cryptologos.cc/logos/celo-celo-logo.png" alt="Celo" loading="lazy"></a></div>
+        <div class="dir__name"><a href="https://celo.org" target="_blank" rel="noopener">Celo</a></div>
+        <p class="dir__d">2.000+ novas carteiras criadas em eventos no contexto da missão do Blockchain na Escola</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMUNIDADES PARCEIRAS ============ -->
+<section class="section" data-screen-label="Comunidades Parceiras">
+  <div class="wrap">
+    <div class="intro intro--solo">
+      <p class="label label--moss">COMUNIDADES PARCEIRAS</p>
+      <h2 class="h-md">Redes que constroem junto</h2>
+    </div>
+    <div class="dir">
+      <article class="dir__item">
+        <div class="dir__name"><a href="https://team1.network" target="_blank" rel="noopener">Team1</a></div>
+        <p class="dir__d">Comunidade global de builders do ecossistema Avalanche</p>
+      </article>
+      <article class="dir__item">
+        <div class="dir__name"><a href="https://letscocreate.com.br" target="_blank" rel="noopener">Let's CoCreate</a></div>
+        <p class="dir__d">Curso Web3 de 8 semanas para cocriação de projetos reais no Brasil</p>
+      </article>
+      <article class="dir__item">
+        <div class="dir__name"><a href="https://modularcrypto.xyz" target="_blank" rel="noopener">Modular Crypto</a></div>
+        <p class="dir__d">Maior hub de mídia e educação Web3 do Brasil</p>
+      </article>
+      <article class="dir__item">
+        <div class="dir__name"><a href="https://offchainbrazil.org" target="_blank" rel="noopener">Offchain Brasil</a></div>
+        <p class="dir__d">Capítulo brasileiro da rede global Offchain de entusiastas Web3</p>
+      </article>
+      <article class="dir__item">
+        <div class="dir__name"><a href="https://cryptorastas.com" target="_blank" rel="noopener">Cryptorastas</a></div>
+        <p class="dir__d">Comunidade que usa blockchain para empoderar a cultura Reggae e Rasta</p>
+      </article>
+      <article class="dir__item">
+        <div class="dir__name"><a href="https://pizzadao.org" target="_blank" rel="noopener">PizzaDAO</a></div>
+        <p class="dir__d">Comunidade global unindo arte, pizza e Web3 em 150+ cidades</p>
+      </article>
+      <article class="dir__item">
+        <div class="dir__name"><a href="https://refidao.com" target="_blank" rel="noopener">ReFiDAO</a></div>
+        <p class="dir__d">Rede global de finanças regenerativas conectando movimentos locais e globais</p>
+      </article>
+      <article class="dir__item">
+        <div class="dir__name"><a href="https://agroforestdao.web.app" target="_blank" rel="noopener">AgroforestDAO</a></div>
+        <p class="dir__d">Comunidade Web3 promovendo co-gestão de agroflorestas no Brasil</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EQUIPE ============ -->
+<section class="section" data-screen-label="Equipe">
+  <div class="wrap">
+    <div class="intro">
+      <div>
+        <p class="label label--terra">EQUIPE</p>
+        <h2 class="h-md">A equipe que você não pode replicar</h2>
+      </div>
+      <p class="subhead">O contexto é o nosso produto.</p>
+    </div>
+    <div class="team">
+      <article class="person">
+        <div class="person__head">
+          <img class="person__photo" src="https://verbersouza.github.io/avatar.jpg" alt="Verber Souza" loading="lazy">
+          <div>
+            <div class="person__role">LEGAL &amp; RESEARCH</div>
+            <h3 class="person__name">Verber Souza</h3>
+          </div>
+        </div>
+        <ul>
+          <li>Estratégia jurídica que assegurou R$3Mi em reparações para vítimas de Brumadinho-MG</li>
+          <li>VP da Comissão de Criptoativos da OAB-MG</li>
+        </ul>
+      </article>
+      <article class="person">
+        <div class="person__head">
+          <img class="person__photo" src="https://marcelorefi.github.io/avatar.jpg" alt="Marcelo Silva PhD" loading="lazy">
+          <div>
+            <div class="person__role">CTO &amp; RESEARCH</div>
+            <h3 class="person__name">Marcelo Silva PhD</h3>
+          </div>
+        </div>
+        <ul>
+          <li>Contribuiu para iniciativas que arrecadaram +$5Mi USD para impacto global</li>
+          <li>100+ eventos · 29 países · 30k certificados emitidos</li>
+          <li>Criador do Blockchain na Escola</li>
+        </ul>
+      </article>
+    </div>
+    <div class="callout callout--moss"><b>IMPACTO COMPROVADO</b> — Redes coordenadas pelos fundadores operam em 20+ países.</div>
+  </div>
+</section>
+
 </main>
 
-<footer class="footer">
-  <div class="footer-inner">
+<!-- ============ FOOTER ============ -->
+<footer class="footer" data-screen-label="Footer">
+  <div class="wrap footer__grid">
     <div>
-      <div class="footer-brand">ReFaz</div>
-      <div class="footer-tagline">Infraestrutura de Impacto</div>
-      <div class="footer-copy">© <span id="yr"></span> ReFaz — A Terra · Projetos · O Código · Capital</div>
+      <div class="logo logo--footer"><img src="Refaz.png" alt="RE/FAZ"></div>
+      <p class="footer__tag">Infraestrutura e Estratégia em tecnologias emergentes para o desenvolvimento social.</p>
+      <div class="footer__copy">© 2025 ReFaz · Belo Horizonte, Brasil</div>
     </div>
-    <ul class="footer-links">
-      <li><a href="https://linkedin.com/company/refaz" target="_blank">LinkedIn</a></li>
-      <li><a href="https://github.com/ReFaz0x" target="_blank">GitHub</a></li>
-      <li><a href="mailto:hello@refaz.studio">hello@refaz.studio</a></li>
-    </ul>
+    <div class="footer__links">
+      <a href="#projetos">Projetos</a>
+      <a href="#pesquisa">Pesquisa</a>
+      <a href="mailto:contato@refaz.xyz">Contato</a>
+    </div>
   </div>
 </footer>
-<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+
+<script>
+  document.getElementById('navToggle').addEventListener('click', function () {
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+  document.querySelectorAll('#navLinks a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      document.getElementById('navLinks').classList.remove('open');
+    });
+  });
+</script>
+
 </body>
 </html>
