@@ -1,0 +1,471 @@
+<!doctype html>
+
+<html lang="pt-BR">
+
+<head>
+
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Balaio — Microcrédito · ReFaz</title>
+
+  <link rel="stylesheet" href="refaz.css">
+
+</head>
+
+<body>
+
+<nav class="nav">
+
+  <div class="nav-inner">
+
+    <a class="nav-brand" href="index.html">ReFaz</a>
+
+    <ul class="nav-links" id="navLinks">
+
+      <li><a href="projects.html">Projetos</a></li>
+
+      <li><a href="publications.html">Pesquisa</a></li>
+
+      <li><a href="about.html">Sobre</a></li>
+
+      <li><a href="bne/index.html">BnE</a></li>
+
+      <li><a href="Contact.html" class="nav-cta">Contato</a></li>
+
+    </ul>
+
+    <button class="nav-mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+
+  </div>
+
+</nav>
+
+<main>
+
+  <div class="wrap">
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+      <span class="section-label">Balaio · Proposta de Negócio</span>
+
+      <h1 class="hero-quote">Infraestrutura whitelabel de microcrédito descentralizado.</h1>
+
+      <p class="hero-sub">O Balaio já é um motor de escrow onchain que paga por resultado. A mesma mecânica que coordena tarefas e libera fundos na aprovação serve, sem reescrever nada, como trilho de concessão e liquidação de crédito.</p>
+
+      <div class="hero-chips">
+
+        <span class="chip chip-ochre">Escrow onchain</span>
+
+        <span class="chip">Celo · Gnosis</span>
+
+        <span class="chip chip-moss">692 tasks criadas</span>
+
+      </div>
+
+      <div class="hero-actions">
+
+        <a class="btn btn-primary" href="Contact.html">Conversar sobre a oferta</a>
+
+        <a class="btn btn-secondary" href="https://usebalaio.com" target="_blank">Ver o Balaio →</a>
+
+      </div>
+
+    </section>
+
+    <!-- PROBLEMA -->
+
+    <section class="section">
+
+      <span class="section-label">O Problema</span>
+
+      <h2 class="section-title">Dois muros: custo de operação e custo de confiança</h2>
+
+      <p class="section-sub">Conceder R$ 200 para um entregador comprar uma mochila não paga a estrutura que um banco precisa para emprestar R$ 200 mil. E quem está na ponta não tem como provar lastro e garantia na linguagem que o capital exige.</p>
+
+      <div class="card">
+
+        <p class="card-body" style="font-size:15px; max-width:760px;">
+
+          O resultado é conhecido: o crédito produtivo de menor ticket simplesmente não acontece — ou acontece de forma informal, cara e sem rastro.
+
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- O QUE É HOJE -->
+
+    <section class="section">
+
+      <span class="section-label">O Que o Balaio Já É Hoje</span>
+
+      <h2 class="section-title">Produto em produção, não protótipo</h2>
+
+      <div class="grid-2">
+
+        <div class="card">
+
+          <span class="card-label">Mecânica</span>
+
+          <h3 class="card-title">Pagamento por resultado aprovado</h3>
+
+          <hr>
+
+          <p class="card-body">Fundos travados em escrow onchain, liberados só na entrega validada. O smart contract é o custodiante — sem intermediário.</p>
+
+        </div>
+
+        <div class="card">
+
+          <span class="card-label">Infra & Identidade</span>
+
+          <h3 class="card-title">Multi-rede + KYC nativo</h3>
+
+          <hr>
+
+          <p class="card-body">Opera em Celo e Gnosis, aceitando CRC e integrado à carteira Circles. Identidade via GoodDollar.</p>
+
+        </div>
+
+      </div>
+
+      <div style="margin-top:24px; display:flex; gap:16px; flex-wrap:wrap;">
+
+        <div class="stat-block" style="flex:1; min-width:140px;">
+
+          <div class="stat-num">692</div>
+
+          <div class="stat-label">Tasks criadas</div>
+
+        </div>
+
+        <div class="stat-block" style="flex:1; min-width:140px;">
+
+          <div class="stat-num">2</div>
+
+          <div class="stat-label">Redes em produção</div>
+
+        </div>
+
+        <div class="stat-block" style="flex:1; min-width:140px;">
+
+          <div class="stat-num">4</div>
+
+          <div class="stat-label">Parceiros de ecossistema</div>
+
+        </div>
+
+      </div>
+
+      <p class="card-body" style="margin-top:16px;">Parcerias com GoodDollar, Green Pill Brasil, Blockchain na Escola e UNIFACS.</p>
+
+    </section>
+
+    <!-- A VIRADA -->
+
+    <section class="section">
+
+      <span class="section-label">A Virada</span>
+
+      <h2 class="section-title">Tarefa como primitiva de crédito</h2>
+
+      <p class="section-sub">Uma operação de crédito é, estruturalmente, idêntica a uma tarefa com escrow. O credor cria a tarefa que descreve os termos. O tomador adiciona o colateral numa tarefa privada e cede o TaskID. O contrato faz o resto — nenhuma linha nova, só uma nova leitura do que já existe.</p>
+
+      <div style="border:1px solid var(--ink);">
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; background:var(--bg-card); border-bottom:1px solid var(--ink);">
+
+          <div style="padding:14px 20px; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; border-right:1px solid var(--ink);">Crédito tradicional</div>
+
+          <div style="padding:14px 20px; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--terra);">Equivalente no Balaio</div>
+
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; border-bottom:1px solid var(--ink);">
+
+          <div style="padding:14px 20px; font-size:14px; border-right:1px solid var(--ink);">Condições do empréstimo</div>
+
+          <div style="padding:14px 20px; font-size:14px; color:var(--ink-sub);">Tarefa descreve as condições de concessão</div>
+
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; border-bottom:1px solid var(--ink);">
+
+          <div style="padding:14px 20px; font-size:14px; border-right:1px solid var(--ink);">Garantia / colateral</div>
+
+          <div style="padding:14px 20px; font-size:14px; color:var(--ink-sub);">Colateral travado em tarefa privada criada pelo requerente</div>
+
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; border-bottom:1px solid var(--ink);">
+
+          <div style="padding:14px 20px; font-size:14px; border-right:1px solid var(--ink);">Pedido de crédito</div>
+
+          <div style="padding:14px 20px; font-size:14px; color:var(--ink-sub);">Submissão como completação da tarefa (extrato, renda ou colateral em cripto)</div>
+
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr;">
+
+          <div style="padding:14px 20px; font-size:14px; border-right:1px solid var(--ink);">Liberação dos fundos</div>
+
+          <div style="padding:14px 20px; font-size:14px; color:var(--ink-sub);">Pagamento automático atrelado à aprovação</div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- WHITELABEL -->
+
+    <section class="section">
+
+      <span class="section-label">Como Funciona o Whitelabel</span>
+
+      <h2 class="section-title">Dois ambientes, um motor</h2>
+
+      <p class="section-sub">Organizações e comunidades que querem operar seu próprio microecossistema de crédito acessam a página whitelabel, registram a organização (KYC), sobem branding e logo — o ambiente vira a cara delas.</p>
+
+      <div class="grid-2">
+
+        <div class="card">
+
+          <span class="card-label">Ambiente Regulado</span>
+
+          <h3 class="card-title">Com KYC e compliance</h3>
+
+          <hr>
+
+          <p class="card-body">A organização anexa os documentos que comprovam autorização para emissão de crédito. Trilha de auditoria onchain por padrão.</p>
+
+        </div>
+
+        <div class="card">
+
+          <span class="card-label">Ambiente Não Regulado</span>
+
+          <h3 class="card-title">Mesmo fluxo, sem KYC</h3>
+
+          <hr>
+
+          <p class="card-body">Agentes interagem direto com o smart contract. Útil para escolas e educadores de finanças que rodam experimentos com tokens próprios.</p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- OPORTUNIDADE -->
+
+    <section class="section">
+
+      <span class="section-label">Oportunidade Imediata</span>
+
+      <h2 class="section-title">160 mil pessoas já contratadas</h2>
+
+      <p class="section-sub">Não é um mercado hipotético. Temos contrato com duas comunidades de usuários, redes prontas e com vínculo estabelecido, esperando o trilho. O caso de partida é o micro-microcrédito produtivo: alugar ou comprar uma bicicleta, uma mochila de delivery — ticket pequeno, giro rápido, lastro no próprio trabalho.</p>
+
+      <div style="display:flex; gap:16px; flex-wrap:wrap;">
+
+        <div class="stat-block" style="flex:1; min-width:150px;">
+
+          <div class="stat-num">160k</div>
+
+          <div class="stat-label">Pessoas em duas comunidades</div>
+
+        </div>
+
+        <div class="stat-block" style="flex:1; min-width:150px;">
+
+          <div class="stat-num">150k</div>
+
+          <div class="stat-label">Concentradas num mesmo espaço</div>
+
+        </div>
+
+        <div class="stat-block" style="flex:1; min-width:150px;">
+
+          <div class="stat-num">10k</div>
+
+          <div class="stat-label">Espalhadas por vários países</div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- MONETIZAÇÃO -->
+
+    <section class="section">
+
+      <span class="section-label">Como o Balaio Ganha Dinheiro</span>
+
+      <h2 class="section-title">Monetização nativa, embutida no contrato</h2>
+
+      <div class="grid-2">
+
+        <div class="stat-block">
+
+          <div class="stat-num">3%</div>
+
+          <div class="stat-label">Na criação de tarefas</div>
+
+        </div>
+
+        <div class="stat-block">
+
+          <div class="stat-num">2%</div>
+
+          <div class="stat-label">No claim de rewards</div>
+
+        </div>
+
+      </div>
+
+      <div class="card" style="margin-top:24px;">
+
+        <span class="card-label">Camada de Parceiros</span>
+
+        <h3 class="card-title">O ponto de encontro do crédito</h3>
+
+        <hr>
+
+        <p class="card-body" style="font-size:15px; max-width:760px;">
+
+          Toda operação que passa pelo trilho gera receita na concessão e na liquidação — sem custo marginal de aquisição por transação. Em cima do trilho, empresas de crédito entram para oferecer produtos, garantias e serviços. O Balaio vira o ponto de encontro entre quem precisa de capital e quem o oferece, e cobra pela infraestrutura, não pelo risco.
+
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- A OFERTA -->
+
+    <section class="section">
+
+      <span class="section-label">A Oferta</span>
+
+      <h2 class="section-title">Capital de bootstrap + apoio jurídico e operacional</h2>
+
+      <p class="section-sub">Os termos são abertos e negociamos com flexibilidade real — essa transformação faz parte da missão que definimos em 2022 em torno da descentralização do crédito. Priorizamos o parceiro certo sobre a melhor planilha.</p>
+
+      <div class="grid-3">
+
+        <div class="card">
+
+          <span class="card-label">Operacional</span>
+
+          <h3 class="card-title">Colocar as comunidades no trilho</h3>
+
+          <hr>
+
+          <p class="card-body">As duas comunidades (160k pessoas) rodando crédito produtivo no Balaio.</p>
+
+        </div>
+
+        <div class="card">
+
+          <span class="card-label">Jurídico</span>
+
+          <h3 class="card-title">Estruturar a operação regulada</h3>
+
+          <hr>
+
+          <p class="card-body">Segurança na emissão de crédito, com o know-how regulatório da ReFaz no contexto BACEN / CVM.</p>
+
+        </div>
+
+        <div class="card">
+
+          <span class="card-label">Produto</span>
+
+          <h3 class="card-title">Escalar o whitelabel</h3>
+
+          <hr>
+
+          <p class="card-body">Endurecer o fluxo para operação multi-organização.</p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- POR QUE AGORA -->
+
+    <section class="section">
+
+      <span class="section-label">Por Que a ReFaz, Por Que Agora</span>
+
+      <h2 class="section-title">O atalho que ninguém mais tem de pé</h2>
+
+      <p class="section-sub">O marco cripto brasileiro amadureceu, o microcrédito segue represado pelo custo de operação, e ninguém juntou as duas pontas com um produto que já está rodando. A ReFaz traz o que não se replica: trilho em produção, redes de 160k pessoas já contratadas, e a camada de adequação regulatória que transforma uma boa ideia de crédito num ativo legível para o capital.</p>
+
+      <div class="card">
+
+        <span class="card-label">Referências da Tese</span>
+
+        <hr>
+
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:12px; margin-top:4px;">
+
+          <li><a class="card-link" href="https://marcelosilva.substack.com/p/decentralization-of-the-monetary" target="_blank">Decentralization of the Monetary →</a></li>
+
+          <li><a class="card-link" href="https://marcelosilva.substack.com/p/defi-the-economic-beyond-finances" target="_blank">DeFi: The Economic Beyond Finances →</a></li>
+
+          <li><a class="card-link" href="https://www.prensa.li/p/tokenizacao-faz-sentido-para-pequenos-negocios" target="_blank">Tokenização faz sentido para pequenos negócios →</a></li>
+
+        </ul>
+
+      </div>
+
+      <a class="btn btn-terra" style="margin-top:32px; display:inline-block;" href="Contact.html">Falar com a ReFaz</a>
+
+    </section>
+
+  </div>
+
+</main>
+
+<footer class="footer">
+
+  <div class="footer-inner">
+
+    <div>
+
+      <div class="footer-brand">ReFaz</div>
+
+      <div class="footer-tagline">Infraestrutura de Impacto</div>
+
+      <div class="footer-copy">© <span id="yr"></span> ReFaz</div>
+
+    </div>
+
+    <ul class="footer-links">
+
+      <li><a href="https://linkedin.com/company/refaz" target="_blank">LinkedIn</a></li>
+
+      <li><a href="https://github.com/ReFaz0x" target="_blank">GitHub</a></li>
+
+      <li><a href="mailto:hello@refaz.studio">hello@refaz.studio</a></li>
+
+    </ul>
+
+  </div>
+
+</footer>
+
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+
+</body>
+
+</html>
