@@ -106,7 +106,7 @@ img { display: block; max-width: 100%; }
 .hero { padding-top: clamp(40px, 5vw, 72px); }
 .hero__grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: clamp(24px, 3vw, 48px); align-items: start; padding-inline: 0; }
 .hero__grid > div { padding-inline: 0; }
-.eyebrow { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--slate); margin: 0 0 24px; display: inline-flex; align-items: center; gap: 12px; }
+.eyebrow { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--slate); margin: 5 5 24px; display: inline-flex; align-items: center; gap: 12px; }
 .eyebrow::before { content: ""; width: 24px; height: 1px; background: var(--slate); }
 .hero .h-lg { max-width: 16ch; font-size: clamp(33px, 5.6vw, 66px); }
 .hero__lede { margin-top: 26px; max-width: 52ch; }
