@@ -13,7 +13,8 @@
   <link rel="stylesheet" href="refaz.css">
 
 <style>
-  .balaio-proposal .section { border-top: none; }
+  .balaio-proposal .section { border-top: none; padding-block: 19px; }
+  .balaio-proposal .stat-block .stat-num { font-size: 24px; }
 </style>
 
 </head>
@@ -53,21 +54,17 @@
     <!-- HERO -->
 
     <section class="hero">
-
-      <img src="assets/balaio-logo.png" alt="Balaio" style="height:64px; width:auto; margin-bottom:24px;">
-
-      <span class="section-label">Balaio · Proposta de Negócio</span>
-
-      <h1 class="hero-quote">Infraestrutura whitelabel de microcrédito descentralizado.</h1>
-
-      <p class="hero-sub">O Balaio já é um motor de escrow onchain que paga por resultado. A mesma mecânica que coordena tarefas e libera fundos na aprovação serve, sem reescrever nada, como trilho de concessão e liquidação de crédito.</p>
-
-      <div class="hero-actions">
-
-        <a class="btn btn-secondary" href="https://usebalaio.com" target="_blank">Ver o Balaio →</a>
-
+      <div style="display:flex; align-items:center; gap:48px; flex-wrap:wrap;">
+        <img src="assets/balaio-logo.png" alt="Balaio" style="height:200px; width:auto; flex-shrink:0;">
+        <div style="flex:1; min-width:320px;">
+          <span class="section-label">Balaio · Proposta de Negócio</span>
+          <h1 class="hero-quote">Infraestrutura whitelabel de microcrédito descentralizado.</h1>
+          <p class="hero-sub">O Balaio já é um motor de escrow onchain que paga por resultado. A mesma mecânica que coordena tarefas e libera fundos na aprovação serve, sem reescrever nada, como trilho de concessão e liquidação de crédito.</p>
+          <div class="hero-actions">
+            <a class="btn btn-secondary" href="https://usebalaio.com" target="_blank">Ver o Balaio →</a>
+          </div>
+        </div>
       </div>
-
     </section>
 
     <!-- PROBLEMA -->
@@ -130,7 +127,7 @@
 
       <div style="margin-top:24px; display:flex; gap:16px; flex-wrap:wrap;">
 
-        <div class="stat-block" style="flex:1; min-width:140px;">
+        <div class="stat-block" style="flex:1; min-width:140px; padding:14px 16px;">
 
           <div class="stat-num">692</div>
 
@@ -138,7 +135,7 @@
 
         </div>
 
-        <div class="stat-block" style="flex:1; min-width:140px;">
+        <div class="stat-block" style="flex:1; min-width:140px; padding:14px 16px;">
 
           <div class="stat-num">2</div>
 
@@ -146,7 +143,7 @@
 
         </div>
 
-        <div class="stat-block" style="flex:1; min-width:140px;">
+        <div class="stat-block" style="flex:1; min-width:140px; padding:14px 16px;">
 
           <div class="stat-num">4</div>
 
@@ -260,10 +257,12 @@
     <section class="section">
       <span class="section-label">Oportunidade Imediata</span>
       <h2 class="section-title">Potencial de alcance de 150 mil pessoas pós-lançamento</h2>
-      <p class="section-sub">Via contrato já firmado com organização que reúne 150 mil membros. O caso de partida é o micro-microcrédito produtivo: alugar ou comprar uma bicicleta, uma mochila de delivery — ticket pequeno, giro rápido, lastro no próprio trabalho.</p>
-      <div class="stat-block" style="max-width:280px;">
-        <div class="stat-num">150k</div>
-        <div class="stat-label">Membros na organização parceira</div>
+      <div class="grid-2" style="align-items:center;">
+        <p class="section-sub" style="margin-bottom:0;">Via contrato já firmado com organização que reúne 150 mil membros. O caso de partida é o micro-microcrédito produtivo: alugar ou comprar uma bicicleta, uma mochila de delivery — ticket pequeno, giro rápido, lastro no próprio trabalho.</p>
+        <div class="stat-block" style="max-width:280px;">
+          <div class="stat-num">150k</div>
+          <div class="stat-label">Membros na organização parceira</div>
+        </div>
       </div>
     </section>
 
@@ -371,11 +370,12 @@
 
       <span class="section-label">Por Que a ReFaz, Por Que Agora</span>
 
-      <h2 class="section-title">O atalho que ninguém mais tem de pé</h2>
-
-      <div class="grid-2" style="align-items:start;">
-        <p class="section-sub" style="margin-bottom:0;">O marco cripto brasileiro amadureceu, o microcrédito segue represado pelo custo de operação, e ninguém juntou as duas pontas com um produto que já está rodando. A ReFaz traz o que não se replica: trilho em produção, redes já contratadas, e a camada de adequação regulatória que transforma uma boa ideia de crédito num ativo legível para o capital.</p>
-        <div class="card">
+      <div class="grid-2" style="align-items:stretch;">
+        <div>
+          <h2 class="section-title">A oportunidade fora do radar do crédito tradicional</h2>
+          <p class="section-sub" style="margin-bottom:0;">O marco cripto brasileiro amadureceu, o microcrédito segue represado pelo custo de operação, e ninguém juntou as duas pontas com um produto que já está rodando. A ReFaz traz o que não se replica: trilho em produção, redes já contratadas, e a camada de adequação regulatória que transforma uma boa ideia de crédito num ativo legível para o capital.</p>
+        </div>
+        <div class="card" style="display:flex; flex-direction:column;">
           <span class="card-label">Referências da Tese</span>
           <hr>
           <ul style="list-style:none; display:flex; flex-direction:column; gap:12px; margin-top:4px;">
