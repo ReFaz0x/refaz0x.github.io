@@ -122,7 +122,9 @@ img { display: block; max-width: 100%; }
 .chip { font-size: 11.5px; letter-spacing: 0.03em; background: var(--card); padding: 8px 13px; white-space: nowrap; flex: 1; text-align: center; border-right: 1px solid var(--rule-strong); }
 .chip:last-child { border-right: none; }
 
-.hero__banner { margin-top: clamp(34px, 4vw, 60px); }
+/* banner — margin shorthand zeroes the browser-default 40px inline margins
+   on <figure>, so the image lines up with the text/stats and every other section */
+.hero__banner { margin: clamp(34px, 4vw, 60px) 0 0; }
 .hero__banner img { width: 100%; height: auto; border: 1px solid var(--rule-strong); }
 .caption { margin-top: 10px; font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
 
