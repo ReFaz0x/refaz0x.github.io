@@ -20,6 +20,7 @@
   --font:      'Courier Prime', 'Courier New', monospace;
   --wrap:      1100px;
   --radius:    0px;
+  --section-y: 28px;
 }
 
 /* ── RESET ───────────────────────────────────────────────────── */
@@ -152,10 +153,8 @@ img { display: block; max-width: 100%; }
 
 /* ── SECTION ─────────────────────────────────────────────────── */
 .section {
-  padding: 72px 0;
-  border-top: 1px solid var(--ink);
+  padding: var(--section-y) 0;
 }
-.section:first-child { border-top: none; }
 
 .section-label {
   font-size: 11px;
