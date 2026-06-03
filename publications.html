@@ -5,6 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Pesquisa & Publicações — ReFaz</title>
   <link rel="stylesheet" href="refaz.css">
+  <style>
+    .filter-bar { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:32px; }
+    .filter-btn {
+      font-family: var(--font); font-size:11px; font-weight:700;
+      text-transform:uppercase; letter-spacing:0.08em;
+      padding:6px 14px; border:1px solid var(--ink);
+      background:transparent; cursor:pointer; color:var(--ink-sub);
+      transition:background 0.1s, color 0.1s;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background:var(--ink); color:var(--bg);
+    }
+    .pub-year { font-size:11px; font-weight:700; letter-spacing:0.12em;
+      text-transform:uppercase; color:var(--ink-sub); margin:28px 0 12px;
+      padding-bottom:6px; border-bottom:1px solid var(--ink); }
+    .pub-list { display:flex; flex-direction:column; gap:0; }
+    .pub-item { padding:12px 0; border-bottom:1px solid rgba(26,26,26,0.12);
+      display:flex; flex-direction:column; gap:4px; }
+    .pub-item[hidden] { display:none; }
+    .pub-item a { font-size:14px; font-weight:700; color:var(--ink); text-decoration:none; }
+    .pub-item a:hover { text-decoration:underline; }
+    .pub-item .pub-no-link { font-size:14px; font-weight:700; color:var(--ink); }
+    .pub-meta { font-size:12px; color:var(--ink-sub); }
+    .pub-byline { font-size:11px; color:var(--ink-sub); font-style:italic; }
+    .year-group[hidden] { display:none; }
+  </style>
 </head>
 <body>
 
@@ -26,175 +52,378 @@
   <div class="wrap">
 
     <section class="hero">
-      <span class="section-label">Pesquisa & Publicações</span>
-      <h1 class="hero-quote">A pesquisa por trás da ReFaz.</h1>
+      <span class="section-label">Field Archive</span>
+      <h1 class="hero-quote">Pesquisa & Publicações</h1>
       <p class="hero-sub">ReFi, RWAs, stablecoins, blockchain legal e crises humanitárias — uma década de escrita e pesquisa de campo dos dois fundadores, da teoria à validação regulatória.</p>
     </section>
 
-    <!-- ===================== MARCELO ===================== -->
-    <section class="section">
-      <span class="section-label">Marcelo Silva · CTO & Research</span>
-      <h2 class="section-title">Economia de tokens, governança e finanças regenerativas</h2>
-      <p class="section-sub">5+ anos em ReFi, 29+ países, $3.5M mobilizados. Da filosofia política à segurança de stablecoins.</p>
-      <div style="margin-bottom:16px;">
-        <a class="card-link" href="https://marcelorefi.github.io" target="_blank" rel="noopener">Site →</a>
-        &nbsp;&nbsp;<a class="card-link" href="https://x.com/MarceloReFi" target="_blank" rel="noopener">X →</a>
-        &nbsp;&nbsp;<a class="card-link" href="https://www.linkedin.com/in/marcelo-silva-0581b9216/" target="_blank" rel="noopener">LinkedIn →</a>
-      </div>
+    <!-- FILTER BAR -->
+    <div class="filter-bar" id="filterBar">
+      <button class="filter-btn active" data-filter="all">Tudo</button>
+      <button class="filter-btn" data-filter="research">Research</button>
+      <button class="filter-btn" data-filter="refi">ReFi</button>
+      <button class="filter-btn" data-filter="comunidade">Comunidade</button>
+      <button class="filter-btn" data-filter="security">Security</button>
+      <button class="filter-btn" data-filter="legal">Legal</button>
+      <button class="filter-btn" data-filter="impacto">Impacto</button>
+    </div>
 
-      <!-- Highlights -->
-      <div style="display:flex; flex-direction:column; gap:1px; border:1px solid var(--ink); margin-bottom:32px;">
-        <a href="https://medium.com/@celatamorg/the-challenge-of-impact-capital-allocation-part-1-9cf1404f60ad" target="_blank" rel="noopener" style="text-decoration:none;">
+    <!-- DESTAQUES -->
+    <section class="section">
+      <span class="section-label">Destaques</span>
+      <div style="display:flex; flex-direction:column; gap:1px; border:1px solid var(--ink);" id="featured">
+
+        <a href="https://medium.com/@celatamorg/the-challenge-of-impact-capital-allocation-part-1-9cf1404f60ad" target="_blank" rel="noopener" style="text-decoration:none;"
+           data-category="research impacto refi">
           <div class="featured-card" style="border:none; border-bottom:1px solid var(--ink);">
             <span class="featured-card-icon">⭐</span>
             <div>
-              <div style="font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-sub); margin-bottom:4px;">Destaque · CeLatam + Pedro Parrachia · 2025</div>
+              <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--ink-sub);margin-bottom:4px;">CeLatam + Pedro Parrachia · 2025 · Marcelo Silva</div>
               <div class="featured-card-title">The Challenge of Impact Capital Allocation</div>
               <div class="featured-card-body">Série em 2 partes sobre os pontos cegos estruturais do investimento de impacto.</div>
               <span class="featured-card-cta">Ler Série →</span>
             </div>
           </div>
         </a>
-        <a href="https://medium.com/@celatamorg/blended-finance-impact-capital-allocation-in-chapada-diamantinas-renewable-energy-projects-b7bff755b24d" target="_blank" rel="noopener" style="text-decoration:none;">
+
+        <a href="https://medium.com/@celatamorg/blended-finance-impact-capital-allocation-in-chapada-diamantinas-renewable-energy-projects-b7bff755b24d" target="_blank" rel="noopener" style="text-decoration:none;"
+           data-category="research impacto refi">
           <div class="featured-card" style="border:none; border-bottom:1px solid var(--ink);">
             <span class="featured-card-icon">⭐</span>
             <div>
-              <div style="font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-sub); margin-bottom:4px;">Destaque · CeLatam + Liga Colaborativa</div>
+              <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--ink-sub);margin-bottom:4px;">CeLatam + Liga Colaborativa · Marcelo Silva</div>
               <div class="featured-card-title">Blended Finance & Impact Capital Allocation in Chapada Diamantina</div>
               <div class="featured-card-body">Como modelos de blended finance interagem com transições de energia limpa e comunidades locais na Bahia.</div>
               <span class="featured-card-cta">Ler Artigo →</span>
             </div>
           </div>
         </a>
-        <a href="https://www.canva.com/design/DAGrGKUrXWE/1OeElUOz6_H71W-dYoQIrA/view" target="_blank" rel="noopener" style="text-decoration:none;">
-          <div class="featured-card" style="border:none;">
+
+        <a href="https://www.canva.com/design/DAGrGKUrXWE/1OeElUOz6_H71W-dYoQIrA/view" target="_blank" rel="noopener" style="text-decoration:none;"
+           data-category="comunidade refi">
+          <div class="featured-card" style="border:none; border-bottom:1px solid var(--ink);">
             <span class="featured-card-icon">⭐</span>
             <div>
-              <div style="font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-sub); margin-bottom:4px;">Destaque · Handbook · CeLatam · 2025</div>
+              <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--ink-sub);margin-bottom:4px;">Handbook · CeLatam · 2025 · Marcelo Silva</div>
               <div class="featured-card-title">How to Build Web3 Communities in Latin America</div>
               <div class="featured-card-body">Manual prático de construção de comunidades Web3 na América Latina.</div>
               <span class="featured-card-cta">Ler Handbook →</span>
             </div>
           </div>
         </a>
-      </div>
 
-      <!-- Pesquisa & Impacto -->
-      <h3 class="card-title" style="margin-bottom:16px;">Pesquisa & Impacto</h3>
-      <ul style="list-style:none; display:flex; flex-direction:column; gap:14px; margin-bottom:32px;">
-        <li><a class="card-link" href="https://marcelorefi.github.io/defi-research.html" target="_blank" rel="noopener">DeFi Security Research — Attack Modeling & Protocol Vulnerability (Mento, Sonne, Velodrome) →</a></li>
-        <li>Modelling Assets for a Sustainable Economy — ReFaz + Ekonavi · LIFT Lab (Banco Central do Brasil / Febraban)</li>
-        <li>Classification System for the Sovereign Sustainable Bonds of Brazil — Vencedor, 2 trilhas · National Treasury Tokenization Challenge</li>
-        <li><a class="card-link" href="https://medium.com/@celatamorg/from-chapada-to-reconcavo-when-clean-energy-hurts-4cbbd67889f3" target="_blank" rel="noopener">From Chapada to Reconcavo: When Clean Energy Hurts →</a></li>
-        <li><a class="card-link" href="https://docsend.com/view/pmjbehm8tj2c3xin" target="_blank" rel="noopener">Hacking Growth — Stablecoins, RWA, and ReFi in Latin America (Full Research) →</a></li>
-        <li><a class="card-link" href="https://docsend.com/view/y8cnt8exwznbb6ap" target="_blank" rel="noopener">Mapping ReFi in LatAm →</a></li>
-        <li><a class="card-link" href="https://docsend.com/view/jsmqrcu97hg57jjf" target="_blank" rel="noopener">Stablecoins in Brazil →</a></li>
-        <li><a class="card-link" href="https://docsend.com/view/d62qjrjzwc59xh3b" target="_blank" rel="noopener">RWA in Latin America →</a></li>
-      </ul>
-
-      <!-- ReFi & Comunidade -->
-      <h3 class="card-title" style="margin-bottom:16px;">ReFi & Comunidade</h3>
-      <ul style="list-style:none; display:flex; flex-direction:column; gap:14px; margin-bottom:32px;">
-        <li><a class="card-link" href="https://blog.refidao.com/the-brazilian-ecosystem-of-regenerative-finance-pt-i/" target="_blank" rel="noopener">The Brazilian Ecosystem of Regenerative Finance — PT I (ReFiDAO) →</a></li>
-        <li><a class="card-link" href="https://blog.refidao.com/refi-spring-2022-retrospective-2/" target="_blank" rel="noopener">ReFi Spring 2022 Retrospective (ReFiDAO) →</a></li>
-        <li><a class="card-link" href="https://blog.refidao.com/the-case-for-a-refi-ecosystem-between-brazil-and-cameroon/" target="_blank" rel="noopener">The Case for a ReFi Ecosystem between Brazil and Cameroon (ReFiDAO) →</a></li>
-        <li><a class="card-link" href="https://blog.refidao.com/the-refi-ecosystem-in-suriname/" target="_blank" rel="noopener">The ReFi Ecosystem in Suriname (ReFiDAO) →</a></li>
-        <li><a class="card-link" href="https://medium.com/@cryptocommonsassociation/collaborative-finance-intellectuals-out-of-their-caves-3aca96815cea" target="_blank" rel="noopener">Collaborative Finance — Intellectuals out of their caves →</a></li>
-        <li><a class="card-link" href="https://blockchainnaescola.substack.com/p/the-journey" target="_blank" rel="noopener">Empowering Education with Blockchain: The Journey of Blockchain na Escola →</a></li>
-        <li><a class="card-link" href="https://medium.com/@celatamorg/latin-americas-web3-momentum-my-journey-at-blockchain-rio-2025-97ef7b7bdb6a" target="_blank" rel="noopener">Latin America's Web3 Momentum — Blockchain.RIO 2025 →</a></li>
-        <li>Meet the Builders — série em 6 partes (CeLatam): <a class="card-link" href="https://medium.com/@celatamorg/meet-the-builders-part-1-romina-from-eth-kipu-a86cffda6227" target="_blank" rel="noopener">Romina (ETH Kipu) →</a></li>
-      </ul>
-
-      <!-- Fundamentos & Acadêmico -->
-      <h3 class="card-title" style="margin-bottom:16px;">Fundamentos & Acadêmico</h3>
-      <ul style="list-style:none; display:flex; flex-direction:column; gap:14px;">
-        <li>O que são as Finanças Regenerativas (ReFi)? — <a class="card-link" href="https://prensali.substack.com/p/o-que-sao-financas-regenerativas-refi-parte-i" target="_blank" rel="noopener">Parte I →</a> · <a class="card-link" href="https://prensali.substack.com/p/o-que-sao-financas-regenerativas-refi-parte-ii" target="_blank" rel="noopener">Parte II →</a></li>
-        <li>Tokenização faz sentido para pequenos negócios? — <a class="card-link" href="https://prensali.substack.com/p/tokenizacao-faz-sentido-para-pequenos-negocios" target="_blank" rel="noopener">Parte I →</a> · <a class="card-link" href="https://prensali.substack.com/p/tokenizacao-faz-sentido-para-pequenos-negocios-parte-ii" target="_blank" rel="noopener">Parte II →</a> · <a class="card-link" href="https://prensali.substack.com/p/tokenizacao-faz-sentido-para-pequenos-negocios-parte-iii-web3-tokenizacao-e-daos" target="_blank" rel="noopener">Parte III →</a></li>
-        <li>"Contrata-se Operador de Pirâmide Financeira" (regulação blockchain) — <a class="card-link" href="https://prensali.substack.com/p/contrata-se-operador-de-piramide-financeira-a-regulacao-da-tecnologia-blockchain-parte-i" target="_blank" rel="noopener">Parte I →</a> · <a class="card-link" href="https://prensali.substack.com/p/contrata-se-operador-de-piramide-financeira-a-regulacao-da-tecnologia-blockchain-no-brasil-parte-ii" target="_blank" rel="noopener">Parte II →</a></li>
-        <li><a class="card-link" href="https://marcelosilva.substack.com/p/decentralization-of-the-monetary" target="_blank" rel="noopener">Decentralization of the Monetary Structure →</a></li>
-        <li><a class="card-link" href="https://marcelosilva.substack.com/p/defi-the-economic-beyond-finances" target="_blank" rel="noopener">DeFi: The Economy Beyond Finances →</a></li>
-        <li><a class="card-link" href="https://marcelosilva.substack.com/p/supply-and-demand-for-primary-goods" target="_blank" rel="noopener">Supply and Demand for Primary Goods: Productive Justice and Freedom →</a></li>
-        <li><a class="card-link" href="https://prensali.substack.com/p/a-demanda-por-profissionais-de-humanidades-na-industria-web3" target="_blank" rel="noopener">A demanda por profissionais de humanidades na indústria Web3 →</a></li>
-        <li><a class="card-link" href="https://periodicos.ufc.br/argumentos/article/view/31034" target="_blank" rel="noopener">O núcleo normativo e operacional (Nancy Fraser e Mangabeira Unger) — Revista Argumentos (UFC) →</a></li>
-        <li><a class="card-link" href="https://www.agathos-international-review.com/issues/2017/15/Silva.pdf" target="_blank" rel="noopener">Antidestiny, Antifragile and Antimetaphysical — Agathos International Review →</a></li>
-        <li><a class="card-link" href="https://anpof.org.br/comunicacoes/coluna-anpof/filosofia-politica-liberdade-produtiva-e-tecnologia-blockchain" target="_blank" rel="noopener">Filosofia política, Liberdade Produtiva e Tecnologia Blockchain — Coluna ANPOF →</a></li>
-      </ul>
-    </section>
-
-    <!-- ===================== VERBER ===================== -->
-    <section class="section">
-      <span class="section-label">Verber Souza · Legal & Research</span>
-      <h2 class="section-title">Blockchain legal: justiça social e ação climática</h2>
-      <p class="section-sub">Advogado e gestor de projetos blockchain. Soluções no cruzamento entre tecnologia, direito e sistemas descentralizados para desafios humanitários complexos.</p>
-      <div style="margin-bottom:16px;">
-        <a class="card-link" href="https://verbersouza.github.io" target="_blank" rel="noopener">Site →</a>
-        &nbsp;&nbsp;<a class="card-link" href="https://x.com/verbersouza" target="_blank" rel="noopener">X →</a>
-        &nbsp;&nbsp;<a class="card-link" href="https://www.linkedin.com/in/verber-souza/" target="_blank" rel="noopener">LinkedIn →</a>
-      </div>
-
-      <!-- Highlights -->
-      <div style="display:flex; flex-direction:column; gap:1px; border:1px solid var(--ink); margin-bottom:32px;">
-        <a href="https://medium.com/@verbersouza/blockchain-for-humanitarian-crisis-a-new-paradigm-for-justice-651d6b25d449" target="_blank" rel="noopener" style="text-decoration:none;">
+        <a href="https://medium.com/@verbersouza/blockchain-for-humanitarian-crisis-a-new-paradigm-for-justice-651d6b25d449" target="_blank" rel="noopener" style="text-decoration:none;"
+           data-category="legal impacto">
           <div class="featured-card" style="border:none; border-bottom:1px solid var(--ink);">
             <span class="featured-card-icon">⭐</span>
             <div>
-              <div style="font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-sub); margin-bottom:4px;">Destaque · Medium</div>
+              <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--ink-sub);margin-bottom:4px;">Medium · Verber Souza</div>
               <div class="featured-card-title">Blockchain for Humanitarian Crisis: A New Paradigm for Justice</div>
               <div class="featured-card-body">Como tecnologias blockchain podem transformar resposta a crises e mecanismos de justiça.</div>
               <span class="featured-card-cta">Ler →</span>
             </div>
           </div>
         </a>
-        <a href="https://medium.com/@verbersouza/ethereum-10-years-opening-doors-for-a-prohibited-world-11a4165cdcb0" target="_blank" rel="noopener" style="text-decoration:none;">
+
+        <a href="https://medium.com/@verbersouza/ethereum-10-years-opening-doors-for-a-prohibited-world-11a4165cdcb0" target="_blank" rel="noopener" style="text-decoration:none;"
+           data-category="refi comunidade">
           <div class="featured-card" style="border:none; border-bottom:1px solid var(--ink);">
             <span class="featured-card-icon">⭐</span>
             <div>
-              <div style="font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-sub); margin-bottom:4px;">Destaque · Medium</div>
+              <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--ink-sub);margin-bottom:4px;">Medium · Verber Souza</div>
               <div class="featured-card-title">Ethereum 10 Years: Opening Doors for a Prohibited World</div>
               <div class="featured-card-body">Uma década do Ethereum como ferramenta de coordenação global e expansão do jardim infinito.</div>
               <span class="featured-card-cta">Ler →</span>
             </div>
           </div>
         </a>
-        <a href="https://mirror.xyz/verb4l.eth/Zyd_SlIjxx0qVOhxoiKmvCZY_FDxabtFo6awjKR8bkA" target="_blank" rel="noopener" style="text-decoration:none;">
+
+        <a href="https://mirror.xyz/verb4l.eth/Zyd_SlIjxx0qVOhxoiKmvCZY_FDxabtFo6awjKR8bkA" target="_blank" rel="noopener" style="text-decoration:none;"
+           data-category="research legal">
           <div class="featured-card" style="border:none;">
             <span class="featured-card-icon">⭐</span>
             <div>
-              <div style="font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-sub); margin-bottom:4px;">Destaque · Mirror</div>
+              <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--ink-sub);margin-bottom:4px;">Mirror · 2025 · Verber Souza</div>
               <div class="featured-card-title">Tokenização de Ativos Reais (RWA) em 2025</div>
               <div class="featured-card-body">Análise de tendências de tokenização de ativos reais e insights do mercado de investimento.</div>
               <span class="featured-card-cta">Ler →</span>
             </div>
           </div>
         </a>
+
+      </div>
+    </section>
+
+    <!-- ARQUIVO POR ANO -->
+    <section class="section">
+      <span class="section-label">Arquivo</span>
+
+      <!-- 2025 -->
+      <div class="year-group" id="group-2025">
+        <div class="pub-year">2025</div>
+        <div class="pub-list">
+
+          <div class="pub-item" data-category="research impacto refi">
+            <a href="https://medium.com/@celatamorg/the-challenge-of-impact-capital-allocation-part-1-9cf1404f60ad" target="_blank" rel="noopener">The Challenge of Impact Capital Allocation (Parte 1 & 2)</a>
+            <span class="pub-meta">CeLatam + Pedro Parrachia · Medium · 2025</span>
+            <span class="pub-byline">Marcelo Silva</span>
+          </div>
+
+          <div class="pub-item" data-category="research impacto refi">
+            <a href="https://medium.com/@celatamorg/blended-finance-impact-capital-allocation-in-chapada-diamantinas-renewable-energy-projects-b7bff755b24d" target="_blank" rel="noopener">Blended Finance & Impact Capital Allocation in Chapada Diamantina</a>
+            <span class="pub-meta">CeLatam + Liga Colaborativa · Medium · 2025</span>
+            <span class="pub-byline">Marcelo Silva</span>
+          </div>
+
+          <div class="pub-item" data-category="comunidade refi">
+            <a href="https://www.canva.com/design/DAGrGKUrXWE/1OeElUOz6_H71W-dYoQIrA/view" target="_blank" rel="noopener">How to Build Web3 Communities in Latin America</a>
+            <span class="pub-meta">Handbook · CeLatam · 2025</span>
+            <span class="pub-byline">Marcelo Silva</span>
+          </div>
+
+          <div class="pub-item" data-category="comunidade refi">
+            <a href="https://medium.com/@celatamorg/latin-americas-web3-momentum-my-journey-at-blockchain-rio-2025-97ef7b7bdb6a" target="_blank" rel="noopener">Latin America's Web3 Momentum — Blockchain.RIO 2025</a>
+            <span class="pub-meta">CeLatam · Medium · 2025</span>
+            <span class="pub-byline">Marcelo Silva</span>
+          </div>
+
+          <div class="pub-item" data-category="research legal">
+            <a href="https://mirror.xyz/verb4l.eth/Zyd_SlIjxx0qVOhxoiKmvCZY_FDxabtFo6awjKR8bkA" target="_blank" rel="noopener">Tokenização de Ativos Reais (RWA) em 2025</a>
+            <span class="pub-meta">Mirror · 2025</span>
+            <span class="pub-byline">Verber Souza</span>
+          </div>
+
+          <div class="pub-item" data-category="refi comunidade">
+            <a href="https://medium.com/@verbersouza/ethereum-10-years-opening-doors-for-a-prohibited-world-11a4165cdcb0" target="_blank" rel="noopener">Ethereum 10 Years: Opening Doors for a Prohibited World</a>
+            <span class="pub-meta">Medium · 2025</span>
+            <span class="pub-byline">Verber Souza</span>
+          </div>
+
+          <div class="pub-item" data-category="legal impacto">
+            <a href="https://medium.com/@verbersouza/blockchain-for-humanitarian-crisis-a-new-paradigm-for-justice-651d6b25d449" target="_blank" rel="noopener">Blockchain for Humanitarian Crisis: A New Paradigm for Justice</a>
+            <span class="pub-meta">Medium · 2025</span>
+            <span class="pub-byline">Verber Souza</span>
+          </div>
+
+        </div>
       </div>
 
-      <!-- Web3 & RWA -->
-      <h3 class="card-title" style="margin-bottom:16px;">Web3 & RWA</h3>
-      <ul style="list-style:none; display:flex; flex-direction:column; gap:14px; margin-bottom:32px;">
-        <li>NFT: Para além do hype — <a class="card-link" href="https://prensali.substack.com/p/nft-para-alem-do-hype-parte-1" target="_blank" rel="noopener">Parte I →</a> · <a class="card-link" href="https://prensali.substack.com/p/nft-para-alem-do-hype-parte-2" target="_blank" rel="noopener">Parte II →</a></li>
-      </ul>
+      <!-- 2024 -->
+      <div class="year-group" id="group-2024">
+        <div class="pub-year">2024</div>
+        <div class="pub-list">
 
-      <!-- Finanças Descentralizadas -->
-      <h3 class="card-title" style="margin-bottom:16px;">Finanças Descentralizadas</h3>
-      <ul style="list-style:none; display:flex; flex-direction:column; gap:14px; margin-bottom:32px;">
-        <li><a class="card-link" href="https://mirror.xyz/verb4l.eth/XY6Cu01CwkwE21-d3rkQgRIOGD2H1RlGev0GOG5oxc4" target="_blank" rel="noopener">DeFi: finanças descentralizadas numa perspectiva de raça (I) →</a></li>
-        <li><a class="card-link" href="https://mirror.xyz/verb4l.eth/wkqRxq7E4e66PJ2zAzEfOMPDluCzaxnVg1HfuTuOQTk" target="_blank" rel="noopener">ReFi: tecnologia para impacto ambiental →</a></li>
-      </ul>
+          <div class="pub-item" data-category="security research">
+            <a href="https://marcelorefi.github.io/defi-research.html" target="_blank" rel="noopener">DeFi Security Research — Attack Modeling & Protocol Vulnerability (Mento, Sonne, Velodrome)</a>
+            <span class="pub-meta">marcelorefi.github.io · 2024</span>
+            <span class="pub-byline">Marcelo Silva</span>
+          </div>
 
-      <!-- Crises Climáticas & Humanitárias -->
-      <h3 class="card-title" style="margin-bottom:16px;">Crises Climáticas & Humanitárias</h3>
-      <ul style="list-style:none; display:flex; flex-direction:column; gap:14px; margin-bottom:32px;">
-        <li><a class="card-link" href="https://mirror.xyz/verb4l.eth/UCdjDOdM688cLLAJzIm8f76WRo01eM5NsEEI5akH9AI" target="_blank" rel="noopener">The use of Blockchain in humanitarian crises →</a></li>
-        <li><a class="card-link" href="https://mirror.xyz/verb4l.eth/pt7WKXvkxQ6LUnojJCu2GBBcJcKl7ZJYGDQD5h0kquA" target="_blank" rel="noopener">Series: Brazilian Payments for Environmental Services →</a></li>
-      </ul>
+          <div class="pub-item" data-category="impacto refi">
+            <a href="https://medium.com/@celatamorg/from-chapada-to-reconcavo-when-clean-energy-hurts-4cbbd67889f3" target="_blank" rel="noopener">From Chapada to Reconcavo: When Clean Energy Hurts</a>
+            <span class="pub-meta">CeLatam · Medium · 2024</span>
+            <span class="pub-byline">Marcelo Silva</span>
+          </div>
 
-      <!-- Blockchain Legal -->
-      <h3 class="card-title" style="margin-bottom:16px;">Blockchain Legal</h3>
-      <ul style="list-style:none; display:flex; flex-direction:column; gap:14px;">
-        <li><a class="card-link" href="https://mirror.xyz/verb4l.eth/JzEhyIskX3yl7HGbyLE-HQaHBcrxtgrBFpAaf7HV2pg" target="_blank" rel="noopener">Blockchain Legal (I): Cibercultura e Direito →</a></li>
-        <li><a class="card-link" href="https://mirror.xyz/verb4l.eth/putUEvGmDTtkjxnBUcJrk4boARU_JA9LIjCvbnDEZ6g" target="_blank" rel="noopener">Tributação de Criptoativos: NFTs e utility tokens no Brasil →</a></li>
-      </ul>
+          <div class="pub-item" data-category="comunidade">
+            <a href="https://medium.com/@celatamorg/meet-the-builders-part-1-romina-from-eth-kipu-a86cffda6227" target="_blank" rel="noopener">Meet the Builders — Série em 6 partes (Parte 1: Romina, ETH Kipu)</a>
+            <span class="pub-meta">CeLatam · Medium · 2024</span>
+            <span class="pub-byline">Marcelo Silva</span>
+          </div>
+
+          <div class="pub-item" data-category="impacto refi comunidade">
+            <a href="https://blockchainnaescola.substack.com/p/the-journey" target="_blank" rel="noopener">Empowering Education with Blockchain: The Journey of Blockchain na Escola</a>
+            <span class="pub-meta">Blockchain na Escola · Substack · 2024</span>
+            <span class="pub-byline">Marcelo Silva</span>
+          </div>
+
+          <div class="pub-item" data-category="legal impacto">
+            <a href="https://mirror.xyz/verb4l.eth/UCdjDOdM688cLLAJzIm8f76WRo01eM5NsEEI5akH9AI" target="_blank" rel="noopener">The Use of Blockchain in Humanitarian Crises</a>
+            <span class="pub-meta">Mirror · 2024</span>
+            <span class="pub-byline">Verber Souza</span>
+          </div>
+
+          <div class="pub-item" data-category="impacto refi">
+            <a href="https://mirror.xyz/verb4l.eth/pt7WKXvkxQ6LUnojJCu2GBBcJcKl7ZJYGDQD5h0kquA" target="_blank" rel="noopener">Series: Brazilian Payments for Environmental Services</a>
+            <span class="pub-meta">Mirror · 2024</span>
+            <span class="pub-byline">Verber Souza</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 2023-2022 -->
+      <div class="year-group" id="group-2023">
+        <div class="pub-year">2023 – 2022</div>
+        <div class="pub-list">
+
+          <div class="pub-item" data-category="research refi">
+            <a href="https://docsend.com/view/pmjbehm8tj2c3xin" target="_blank" rel="noopener">Hacking Growth — Stablecoins, RWA, and ReFi in Latin America</a>
+            <span class="pub-meta">DocSend · Full Research · 2023</span>
+            <span class="pub-byline">Marcelo Silva</span>
+          </div>
+
+          <div class="pub-item" data-category="research refi">
+            <a href="https://docsend.com/view/y8cnt8exwznbb6ap" target="_blank" rel="noopener">Mapping ReFi in LatAm</a>
+            <span class="pub-meta">DocSend · 2023</span>
+            <span class="pub-byline">Marcelo Silva</span>
+          </div>
+
+          <div class="pub-item" data-category="research">
+            <a href="https://docsend.com/view/jsmqrcu97hg57jjf" target="_blank" rel="noopener">Stablecoins in Brazil</a>
+            <span class="pub-meta">DocSend · 2023</span>
+            <span class="pub-byline">Marcelo Silva</span>
+          </div>
+
+          <div class="pub-item" data-category="research">
+            <a href="https://docsend.com/view/d62qjrjzwc59xh3b" target="_blank" rel="noopener">RWA in Latin America</a>
+            <span class="pub-meta">DocSend · 2023</span>
+            <span class="pub-byline">Marcelo Silva</span>
+          </div>
+
+          <div class="pub-item" data-category="research impacto">
+            <span class="pub-no-link">Modelling Assets for a Sustainable Economy</span>
+            <span class="pub-meta">ReFaz + Ekonavi · LIFT Lab (Banco Central do Brasil / Febraban) · 2023</span>
+            <span class="pub-byline">Marcelo Silva</span>
+          </div>
+
+          <div class="pub-item" data-category="research impacto">
+            <span class="pub-no-link">Classification System for the Sovereign Sustainable Bonds of Brazil</span>
+            <span class="pub-meta">Vencedor — National Treasury Tokenization Challenge · 2 trilhas · 2023</span>
+            <span class="pub-byline">Marcelo Silva</span>
+          </div>
+
+          <div class="pub-item" data-category="refi comunidade">
+            <a href="https://blog.refidao.com/the-brazilian-ecosystem-of-regenerative-finance-pt-i/" target="_blank" rel="noopener">The Brazilian Ecosystem of Regenerative Finance — PT I</a>
+            <span class="pub-meta">ReFiDAO Blog · 2023</span>
+            <span class="pub-byline">Marcelo Silva</span>
+          </div>
+
+          <div class="pub-item" data-category="refi comunidade">
+            <a href="https://blog.refidao.com/refi-spring-2022-retrospective-2/" target="_blank" rel="noopener">ReFi Spring 2022 Retrospective</a>
+            <span class="pub-meta">ReFiDAO Blog · 2022</span>
+            <span class="pub-byline">Marcelo Silva</span>
+          </div>
+
+          <div class="pub-item" data-category="refi comunidade impacto">
+            <a href="https://blog.refidao.com/the-case-for-a-refi-ecosystem-between-brazil-and-cameroon/" target="_blank" rel="noopener">The Case for a ReFi Ecosystem between Brazil and Cameroon</a>
+            <span class="pub-meta">ReFiDAO Blog · 2022</span>
+            <span class="pub-byline">Marcelo Silva</span>
+          </div>
+
+          <div class="pub-item" data-category="refi comunidade">
+            <a href="https://blog.refidao.com/the-refi-ecosystem-in-suriname/" target="_blank" rel="noopener">The ReFi Ecosystem in Suriname</a>
+            <span class="pub-meta">ReFiDAO Blog · 2022</span>
+            <span class="pub-byline">Marcelo Silva</span>
+          </div>
+
+          <div class="pub-item" data-category="comunidade refi">
+            <a href="https://medium.com/@cryptocommonsassociation/collaborative-finance-intellectuals-out-of-their-caves-3aca96815cea" target="_blank" rel="noopener">Collaborative Finance — Intellectuals out of their caves</a>
+            <span class="pub-meta">Crypto Commons Association · Medium · 2022</span>
+            <span class="pub-byline">Marcelo Silva</span>
+          </div>
+
+          <div class="pub-item" data-category="legal">
+            <span class="pub-no-link">NFT: Para além do hype — Parte I e II</span>
+            <span class="pub-meta">Prensali · Substack · 2022 — <a href="https://prensali.substack.com/p/nft-para-alem-do-hype-parte-1" target="_blank" rel="noopener" style="color:var(--ink-sub);">Parte I</a> · <a href="https://prensali.substack.com/p/nft-para-alem-do-hype-parte-2" target="_blank" rel="noopener" style="color:var(--ink-sub);">Parte II</a></span>
+            <span class="pub-byline">Verber Souza</span>
+          </div>
+
+          <div class="pub-item" data-category="refi legal">
+            <a href="https://mirror.xyz/verb4l.eth/XY6Cu01CwkwE21-d3rkQgRIOGD2H1RlGev0GOG5oxc4" target="_blank" rel="noopener">DeFi: finanças descentralizadas numa perspectiva de raça (I)</a>
+            <span class="pub-meta">Mirror · 2022</span>
+            <span class="pub-byline">Verber Souza</span>
+          </div>
+
+          <div class="pub-item" data-category="refi impacto">
+            <a href="https://mirror.xyz/verb4l.eth/wkqRxq7E4e66PJ2zAzEfOMPDluCzaxnVg1HfuTuOQTk" target="_blank" rel="noopener">ReFi: tecnologia para impacto ambiental</a>
+            <span class="pub-meta">Mirror · 2022</span>
+            <span class="pub-byline">Verber Souza</span>
+          </div>
+
+          <div class="pub-item" data-category="legal">
+            <a href="https://mirror.xyz/verb4l.eth/JzEhyIskX3yl7HGbyLE-HQaHBcrxtgrBFpAaf7HV2pg" target="_blank" rel="noopener">Blockchain Legal (I): Cibercultura e Direito</a>
+            <span class="pub-meta">Mirror · 2022</span>
+            <span class="pub-byline">Verber Souza</span>
+          </div>
+
+          <div class="pub-item" data-category="legal">
+            <a href="https://mirror.xyz/verb4l.eth/putUEvGmDTtkjxnBUcJrk4boARU_JA9LIjCvbnDEZ6g" target="_blank" rel="noopener">Tributação de Criptoativos: NFTs e utility tokens no Brasil</a>
+            <span class="pub-meta">Mirror · 2022</span>
+            <span class="pub-byline">Verber Souza</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Acadêmico & Early Work -->
+      <div class="year-group" id="group-academic">
+        <div class="pub-year">Acadêmico & Early Work</div>
+        <div class="pub-list">
+
+          <div class="pub-item" data-category="research refi">
+            <span class="pub-no-link">O que são as Finanças Regenerativas (ReFi)?</span>
+            <span class="pub-meta">Prensali · Substack — <a href="https://prensali.substack.com/p/o-que-sao-financas-regenerativas-refi-parte-i" target="_blank" rel="noopener" style="color:var(--ink-sub);">Parte I</a> · <a href="https://prensali.substack.com/p/o-que-sao-financas-regenerativas-refi-parte-ii" target="_blank" rel="noopener" style="color:var(--ink-sub);">Parte II</a></span>
+            <span class="pub-byline">Marcelo Silva</span>
+          </div>
+
+          <div class="pub-item" data-category="research comunidade">
+            <span class="pub-no-link">Tokenização faz sentido para pequenos negócios? (3 partes)</span>
+            <span class="pub-meta">Prensali · Substack — <a href="https://prensali.substack.com/p/tokenizacao-faz-sentido-para-pequenos-negocios" target="_blank" rel="noopener" style="color:var(--ink-sub);">I</a> · <a href="https://prensali.substack.com/p/tokenizacao-faz-sentido-para-pequenos-negocios-parte-ii" target="_blank" rel="noopener" style="color:var(--ink-sub);">II</a> · <a href="https://prensali.substack.com/p/tokenizacao-faz-sentido-para-pequenos-negocios-parte-iii-web3-tokenizacao-e-daos" target="_blank" rel="noopener" style="color:var(--ink-sub);">III</a></span>
+            <span class="pub-byline">Marcelo Silva</span>
+          </div>
+
+          <div class="pub-item" data-category="legal research">
+            <span class="pub-no-link">"Contrata-se Operador de Pirâmide Financeira" — regulação blockchain (2 partes)</span>
+            <span class="pub-meta">Prensali · Substack — <a href="https://prensali.substack.com/p/contrata-se-operador-de-piramide-financeira-a-regulacao-da-tecnologia-blockchain-parte-i" target="_blank" rel="noopener" style="color:var(--ink-sub);">Parte I</a> · <a href="https://prensali.substack.com/p/contrata-se-operador-de-piramide-financeira-a-regulacao-da-tecnologia-blockchain-no-brasil-parte-ii" target="_blank" rel="noopener" style="color:var(--ink-sub);">Parte II</a></span>
+            <span class="pub-byline">Marcelo Silva</span>
+          </div>
+
+          <div class="pub-item" data-category="research">
+            <a href="https://marcelosilva.substack.com/p/decentralization-of-the-monetary" target="_blank" rel="noopener">Decentralization of the Monetary Structure</a>
+            <span class="pub-meta">Substack</span>
+            <span class="pub-byline">Marcelo Silva</span>
+          </div>
+
+          <div class="pub-item" data-category="research refi">
+            <a href="https://marcelosilva.substack.com/p/defi-the-economic-beyond-finances" target="_blank" rel="noopener">DeFi: The Economy Beyond Finances</a>
+            <span class="pub-meta">Substack</span>
+            <span class="pub-byline">Marcelo Silva</span>
+          </div>
+
+          <div class="pub-item" data-category="research">
+            <a href="https://marcelosilva.substack.com/p/supply-and-demand-for-primary-goods" target="_blank" rel="noopener">Supply and Demand for Primary Goods: Productive Justice and Freedom</a>
+            <span class="pub-meta">Substack</span>
+            <span class="pub-byline">Marcelo Silva</span>
+          </div>
+
+          <div class="pub-item" data-category="comunidade research">
+            <a href="https://prensali.substack.com/p/a-demanda-por-profissionais-de-humanidades-na-industria-web3" target="_blank" rel="noopener">A demanda por profissionais de humanidades na indústria Web3</a>
+            <span class="pub-meta">Prensali · Substack</span>
+            <span class="pub-byline">Marcelo Silva</span>
+          </div>
+
+          <div class="pub-item" data-category="research">
+            <a href="https://periodicos.ufc.br/argumentos/article/view/31034" target="_blank" rel="noopener">O núcleo normativo e operacional (Nancy Fraser e Mangabeira Unger)</a>
+            <span class="pub-meta">Revista Argumentos · UFC</span>
+            <span class="pub-byline">Marcelo Silva</span>
+          </div>
+
+          <div class="pub-item" data-category="research">
+            <a href="https://www.agathos-international-review.com/issues/2017/15/Silva.pdf" target="_blank" rel="noopener">Antidestiny, Antifragile and Antimetaphysical</a>
+            <span class="pub-meta">Agathos International Review · 2017</span>
+            <span class="pub-byline">Marcelo Silva</span>
+          </div>
+
+          <div class="pub-item" data-category="research legal">
+            <a href="https://anpof.org.br/comunicacoes/coluna-anpof/filosofia-politica-liberdade-produtiva-e-tecnologia-blockchain" target="_blank" rel="noopener">Filosofia política, Liberdade Produtiva e Tecnologia Blockchain</a>
+            <span class="pub-meta">Coluna ANPOF</span>
+            <span class="pub-byline">Marcelo Silva</span>
+          </div>
+
+        </div>
+      </div>
+
     </section>
 
   </div>
@@ -214,6 +443,42 @@
     </ul>
   </div>
 </footer>
-<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+(function () {
+  var btns = document.querySelectorAll('.filter-btn');
+  var items = document.querySelectorAll('.pub-item');
+  var featuredLinks = document.querySelectorAll('#featured [data-category]');
+  var groups = document.querySelectorAll('.year-group');
+
+  function applyFilter(filter) {
+    btns.forEach(function(b){ b.classList.toggle('active', b.dataset.filter === filter); });
+
+    featuredLinks.forEach(function(el) {
+      if (filter === 'all') { el.hidden = false; return; }
+      var cats = el.dataset.category ? el.dataset.category.split(' ') : [];
+      el.hidden = cats.indexOf(filter) === -1;
+    });
+
+    items.forEach(function(item) {
+      if (filter === 'all') { item.hidden = false; return; }
+      var cats = item.dataset.category ? item.dataset.category.split(' ') : [];
+      item.hidden = cats.indexOf(filter) === -1;
+    });
+
+    groups.forEach(function(group) {
+      if (filter === 'all') { group.hidden = false; return; }
+      var visible = Array.from(group.querySelectorAll('.pub-item')).some(function(i){ return !i.hidden; });
+      group.hidden = !visible;
+    });
+  }
+
+  btns.forEach(function(btn) {
+    btn.addEventListener('click', function() { applyFilter(btn.dataset.filter); });
+  });
+}());
+</script>
 </body>
 </html>
