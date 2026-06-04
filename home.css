@@ -21,7 +21,7 @@
 
   --pad-x: clamp(20px, 4.5vw, 64px);
   --section-y: 19px;         /* vertical rhythm — single source for all sections */
-  --maxw: 1280px;
+  --maxw: 1120px;
 }
 
 * { box-sizing: border-box; }
@@ -191,7 +191,7 @@ img { display: block; max-width: 100%; }
 .metric__src:hover { border-color: var(--slate); }
 
 /* ---------- clientes / comunidades ---------- */
-.dir { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(10px, 1.2vw, 16px); }
+.dir { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(10px, 1.2vw, 16px); }
 .dir__item { background: var(--card); padding: 24px 24px 22px; display: flex; flex-direction: column; gap: 12px; transition: background .18s; }
 .dir__item:hover { background: var(--card-hover); }
 .dir__logo { height: 48px; display: flex; align-items: center; }
