@@ -255,3 +255,10 @@ img { display: block; max-width: 100%; }
   .dir { grid-template-columns: 1fr; }
   .person__head { flex-direction: column; }
 }
+
+/* Clientes & Ecossistemas — mural compacto (logo + nome) */
+.dir.dir--compact { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; }
+.dir--compact .dir__item { padding: 16px 12px; gap: 8px; align-items: center; justify-content: center; text-align: center; min-height: 110px; }
+.dir--compact .dir__logo { height: 40px; display: flex; align-items: center; justify-content: center; }
+.dir--compact .dir__logo img { max-height: 40px; max-width: 100%; height: auto; width: auto; object-fit: contain; }
+.dir--compact .dir__name { font-size: 13px; line-height: 1.35; }
