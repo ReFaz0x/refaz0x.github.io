@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marcelo Silva PhD — Web3 Builder & Researcher</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="../Refaz.png">
+<style>
+  :root {
+    --parchment: #FAF7F2;
+    --paper:     #F4F0E8;
+    --card:      #EFE7D9;
+    --card-hover:#E9E0CE;
+    --ink:       #1A1A1A;
+    --slate:     #2D5A6B;
+    --terra:     #C4533A;
+    --ochre:     #E8A838;
+    --moss:      #4A6741;
+    --hairline:  #E1DACE;
+    --muted:     #6E665B;
+    --pad-x:     clamp(20px, 4.5vw, 64px);
+    --maxw:      860px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--parchment);
+    color: var(--ink);
+    font-family: "Courier Prime", "Courier New", monospace;
+    font-size: 15.5px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  img { display: block; max-width: 100%; }
+  ::selection { background: var(--ochre); color: var(--ink); }
+
+  .wrap {
+    width: 100%;
+    max-width: var(--maxw);
+    margin-inline: auto;
+    padding-inline: var(--pad-x);
+  }
+
+  /* ── NAV ── */
+  .nav {
+    border-bottom: 1px solid var(--hairline);
+    background: var(--parchment);
+    position: sticky; top: 0; z-index: 100;
+  }
+  .nav__in {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 14px;
+  }
+  .nav__logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 14px; letter-spacing: 0.05em; }
+  .nav__logo img { height: 22px; width: auto; }
+  .nav__back { font-size: 12px; letter-spacing: 0.1em; color: var(--muted); border: 1px solid var(--hairline); padding: 5px 12px; }
+  .nav__back:hover { background: var(--card); text-decoration: none; }
+
+  /* ── HERO ── */
+  .hero {
+    padding-block: clamp(40px, 6vw, 72px);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .hero__grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: clamp(24px, 4vw, 48px);
+    align-items: start;
+  }
+  .hero__photo {
+    width: clamp(100px, 18vw, 148px);
+    height: clamp(100px, 18vw, 148px);
+    object-fit: cover;
+    border: 1px solid var(--hairline);
+    filter: grayscale(20%);
+  }
+  .hero__eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  .hero__name {
+    font-size: clamp(22px, 4vw, 34px);
+    font-weight: 700;
+    margin: 0 0 6px;
+    line-height: 1.15;
+  }
+  .hero__title {
+    font-size: 15px;
+    color: var(--slate);
+    font-weight: 700;
+    margin: 0 0 16px;
+    letter-spacing: 0.04em;
+  }
+  .hero__bio {
+    margin: 0 0 20px;
+    max-width: 54ch;
+    color: var(--ink);
+  }
+  .hero__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .link-btn {
+    font-family: inherit;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: 1px solid var(--ink);
+    padding: 6px 14px;
+    background: transparent;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .link-btn:hover { background: var(--card); text-decoration: none; }
+  .link-btn--filled { background: var(--ink); color: var(--parchment); }
+  .link-btn--filled:hover { background: var(--slate); }
+
+  /* ── SECTIONS ── */
+  section { padding-block: clamp(32px, 4vw, 52px); border-bottom: 1px solid var(--hairline); }
+  section:last-of-type { border-bottom: none; }
+
+  .sec-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin: 0 0 22px;
+  }
+  .sec-label::before { content: ""; width: 8px; height: 8px; background: var(--slate); flex: none; }
+  .sec-label--terra::before { background: var(--terra); }
+  .sec-label--moss::before  { background: var(--moss); }
+  .sec-label--ochre::before { background: var(--ochre); }
+
+  h2 { font-size: 20px; font-weight: 700; margin: 0 0 24px; }
+
+  /* ── STATS ── */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1px;
+    background: var(--hairline);
+    border: 1px solid var(--hairline);
+    margin-bottom: 0;
+  }
+  .stat {
+    background: var(--parchment);
+    padding: 20px 18px;
+  }
+  .stat__n { font-size: 26px; font-weight: 700; line-height: 1.1; margin-bottom: 4px; }
+  .stat__l { font-size: 12px; color: var(--muted); }
+
+  /* ── EXPERIENCE ── */
+  .exp-list { display: flex; flex-direction: column; gap: 0; }
+  .exp-item {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 0 24px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .exp-item:last-child { border-bottom: none; }
+  .exp-period { font-size: 12px; color: var(--muted); padding-top: 2px; }
+  .exp-role { font-weight: 700; font-size: 14px; margin: 0 0 3px; }
+  .exp-org { font-size: 13px; color: var(--slate); margin: 0 0 6px; }
+  .exp-desc { font-size: 13.5px; color: var(--muted); margin: 0; }
+
+  /* ── PROJECTS ── */
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1px;
+    background: var(--hairline);
+    border: 1px solid var(--hairline);
+  }
+  .project-card {
+    background: var(--parchment);
+    padding: 20px 18px;
+  }
+  .project-card:hover { background: var(--card); }
+  .project-name { font-weight: 700; font-size: 14px; margin: 0 0 6px; }
+  .project-desc { font-size: 13px; color: var(--muted); margin: 0 0 12px; }
+  .project-tag {
+    display: inline-block;
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: 1px solid var(--hairline);
+    padding: 2px 8px;
+    color: var(--muted);
+  }
+
+  /* ── SKILLS ── */
+  .skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .skill-tag {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    border: 1px solid var(--hairline);
+    padding: 5px 12px;
+    background: var(--paper);
+  }
+
+  /* ── CONTACT ── */
+  .contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--hairline);
+    padding-block: 28px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  footer .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 560px) {
+    .hero__grid { grid-template-columns: 1fr; }
+    .hero__photo { width: 80px; height: 80px; }
+    .exp-item { grid-template-columns: 1fr; gap: 4px; }
+    .exp-period { padding-top: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap nav__in">
+    <a class="nav__logo" href="https://refaz.studio">
+      <img src="../Refaz.png" alt="RE/FAZ"> RE/FAZ
+    </a>
+    <a class="nav__back" href="https://refaz.studio">← refaz.studio</a>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero__grid">
+      <img class="hero__photo" src="../team-marcelo.jpg" alt="Marcelo Silva">
+      <div>
+        <p class="hero__eyebrow">Web3 Builder · Researcher · Educator</p>
+        <h1 class="hero__name">Marcelo Silva</h1>
+        <p class="hero__title">PhD · CTO & Co-founder at ReFaz</p>
+        <p class="hero__bio">
+          Builder at the intersection of Web3, impact, and education. Creator of
+          <em>Blockchain na Escola</em> — a program that issued 30k+ certificates across 29 countries.
+          Contributor to initiatives that mobilized over $5M USD for global social impact.
+          Researcher in decentralized governance, regenerative finance, and blockchain applications
+          for social development.
+        </p>
+        <div class="hero__links">
+          <a class="link-btn link-btn--filled" href="mailto:marcelo@refaz.xyz">marcelo@refaz.xyz</a>
+          <a class="link-btn" href="https://marcelorefi.github.io/" target="_blank" rel="noopener">Portfolio →</a>
+          <a class="link-btn" href="https://refaz.studio" target="_blank" rel="noopener">ReFaz Studio →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section>
+  <div class="wrap">
+    <p class="sec-label">Impact</p>
+    <div class="stats">
+      <div class="stat">
+        <div class="stat__n">$5M+</div>
+        <div class="stat__l">USD mobilized for global impact</div>
+      </div>
+      <div class="stat">
+        <div class="stat__n">30k+</div>
+        <div class="stat__l">certificates issued on-chain</div>
+      </div>
+      <div class="stat">
+        <div class="stat__n">100+</div>
+        <div class="stat__l">events organized</div>
+      </div>
+      <div class="stat">
+        <div class="stat__n">29</div>
+        <div class="stat__l">countries reached</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section>
+  <div class="wrap">
+    <p class="sec-label sec-label--terra">Experience</p>
+    <div class="exp-list">
+      <div class="exp-item">
+        <div class="exp-period">2022 — present</div>
+        <div>
+          <div class="exp-role">CTO &amp; Co-founder</div>
+          <div class="exp-org">ReFaz · Belo Horizonte, Brazil</div>
+          <p class="exp-desc">Web3 infrastructure and strategy boutique for social development. Led technical development of Balaio (transparent budget execution + micro-marketplace on Gnosis Chain) and Rasta &amp; Fiel Wallet (blockchain infra for creative economy). Validated by STN/ENAP, G20 TechSprint, and LIFT Lab / Banco Central do Brasil.</p>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-period">2019 — present</div>
+        <div>
+          <div class="exp-role">Founder &amp; Lead Educator</div>
+          <div class="exp-org">Blockchain na Escola</div>
+          <p class="exp-desc">Created and scaled Brazil's largest blockchain education initiative for K-12 and university students. 30k+ on-chain certificates issued via Polygon. Recognized by Optimism Retro Funding ($10k USD), NEAR Protocol, Celo, and Ethereum Foundation Impact Gift Initiative.</p>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-period">2020 — 2022</div>
+        <div>
+          <div class="exp-role">Curriculum Lead &amp; Instructor</div>
+          <div class="exp-org">Let's CoCreate · EduLatam</div>
+          <p class="exp-desc">Designed and delivered 8-week Web3 co-creation courses for Brazilian and Latin American students. Reached 840+ students across the Intro to Web3 EduLatam cohort.</p>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-period">2018 — 2022</div>
+        <div>
+          <div class="exp-role">PhD Researcher</div>
+          <div class="exp-org">University Research · Brazil</div>
+          <p class="exp-desc">Doctoral research at the intersection of technology, governance, and social impact. Applied blockchain and decentralized systems to public policy and educational contexts.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section>
+  <div class="wrap">
+    <p class="sec-label sec-label--moss">Projects</p>
+    <div class="project-grid">
+      <div class="project-card">
+        <div class="project-name">Blockchain na Escola</div>
+        <p class="project-desc">K-12 blockchain education program · 30k+ on-chain certificates · 29 countries</p>
+        <a class="project-tag" href="https://blockchainnaescola.github.io/website/" target="_blank" rel="noopener">blockchainnaescola.github.io →</a>
+      </div>
+      <div class="project-card">
+        <div class="project-name">Balaio</div>
+        <p class="project-desc">Transparent budget execution + micro-marketplace · 692 tasks · Gnosis Chain</p>
+        <a class="project-tag" href="https://usebalaio.com" target="_blank" rel="noopener">usebalaio.com →</a>
+      </div>
+      <div class="project-card">
+        <div class="project-name">Rasta &amp; Fiel Wallet</div>
+        <p class="project-desc">Blockchain infra for creative economy · 40 users in test round</p>
+        <a class="project-tag" href="https://app.cryptorastas.com" target="_blank" rel="noopener">app.cryptorastas.com →</a>
+      </div>
+      <div class="project-card">
+        <div class="project-name">G20 TechSprint 2024</div>
+        <p class="project-desc">Selected team representing Brazil's Web3 ecosystem in the G20 TechSprint challenge</p>
+        <span class="project-tag">Validation milestone</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section>
+  <div class="wrap">
+    <p class="sec-label sec-label--ochre">Skills &amp; Domains</p>
+    <div class="skills-grid">
+      <span class="skill-tag">Blockchain / Web3</span>
+      <span class="skill-tag">Smart Contracts</span>
+      <span class="skill-tag">Decentralized Governance</span>
+      <span class="skill-tag">Regenerative Finance (ReFi)</span>
+      <span class="skill-tag">Impact Measurement · IFRS S1&amp;S2</span>
+      <span class="skill-tag">EdTech</span>
+      <span class="skill-tag">Community Building</span>
+      <span class="skill-tag">Research &amp; Policy</span>
+      <span class="skill-tag">Product Strategy</span>
+      <span class="skill-tag">Gnosis Chain</span>
+      <span class="skill-tag">Polygon</span>
+      <span class="skill-tag">Optimism</span>
+      <span class="skill-tag">NEAR Protocol</span>
+      <span class="skill-tag">Celo</span>
+      <span class="skill-tag">Portuguese · English · Spanish</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section>
+  <div class="wrap">
+    <p class="sec-label">Contact</p>
+    <p>Open to collaborations in Web3 infrastructure, impact investment, research, and education.</p>
+    <div class="contact-row">
+      <a class="link-btn link-btn--filled" href="mailto:marcelo@refaz.xyz">marcelo@refaz.xyz</a>
+      <a class="link-btn" href="https://marcelorefi.github.io/" target="_blank" rel="noopener">Full Portfolio</a>
+      <a class="link-btn" href="https://refaz.studio" target="_blank" rel="noopener">ReFaz Studio</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Marcelo Silva PhD · Belo Horizonte, Brasil</span>
+    <span>© 2025 · <a href="https://refaz.studio">refaz.studio</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
