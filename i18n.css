@@ -1,0 +1,19 @@
+/* i18n/i18n.css — language switcher.
+   Boxed buttons (REFAZ neo-brutalist). Token fallbacks so it renders
+   correctly under both home.css and refaz.css. */
+.lang-switch { display:inline-flex; gap:.4rem; align-items:center; }
+.lang-switch button {
+  font-family:'Courier Prime', monospace;
+  font-weight:700;
+  font-size:.74rem;
+  line-height:1;
+  padding:.45rem .5rem;
+  background:transparent;
+  color:var(--ink,#1a1a1a);
+  border:1px solid var(--ink,#1a1a1a);
+  border-radius:0;
+  cursor:pointer;
+  transition:background .12s ease;
+}
+.lang-switch button:hover { background:rgba(0,0,0,.06); }
+.lang-switch button.is-active { background:var(--ochre,#C8862B); color:#1a1a1a; }
