@@ -3,7 +3,6 @@
   "nav.research": "Investigación",
   "nav.about": "Acerca de",
   "nav.contact": "Contacto",
-
   "hero.eyebrow": "INFRAESTRUCTURA WEB3 · BRASIL",
   "hero.title": "La brecha en la asignación de capital de impacto",
   "hero.lede": "Las startups Web3 con productos sofisticados navegan la regulación local con incertidumbre; los proyectos de sostenibilidad no hablan el idioma del asignador. Sin seguridad institucional, el costo de asignar capital se dispara y deja fuera al inversor. ReFaz conecta esos mundos.",
@@ -12,7 +11,6 @@
   "hero.stat2": "en capital movilizado para impacto",
   "hero.stat3": "usuarios",
   "hero.caption": "ReFaz · Brasil · 2025",
-
   "diag.label": "DIAGNÓSTICO",
   "diag.title": "Dos ecosistemas bloqueados, una misma causa raíz",
   "diag.c1t": "Generadores de Impacto Socioambiental",
@@ -22,7 +20,6 @@
   "diag.c3t": "Asignadores de Capital",
   "diag.c3b": "No logran acceder a iniciativas que generan impacto real ni a startups con crecimiento comprobado.",
   "diag.callout": "<b>CAUSA RAÍZ</b> — La asimetría de información eleva el costo de la confianza y paraliza la asignación de capital.",
-
   "sol.label": "LA SOLUCIÓN",
   "sol.title": "Estrategia y tecnología para el desarrollo social",
   "sol.lede": "Una boutique Web3 que ataca el problema central a través de cuatro verticales integradas.",
@@ -36,7 +33,6 @@
   "sol.i3tag": "40 usuarios · ronda de pruebas",
   "sol.i4p": "EdTech + impacto social",
   "sol.i4tag": "30k+ certificados emitidos",
-
   "how.label": "CÓMO FUNCIONA",
   "how.title": "100% alineado con los estándares globales IFRS S1 &amp; S2",
   "how.inK": "ENTRADA",
@@ -47,11 +43,9 @@
   "how.motor3": "Sellado de tiempo en blockchain",
   "how.outK": "SALIDA",
   "how.outV": "Un activo perfectamente legible para el asset manager global",
-
   "track.label": "TRACCIÓN &amp; VALIDACIÓN",
   "track.title": "Validado donde realmente importa",
   "track.lede": "Nuestras soluciones y productos no ganaron competencias de startups — están validadas por las instituciones que escriben las reglas del juego financiero y gubernamental en Brasil.",
-
   "met.label": "MÉTRICAS DE USO",
   "met.title": "Impacto en números reales",
   "met.l1": "tasks creadas · Balaio",
@@ -59,10 +53,8 @@
   "met.l3": "certificados onchain · BnE vía 101.xyz",
   "met.l4": "certificados emitidos · Blockchain na Escola",
   "met.l5": "estudiantes · Intro to Web3 EduLatam",
-
   "cli.label": "CLIENTES &amp; ECOSISTEMAS",
   "cli.title": "Quiénes confían en nuestro trabajo o productos",
-
   "com.label": "COMUNIDADES ALIADAS",
   "com.title": "Redes que construyen en conjunto",
   "com.d1": "Comunidad global de builders del ecosistema Avalanche",
@@ -74,7 +66,6 @@
   "com.d7": "Red global de finanzas regenerativas que conecta movimientos locales y globales",
   "com.d8": "Comunidad Web3 que promueve la cogestión de agrobosques en Brasil",
   "com.d9": "Infraestructura colaborativa para promover la resiliencia ante eventos extremos.",
-
   "team.label": "EQUIPO",
   "team.title": "El equipo que no puedes replicar",
   "team.subhead": "El contexto es nuestro producto.",
@@ -87,8 +78,27 @@
   "team.m2": "100+ eventos · 29 países · 30k certificados emitidos",
   "team.m3": "Creador de Blockchain na Escola",
   "team.m4": "(Postdoctorado) Miembro del Centro de Estudios en Cooperación Internacional para el Desarrollo (CECID)",
-
   "foot.tag": "Infraestructura y estrategia en tecnologías emergentes para el desarrollo.",
   "foot.copy": "© 2025 ReFaz · Belo Horizonte, Brasil",
-  "foot.contact": "Hablemos"
+  "foot.contact": "Hablemos",
+  "about.heroLabel": "Equipo",
+  "about.heroQuote": "\"El equipo que no puedes replicar.\"",
+  "about.heroSub": "El contexto es nuestro producto. Redes coordinadas por los fundadores operan en más de 20 países.",
+  "about.sectionLegal": "Legal e Investigación",
+  "about.vLabel": "Cofundador",
+  "about.vBody": "Estrategia jurídica y ejecución de impacto en el ecosistema Web3 brasileño.",
+  "about.v1": "Aseguró R$ 3M en reparaciones para víctimas de Brumadinho-MG",
+  "about.v2": "VP de la Comisión de Criptoactivos de la OAB-MG",
+  "about.v3": "Infraestructura jurídica de la primera plataforma brasileña de créditos de biodiversidad tokenizados",
+  "about.vChipLegal": "Ingeniería Legal",
+  "about.vChipBio": "Tokens de Biodiversidad",
+  "about.mLabel": "Cofundador · CTO",
+  "about.mBody": "Investigador, educador y arquitecto de sistemas de impacto global.",
+  "about.m1": "Más de $5M USD movilizados para impacto global",
+  "about.m2": "100+ eventos · 29 países · 30k certificados emitidos",
+  "about.m3": "Creador de Blockchain na Escola",
+  "about.mChipPhd": "Investigación Doctoral",
+  "about.mChipCountries": "29+ Países",
+  "about.mLink": "Sitio Personal →",
+  "foot.tagline": "Infraestructura de Impacto"
 }
