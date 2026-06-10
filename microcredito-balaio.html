@@ -11,6 +11,7 @@
   <title>Balaio — Microcrédito · ReFaz</title>
 
   <link rel="stylesheet" href="refaz.css">
+  <link rel="stylesheet" href="/i18n/i18n.css">
 
 <style>
   .balaio-proposal .stat-block .stat-num { font-size: 24px; }
@@ -33,15 +34,25 @@
 
     <ul class="nav-links" id="navLinks">
 
-      <li><a href="projects.html">Projetos</a></li>
+      <li><a href="projects.html" data-i18n="nav.projects">Projetos</a></li>
 
-      <li><a href="publications.html">Pesquisa</a></li>
+      <li><a href="publications.html" data-i18n="nav.research">Pesquisa</a></li>
 
-      <li><a href="about.html">Sobre</a></li>
+      <li><a href="about.html" data-i18n="nav.about">Sobre</a></li>
 
-      <li><a href="https://blockchainnaescola.github.io/website/">BnE</a></li>
+      <li><a href="https://blockchainnaescola.github.io/website/" data-i18n="nav.education">Educação</a></li>
 
-      <li><a href="Contact.html" class="nav-cta">Contato</a></li>
+      <li>
+        <div class="lang-switch" aria-label="Idioma">
+          <button data-lang="pt">PT</button>
+          <button data-lang="en">EN</button>
+          <button data-lang="es">ES</button>
+          <button data-lang="zh">中文</button>
+          <button data-lang="ja">日本語</button>
+        </div>
+      </li>
+
+      <li><a href="Contact.html" class="nav-cta" data-i18n="nav.contact">Contato</a></li>
 
     </ul>
 
@@ -60,11 +71,11 @@
     <section class="hero">
       <div class="balaio-hero">
         <div class="balaio-hero__text">
-          <span class="section-label">Balaio · Proposta de Negócio</span>
-          <h1 class="hero-quote">Infraestrutura whitelabel de microcrédito descentralizado.</h1>
-          <p class="hero-sub">O Balaio já é um motor de escrow onchain que paga por resultado. A mesma mecânica que coordena tarefas e libera fundos na aprovação serve, sem reescrever nada, como trilho de concessão e liquidação de crédito.</p>
+          <span class="section-label" data-i18n="mc.heroLabel">Balaio · Proposta de Negócio</span>
+          <h1 class="hero-quote" data-i18n="mc.heroQuote">Infraestrutura whitelabel de microcrédito descentralizado.</h1>
+          <p class="hero-sub" data-i18n="mc.heroSub">O Balaio já é um motor de escrow onchain que paga por resultado. A mesma mecânica que coordena tarefas e libera fundos na aprovação serve, sem reescrever nada, como trilho de concessão e liquidação de crédito.</p>
           <div class="hero-actions">
-            <a class="btn btn-secondary" href="https://usebalaio.com" target="_blank">Ver o Balaio →</a>
+            <a class="btn btn-secondary" href="https://usebalaio.com" target="_blank" data-i18n="mc.heroBtn">Ver o Balaio →</a>
           </div>
         </div>
         <div class="balaio-hero__logo">
@@ -77,15 +88,15 @@
 
     <section class="section">
 
-      <span class="section-label">O Problema</span>
+      <span class="section-label" data-i18n="mc.s1label">O Problema</span>
 
-      <h2 class="section-title">Dois muros: custo de operação e custo de confiança</h2>
+      <h2 class="section-title" data-i18n="mc.s1title">Dois muros: custo de operação e custo de confiança</h2>
 
-      <p class="section-sub">Conceder R$ 200 para um entregador comprar uma mochila não paga a estrutura que um banco precisa para emprestar R$ 200 mil. E quem está na ponta não tem como provar lastro e garantia na linguagem que o capital exige.</p>
+      <p class="section-sub" data-i18n="mc.s1sub">Conceder R$ 200 para um entregador comprar uma mochila não paga a estrutura que um banco precisa para emprestar R$ 200 mil. E quem está na ponta não tem como provar lastro e garantia na linguagem que o capital exige.</p>
 
       <div class="card">
 
-        <p class="card-body" style="font-size:15px; max-width:760px;">
+        <p class="card-body" style="font-size:15px; max-width:760px;" data-i18n="mc.s1body">
 
           O resultado é conhecido: o crédito produtivo de menor ticket simplesmente não acontece — ou acontece de forma informal, cara e sem rastro.
 
@@ -99,33 +110,33 @@
 
     <section class="section">
 
-      <span class="section-label">O Que o Balaio Já É Hoje</span>
+      <span class="section-label" data-i18n="mc.s2label">O Que o Balaio Já É Hoje</span>
 
-      <h2 class="section-title">Produto em produção, não protótipo</h2>
+      <h2 class="section-title" data-i18n="mc.s2title">Produto em produção, não protótipo</h2>
 
       <div class="grid-2">
 
         <div class="card">
 
-          <span class="card-label">Mecânica</span>
+          <span class="card-label" data-i18n="mc.c1label">Mecânica</span>
 
-          <h3 class="card-title">Pagamento por resultado aprovado</h3>
+          <h3 class="card-title" data-i18n="mc.c1title">Pagamento por resultado aprovado</h3>
 
           <hr>
 
-          <p class="card-body">Fundos travados em escrow onchain, liberados só na entrega validada. O smart contract é o custodiante — sem intermediário.</p>
+          <p class="card-body" data-i18n="mc.c1body">Fundos travados em escrow onchain, liberados só na entrega validada. O smart contract é o custodiante — sem intermediário.</p>
 
         </div>
 
         <div class="card">
 
-          <span class="card-label">Infra & Identidade</span>
+          <span class="card-label" data-i18n="mc.c2label">Infra & Identidade</span>
 
-          <h3 class="card-title">Multi-rede + KYC nativo</h3>
+          <h3 class="card-title" data-i18n="mc.c2title">Multi-rede + KYC nativo</h3>
 
           <hr>
 
-          <p class="card-body">Opera em Celo e Gnosis, aceitando CRC e integrado à carteira Circles. Identidade via GoodDollar.</p>
+          <p class="card-body" data-i18n="mc.c2body">Opera em Celo e Gnosis, aceitando CRC e integrado à carteira Circles. Identidade via GoodDollar.</p>
 
         </div>
 
@@ -137,7 +148,7 @@
 
           <div class="stat-num">692</div>
 
-          <div class="stat-label">Tasks criadas</div>
+          <div class="stat-label" data-i18n="mc.stat1">Tasks criadas</div>
 
         </div>
 
@@ -145,7 +156,7 @@
 
           <div class="stat-num">2</div>
 
-          <div class="stat-label">Redes em produção</div>
+          <div class="stat-label" data-i18n="mc.stat2">Redes em produção</div>
 
         </div>
 
@@ -153,7 +164,7 @@
 
           <div class="stat-num">4</div>
 
-          <div class="stat-label">Parceiros de ecossistema</div>
+          <div class="stat-label" data-i18n="mc.stat3">Parceiros de ecossistema</div>
 
         </div>
 
@@ -161,13 +172,13 @@
 
           <div class="stat-num">1611</div>
 
-          <div class="stat-label">Interações</div>
+          <div class="stat-label" data-i18n="mc.stat4">Interações</div>
 
         </div>
 
       </div>
 
-      <p class="card-body" style="margin-top:16px;">Parcerias com GoodDollar, Green Pill Brasil, Blockchain na Escola e UNIFACS.</p>
+      <p class="card-body" style="margin-top:16px;" data-i18n="mc.partners">Parcerias com GoodDollar, Green Pill Brasil, Blockchain na Escola e UNIFACS.</p>
 
     </section>
 
@@ -175,51 +186,51 @@
 
     <section class="section">
 
-      <span class="section-label">A Virada</span>
+      <span class="section-label" data-i18n="mc.s3label">A Virada</span>
 
-      <h2 class="section-title">Tarefa como primitiva de crédito</h2>
+      <h2 class="section-title" data-i18n="mc.s3title">Tarefa como primitiva de crédito</h2>
 
-      <p class="section-sub">Uma operação de crédito é, estruturalmente, idêntica a uma tarefa com escrow. O credor cria a tarefa que descreve os termos. O tomador adiciona o colateral numa tarefa privada e cede o TaskID. O contrato faz o resto — nenhuma linha nova, só uma nova leitura do que já existe.</p>
+      <p class="section-sub" data-i18n="mc.s3sub">Uma operação de crédito é, estruturalmente, idêntica a uma tarefa com escrow. O credor cria a tarefa que descreve os termos. O tomador adiciona o colateral numa tarefa privada e cede o TaskID. O contrato faz o resto — nenhuma linha nova, só uma nova leitura do que já existe.</p>
 
       <div style="border:1px solid var(--ink);">
 
         <div style="display:grid; grid-template-columns:1fr 1fr; background:var(--bg-card); border-bottom:1px solid var(--ink);">
 
-          <div style="padding:14px 20px; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; border-right:1px solid var(--ink);">Crédito tradicional</div>
+          <div style="padding:14px 20px; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; border-right:1px solid var(--ink);" data-i18n="mc.tblHeadL">Crédito tradicional</div>
 
-          <div style="padding:14px 20px; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--terra);">Equivalente no Balaio</div>
-
-        </div>
-
-        <div style="display:grid; grid-template-columns:1fr 1fr; border-bottom:1px solid var(--ink);">
-
-          <div style="padding:14px 20px; font-size:14px; border-right:1px solid var(--ink);">Condições do empréstimo</div>
-
-          <div style="padding:14px 20px; font-size:14px; color:var(--ink-sub);">Tarefa descreve as condições de concessão</div>
+          <div style="padding:14px 20px; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--terra);" data-i18n="mc.tblHeadR">Equivalente no Balaio</div>
 
         </div>
 
         <div style="display:grid; grid-template-columns:1fr 1fr; border-bottom:1px solid var(--ink);">
 
-          <div style="padding:14px 20px; font-size:14px; border-right:1px solid var(--ink);">Garantia / colateral</div>
+          <div style="padding:14px 20px; font-size:14px; border-right:1px solid var(--ink);" data-i18n="mc.tblL1">Condições do empréstimo</div>
 
-          <div style="padding:14px 20px; font-size:14px; color:var(--ink-sub);">Colateral travado em tarefa privada criada pelo requerente</div>
+          <div style="padding:14px 20px; font-size:14px; color:var(--ink-sub);" data-i18n="mc.tblR1">Tarefa descreve as condições de concessão</div>
 
         </div>
 
         <div style="display:grid; grid-template-columns:1fr 1fr; border-bottom:1px solid var(--ink);">
 
-          <div style="padding:14px 20px; font-size:14px; border-right:1px solid var(--ink);">Pedido de crédito</div>
+          <div style="padding:14px 20px; font-size:14px; border-right:1px solid var(--ink);" data-i18n="mc.tblL2">Garantia / colateral</div>
 
-          <div style="padding:14px 20px; font-size:14px; color:var(--ink-sub);">Submissão como completação da tarefa (extrato, renda ou colateral em cripto)</div>
+          <div style="padding:14px 20px; font-size:14px; color:var(--ink-sub);" data-i18n="mc.tblR2">Colateral travado em tarefa privada criada pelo requerente</div>
+
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; border-bottom:1px solid var(--ink);">
+
+          <div style="padding:14px 20px; font-size:14px; border-right:1px solid var(--ink);" data-i18n="mc.tblL3">Pedido de crédito</div>
+
+          <div style="padding:14px 20px; font-size:14px; color:var(--ink-sub);" data-i18n="mc.tblR3">Submissão como completação da tarefa (extrato, renda ou colateral em cripto)</div>
 
         </div>
 
         <div style="display:grid; grid-template-columns:1fr 1fr;">
 
-          <div style="padding:14px 20px; font-size:14px; border-right:1px solid var(--ink);">Liberação dos fundos</div>
+          <div style="padding:14px 20px; font-size:14px; border-right:1px solid var(--ink);" data-i18n="mc.tblL4">Liberação dos fundos</div>
 
-          <div style="padding:14px 20px; font-size:14px; color:var(--ink-sub);">Pagamento automático atrelado à aprovação</div>
+          <div style="padding:14px 20px; font-size:14px; color:var(--ink-sub);" data-i18n="mc.tblR4">Pagamento automático atrelado à aprovação</div>
 
         </div>
 
@@ -231,35 +242,35 @@
 
     <section class="section">
 
-      <span class="section-label">Como Funciona o Whitelabel</span>
+      <span class="section-label" data-i18n="mc.s4label">Como Funciona o Whitelabel</span>
 
-      <h2 class="section-title">Dois ambientes, um motor</h2>
+      <h2 class="section-title" data-i18n="mc.s4title">Dois ambientes, um motor</h2>
 
-      <p class="section-sub">Organizações e comunidades que querem operar seu próprio microecossistema de crédito acessam a página whitelabel, registram a organização (KYC), sobem branding e logo — o ambiente vira a cara delas.</p>
+      <p class="section-sub" data-i18n="mc.s4sub">Organizações e comunidades que querem operar seu próprio microecossistema de crédito acessam a página whitelabel, registram a organização (KYC), sobem branding e logo — o ambiente vira a cara delas.</p>
 
       <div class="grid-2">
 
         <div class="card">
 
-          <span class="card-label">Ambiente Regulado</span>
+          <span class="card-label" data-i18n="mc.c3label">Ambiente Regulado</span>
 
-          <h3 class="card-title">Com KYC e compliance</h3>
+          <h3 class="card-title" data-i18n="mc.c3title">Com KYC e compliance</h3>
 
           <hr>
 
-          <p class="card-body">A organização anexa os documentos que comprovam autorização para emissão de crédito. Trilha de auditoria onchain por padrão.</p>
+          <p class="card-body" data-i18n="mc.c3body">A organização anexa os documentos que comprovam autorização para emissão de crédito. Trilha de auditoria onchain por padrão.</p>
 
         </div>
 
         <div class="card">
 
-          <span class="card-label">Ambiente Não Regulado</span>
+          <span class="card-label" data-i18n="mc.c4label">Ambiente Não Regulado</span>
 
-          <h3 class="card-title">Mesmo fluxo, sem KYC</h3>
+          <h3 class="card-title" data-i18n="mc.c4title">Mesmo fluxo, sem KYC</h3>
 
           <hr>
 
-          <p class="card-body">Agentes interagem direto com o smart contract. Útil para escolas e educadores de finanças que rodam experimentos com tokens próprios.</p>
+          <p class="card-body" data-i18n="mc.c4body">Agentes interagem direto com o smart contract. Útil para escolas e educadores de finanças que rodam experimentos com tokens próprios.</p>
 
         </div>
 
@@ -269,13 +280,13 @@
 
     <!-- OPORTUNIDADE -->
     <section class="section">
-      <span class="section-label">Oportunidade Imediata</span>
-      <h2 class="section-title">Potencial de alcance de 150 mil pessoas pós-lançamento</h2>
+      <span class="section-label" data-i18n="mc.s5label">Oportunidade Imediata</span>
+      <h2 class="section-title" data-i18n="mc.s5title">Potencial de alcance de 150 mil pessoas pós-lançamento</h2>
       <div class="grid-2" style="align-items:center;">
-        <p class="section-sub" style="margin-bottom:0;">Via contrato já firmado com organização que reúne 150 mil membros. O caso de partida é o micro-microcrédito produtivo: alugar ou comprar uma bicicleta, uma mochila de delivery — ticket pequeno, giro rápido, lastro no próprio trabalho.</p>
+        <p class="section-sub" style="margin-bottom:0;" data-i18n="mc.s5sub">Via contrato já firmado com organização que reúne 150 mil membros. O caso de partida é o micro-microcrédito produtivo: alugar ou comprar uma bicicleta, uma mochila de delivery — ticket pequeno, giro rápido, lastro no próprio trabalho.</p>
         <div class="stat-block" style="max-width:280px;">
           <div class="stat-num">150k</div>
-          <div class="stat-label">Membros na organização parceira</div>
+          <div class="stat-label" data-i18n="mc.s5stat">Membros na organização parceira</div>
         </div>
       </div>
     </section>
@@ -284,9 +295,9 @@
 
     <section class="section">
 
-      <span class="section-label">Como o Balaio Ganha Dinheiro</span>
+      <span class="section-label" data-i18n="mc.s6label">Como o Balaio Ganha Dinheiro</span>
 
-      <h2 class="section-title">Monetização nativa, embutida no contrato</h2>
+      <h2 class="section-title" data-i18n="mc.s6title">Monetização nativa, embutida no contrato</h2>
 
       <div class="grid-2">
 
@@ -294,7 +305,7 @@
 
           <div class="stat-num">3%</div>
 
-          <div class="stat-label">Na criação de tarefas</div>
+          <div class="stat-label" data-i18n="mc.s6stat1">Na criação de tarefas</div>
 
         </div>
 
@@ -302,7 +313,7 @@
 
           <div class="stat-num">2%</div>
 
-          <div class="stat-label">No claim de rewards</div>
+          <div class="stat-label" data-i18n="mc.s6stat2">No claim de rewards</div>
 
         </div>
 
@@ -310,13 +321,13 @@
 
       <div class="card" style="margin-top:24px;">
 
-        <span class="card-label">Camada de Parceiros</span>
+        <span class="card-label" data-i18n="mc.c5label">Camada de Parceiros</span>
 
-        <h3 class="card-title">O ponto de encontro do crédito</h3>
+        <h3 class="card-title" data-i18n="mc.c5title">O ponto de encontro do crédito</h3>
 
         <hr>
 
-        <p class="card-body" style="font-size:15px; max-width:760px;">
+        <p class="card-body" style="font-size:15px; max-width:760px;" data-i18n="mc.c5body">
 
           Toda operação que passa pelo trilho gera receita na concessão e na liquidação — sem custo marginal de aquisição por transação. Em cima do trilho, empresas de crédito entram para oferecer produtos, garantias e serviços. O Balaio vira o ponto de encontro entre quem precisa de capital e quem o oferece, e cobra pela infraestrutura, não pelo risco.
 
@@ -330,47 +341,47 @@
 
     <section class="section">
 
-      <span class="section-label">A Oferta</span>
+      <span class="section-label" data-i18n="mc.s7label">A Oferta</span>
 
-      <h2 class="section-title">Capital de bootstrap + apoio jurídico e operacional</h2>
+      <h2 class="section-title" data-i18n="mc.s7title">Capital de bootstrap + apoio jurídico e operacional</h2>
 
-      <p class="section-sub">Os termos são abertos e negociamos com flexibilidade real — essa transformação faz parte da missão que definimos em 2022 em torno da descentralização do crédito. Priorizamos o parceiro certo sobre a melhor planilha.</p>
+      <p class="section-sub" data-i18n="mc.s7sub">Os termos são abertos e negociamos com flexibilidade real — essa transformação faz parte da missão que definimos em 2022 em torno da descentralização do crédito. Priorizamos o parceiro certo sobre a melhor planilha.</p>
 
       <div class="grid-3">
 
         <div class="card">
 
-          <span class="card-label">Operacional</span>
+          <span class="card-label" data-i18n="mc.c6label">Operacional</span>
 
-          <h3 class="card-title">Colocar as comunidades no trilho</h3>
+          <h3 class="card-title" data-i18n="mc.c6title">Colocar as comunidades no trilho</h3>
 
           <hr>
 
-          <p class="card-body">As duas comunidades (160k pessoas) rodando crédito produtivo no Balaio.</p>
+          <p class="card-body" data-i18n="mc.c6body">As duas comunidades (160k pessoas) rodando crédito produtivo no Balaio.</p>
 
         </div>
 
         <div class="card">
 
-          <span class="card-label">Jurídico</span>
+          <span class="card-label" data-i18n="mc.c7label">Jurídico</span>
 
-          <h3 class="card-title">Estruturar a operação regulada</h3>
+          <h3 class="card-title" data-i18n="mc.c7title">Estruturar a operação regulada</h3>
 
           <hr>
 
-          <p class="card-body">Segurança na emissão de crédito, com o know-how regulatório da ReFaz no contexto BACEN / CVM.</p>
+          <p class="card-body" data-i18n="mc.c7body">Segurança na emissão de crédito, com o know-how regulatório da ReFaz no contexto BACEN / CVM.</p>
 
         </div>
 
         <div class="card">
 
-          <span class="card-label">Produto</span>
+          <span class="card-label" data-i18n="mc.c8label">Produto</span>
 
-          <h3 class="card-title">Escalar o whitelabel</h3>
+          <h3 class="card-title" data-i18n="mc.c8title">Escalar o whitelabel</h3>
 
           <hr>
 
-          <p class="card-body">Endurecer o fluxo para operação multi-organização.</p>
+          <p class="card-body" data-i18n="mc.c8body">Endurecer o fluxo para operação multi-organização.</p>
 
         </div>
 
@@ -382,15 +393,15 @@
 
     <section class="section">
 
-      <span class="section-label">Por Que a ReFaz, Por Que Agora</span>
+      <span class="section-label" data-i18n="mc.s8label">Por Que a ReFaz, Por Que Agora</span>
 
       <div class="grid-2" style="align-items:stretch;">
         <div>
-          <h2 class="section-title">A oportunidade fora do radar do crédito tradicional</h2>
-          <p class="section-sub" style="margin-bottom:0;">O marco cripto brasileiro amadureceu, o microcrédito segue represado pelo custo de operação, e ninguém juntou as duas pontas com um produto que já está rodando. A ReFaz traz o que não se replica: trilho em produção, redes já contratadas, e a camada de adequação regulatória que transforma uma boa ideia de crédito num ativo legível para o capital.</p>
+          <h2 class="section-title" data-i18n="mc.s8title">A oportunidade fora do radar do crédito tradicional</h2>
+          <p class="section-sub" style="margin-bottom:0;" data-i18n="mc.s8sub">O marco cripto brasileiro amadureceu, o microcrédito segue represado pelo custo de operação, e ninguém juntou as duas pontas com um produto que já está rodando. A ReFaz traz o que não se replica: trilho em produção, redes já contratadas, e a camada de adequação regulatória que transforma uma boa ideia de crédito num ativo legível para o capital.</p>
         </div>
         <div class="card" style="display:flex; flex-direction:column;">
-          <span class="card-label">Referências da Tese</span>
+          <span class="card-label" data-i18n="mc.refLabel">Referências da Tese</span>
           <hr>
           <ul style="list-style:none; display:flex; flex-direction:column; gap:12px; margin-top:4px;">
             <li><a class="card-link" href="https://marcelosilva.substack.com/p/decentralization-of-the-monetary" target="_blank">Decentralization of the Monetary →</a></li>
@@ -399,7 +410,7 @@
           </ul>
         </div>
       </div>
-      <a class="btn btn-terra" style="margin-top:32px; display:inline-block;" href="Contact.html">Falar com a ReFaz</a>
+      <a class="btn btn-terra" style="margin-top:32px; display:inline-block;" href="Contact.html" data-i18n="mc.cta">Falar com a ReFaz</a>
 
     </section>
 
@@ -415,7 +426,7 @@
 
       <div class="footer-brand">ReFaz</div>
 
-      <div class="footer-tagline">Infraestrutura de Impacto</div>
+      <div class="footer-tagline" data-i18n="foot.tagline">Infraestrutura de Impacto</div>
 
       <div class="footer-copy">© <span id="yr"></span> ReFaz</div>
 
@@ -436,6 +447,7 @@
 </footer>
 
 <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+<script src="/i18n/i18n.js" defer></script>
 
 </body>
 

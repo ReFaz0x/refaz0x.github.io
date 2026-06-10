@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Projetos — ReFaz</title>
   <link rel="stylesheet" href="refaz.css">
+  <link rel="stylesheet" href="/i18n/i18n.css">
 </head>
 <body>
 
@@ -12,11 +13,20 @@
   <div class="nav-inner">
     <a class="nav-brand" href="index.html">ReFaz</a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="projects.html" class="active">Projetos</a></li>
-      <li><a href="publications.html">Pesquisa</a></li>
-      <li><a href="about.html">Sobre</a></li>
-      <li><a href="https://blockchainnaescola.github.io/website/">BnE</a></li>
-      <li><a href="Contact.html" class="nav-cta">Contato</a></li>
+      <li><a href="projects.html" class="active" data-i18n="nav.projects">Projetos</a></li>
+      <li><a href="publications.html" data-i18n="nav.research">Pesquisa</a></li>
+      <li><a href="about.html" data-i18n="nav.about">Sobre</a></li>
+      <li><a href="https://blockchainnaescola.github.io/website/" data-i18n="nav.education">Educação</a></li>
+      <li>
+        <div class="lang-switch" aria-label="Idioma">
+          <button data-lang="pt">PT</button>
+          <button data-lang="en">EN</button>
+          <button data-lang="es">ES</button>
+          <button data-lang="zh">中文</button>
+          <button data-lang="ja">日本語</button>
+        </div>
+      </li>
+      <li><a href="Contact.html" class="nav-cta" data-i18n="nav.contact">Contato</a></li>
     </ul>
     <button class="nav-mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
   </div>
@@ -26,120 +36,120 @@
   <div class="wrap">
 
     <section class="hero">
-      <span class="section-label">Projetos · América Latina</span>
-      <h1 class="hero-quote">Contribuições ativas no ecossistema Web3.</h1>
-      <p class="hero-sub">Quatro verticais integradas atacando o problema central — assimetria de informação entre capital de impacto e projetos regenerativos.</p>
+      <span class="section-label" data-i18n="proj.heroLabel">Projetos · América Latina</span>
+      <h1 class="hero-quote" data-i18n="proj.heroQuote">Contribuições ativas no ecossistema Web3.</h1>
+      <p class="hero-sub" data-i18n="proj.heroSub">Quatro verticais integradas atacando o problema central — assimetria de informação entre capital de impacto e projetos regenerativos.</p>
     </section>
 
     <section class="section">
-      <span class="section-label">01 — Core</span>
+      <span class="section-label" data-i18n="proj.s1label">01 — Core</span>
       <div class="card">
         <div style="display:flex; justify-content:space-between; align-items:start; flex-wrap:wrap; gap:16px;">
           <div>
-            <span class="card-label">Metodologia de Impacto</span>
-            <h2 class="card-title" style="font-size:24px;">ISSB / IFRS S1&S2 + Blockchain</h2>
+            <span class="card-label" data-i18n="proj.c1label">Metodologia de Impacto</span>
+            <h2 class="card-title" style="font-size:24px;" data-i18n="proj.c1title">ISSB / IFRS S1&S2 + Blockchain</h2>
           </div>
           <div style="display:flex; gap:8px; flex-wrap:wrap;">
-            <span class="chip chip-ochre">Core Product</span>
-            <span class="chip">Compliance</span>
+            <span class="chip chip-ochre" data-i18n="proj.c1chip1">Core Product</span>
+            <span class="chip" data-i18n="proj.c1chip2">Compliance</span>
           </div>
         </div>
         <hr>
-        <p class="card-body" style="font-size:15px; max-width:700px; margin-top:8px;">
+        <p class="card-body" style="font-size:15px; max-width:700px; margin-top:8px;" data-i18n="proj.c1body">
           Transformamos projetos de impacto socioambiental em ativos perfeitamente legíveis para o asset manager global.
           O motor ReFaz aplica os padrões ISSB / IFRS S1&S2 + Certificação ReFaz + Blockchain Timestamping.
         </p>
         <div style="margin-top:24px; display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; max-width:600px;">
           <div style="padding:16px; border:1px solid var(--ink); text-align:center;">
-            <div style="font-size:11px; font-weight:700; text-transform:uppercase; color:var(--ink-sub);">Entrada</div>
-            <div style="font-size:14px; font-weight:700; margin-top:4px;">Projetos de Impacto</div>
+            <div style="font-size:11px; font-weight:700; text-transform:uppercase; color:var(--ink-sub);" data-i18n="proj.inK">Entrada</div>
+            <div style="font-size:14px; font-weight:700; margin-top:4px;" data-i18n="proj.inV">Projetos de Impacto</div>
           </div>
           <div style="padding:16px; border:1px solid var(--terra); background:var(--bg); text-align:center;">
-            <div style="font-size:11px; font-weight:700; text-transform:uppercase; color:var(--terra);">Motor ReFaz</div>
-            <div style="font-size:14px; font-weight:700; margin-top:4px;">ISSB / IFRS S1&S2</div>
+            <div style="font-size:11px; font-weight:700; text-transform:uppercase; color:var(--terra);" data-i18n="proj.motorK">Motor ReFaz</div>
+            <div style="font-size:14px; font-weight:700; margin-top:4px;" data-i18n="proj.motorV">ISSB / IFRS S1&S2</div>
           </div>
           <div style="padding:16px; border:1px solid var(--ink); text-align:center;">
-            <div style="font-size:11px; font-weight:700; text-transform:uppercase; color:var(--ink-sub);">Saída</div>
-            <div style="font-size:14px; font-weight:700; margin-top:4px;">Ativo Legível Global</div>
+            <div style="font-size:11px; font-weight:700; text-transform:uppercase; color:var(--ink-sub);" data-i18n="proj.outK">Saída</div>
+            <div style="font-size:14px; font-weight:700; margin-top:4px;" data-i18n="proj.outV">Ativo Legível Global</div>
           </div>
         </div>
-        <a class="btn btn-primary" style="margin-top:24px; display:inline-block;" href="Contact.html">Conversar sobre Metodologia</a>
+        <a class="btn btn-primary" style="margin-top:24px; display:inline-block;" href="Contact.html" data-i18n="proj.c1btn">Conversar sobre Metodologia</a>
       </div>
     </section>
 
     <section class="section">
-      <span class="section-label">02 — Produto Digital</span>
+      <span class="section-label" data-i18n="proj.s2label">02 — Produto Digital</span>
       <div class="grid-2">
         <div class="card">
           <span class="card-label">Balaio</span>
-          <h3 class="card-title">Execução Transparente de Orçamentos</h3>
+          <h3 class="card-title" data-i18n="proj.balaioTitle">Execução Transparente de Orçamentos</h3>
           <hr>
-          <p class="card-body">Marketplace microdigital + execução transparente de orçamentos para economias locais. 100 usuários ativos.</p>
+          <p class="card-body" data-i18n="proj.balaioBody">Marketplace microdigital + execução transparente de orçamentos para economias locais. 100 usuários ativos.</p>
           <div style="margin-top:16px; display:flex; gap:8px; flex-wrap:wrap;">
-            <span class="chip">100 Usuários</span>
-            <span class="chip chip-moss">Economia Local</span>
+            <span class="chip" data-i18n="proj.balaioChip1">100 Usuários</span>
+            <span class="chip chip-moss" data-i18n="proj.balaioChip2">Economia Local</span>
           </div>
-          <a class="card-link" href="microcredito-balaio.html">Ver proposta →</a>
+          <a class="card-link" href="microcredito-balaio.html" data-i18n="sol.i2link">Ver proposta →</a>
         </div>
         <div class="card">
           <span class="card-label">Rasta & Fiel Wallet</span>
-          <h3 class="card-title">Blockchain para Economia Criativa</h3>
+          <h3 class="card-title" data-i18n="proj.rastaTitle">Blockchain para Economia Criativa</h3>
           <hr>
-          <p class="card-body">Infraestrutura blockchain para a cultura e economia criativa brasileira. 30 usuários em pré-lançamento.</p>
+          <p class="card-body" data-i18n="proj.rastaBody">Infraestrutura blockchain para a cultura e economia criativa brasileira. 30 usuários em pré-lançamento.</p>
           <div style="margin-top:16px; display:flex; gap:8px; flex-wrap:wrap;">
-            <span class="chip">Pré-lançamento</span>
-            <span class="chip">Cultura BR</span>
+            <span class="chip" data-i18n="proj.rastaChip1">Pré-lançamento</span>
+            <span class="chip" data-i18n="proj.rastaChip2">Cultura BR</span>
           </div>
         </div>
       </div>
     </section>
 
     <section class="section">
-      <span class="section-label">03 — Projetos Institucionais</span>
+      <span class="section-label" data-i18n="proj.s3label">03 — Projetos Institucionais</span>
       <div class="grid-2">
         <div class="card">
-          <span class="card-label">Green Bonds Tokenizados · STN/ENAP</span>
-          <h3 class="card-title">Hackathon do Tesouro Nacional</h3>
+          <span class="card-label" data-i18n="proj.gbLabel">Green Bonds Tokenizados · STN/ENAP</span>
+          <h3 class="card-title" data-i18n="proj.gbTitle">Hackathon do Tesouro Nacional</h3>
           <hr>
-          <p class="card-body">Mecanismos blockchain para finanças sustentáveis no hackathon oficial do Tesouro Nacional. Sistema de automação alinhado ao ISSB para green bonds.</p>
-          <a class="card-link" href="https://www.youtube.com/live/qVJ6S1poFBM?si=G3-8qB4Z8AiY0g2R&t=6010" target="_blank">Assistir Apresentação →</a>
+          <p class="card-body" data-i18n="proj.gbBody">Mecanismos blockchain para finanças sustentáveis no hackathon oficial do Tesouro Nacional. Sistema de automação alinhado ao ISSB para green bonds.</p>
+          <a class="card-link" href="https://www.youtube.com/live/qVJ6S1poFBM?si=G3-8qB4Z8AiY0g2R&t=6010" target="_blank" data-i18n="proj.gbLink">Assistir Apresentação →</a>
         </div>
         <div class="card">
           <span class="card-label">Ekonavi · LIFT Lab / BCB</span>
-          <h3 class="card-title">Dados Ambientais Verificáveis</h3>
+          <h3 class="card-title" data-i18n="proj.ekTitle">Dados Ambientais Verificáveis</h3>
           <hr>
-          <p class="card-body">Plataforma blockchain-native para dados socioambientais verificáveis. Selecionada pelo laboratório de inovação do Banco Central do Brasil.</p>
-          <a class="card-link" href="https://ekonavi.com" target="_blank">Visitar Ekonavi →</a>
+          <p class="card-body" data-i18n="proj.ekBody">Plataforma blockchain-native para dados socioambientais verificáveis. Selecionada pelo laboratório de inovação do Banco Central do Brasil.</p>
+          <a class="card-link" href="https://ekonavi.com" target="_blank" data-i18n="proj.ekLink">Visitar Ekonavi →</a>
         </div>
       </div>
     </section>
 
     <section class="section">
-      <span class="section-label">04 — Educação</span>
+      <span class="section-label" data-i18n="proj.s4label">04 — Educação</span>
       <div class="card">
         <div style="display:flex; justify-content:space-between; align-items:start; flex-wrap:wrap; gap:16px;">
           <div>
             <span class="card-label">Blockchain na Escola</span>
-            <h2 class="card-title" style="font-size:22px;">EdTech + Impacto Social</h2>
+            <h2 class="card-title" style="font-size:22px;" data-i18n="proj.bneTitle">EdTech + Impacto Social</h2>
           </div>
-          <a class="btn btn-secondary" href="https://blockchainnaescola.github.io/website/">Explorar BnE →</a>
+          <a class="btn btn-secondary" href="https://blockchainnaescola.github.io/website/" data-i18n="proj.bneBtn">Explorar BnE →</a>
         </div>
         <hr>
-        <p class="card-body" style="max-width:700px;">
+        <p class="card-body" style="max-width:700px;" data-i18n="proj.bneBody">
           De zero conhecimento em blockchain a vencedor de hackathon. O programa combina aprendizado gamificado com uso prático de carteiras digitais, NFTs e DAOs em escolas públicas e universidades.
         </p>
         <div style="margin-top:20px; display:flex; gap:16px; flex-wrap:wrap;">
           <div class="stat-block" style="flex:1; min-width:120px;">
             <div class="stat-num">30k</div>
-            <div class="stat-label">Certificados emitidos</div>
+            <div class="stat-label" data-i18n="proj.statCerts">Certificados emitidos</div>
           </div>
           <div class="stat-block" style="flex:1; min-width:120px;">
             <div class="stat-num">29+</div>
-            <div class="stat-label">Países alcançados</div>
+            <div class="stat-label" data-i18n="proj.statCountries">Países alcançados</div>
           </div>
           <div class="stat-block" style="flex:1; min-width:120px;">
             <div class="stat-num">100+</div>
-            <div class="stat-label">Eventos realizados</div>
+            <div class="stat-label" data-i18n="proj.statEvents">Eventos realizados</div>
           </div>
         </div>
       </div>
@@ -152,7 +162,7 @@
   <div class="footer-inner">
     <div>
       <div class="footer-brand">ReFaz</div>
-      <div class="footer-tagline">Infraestrutura de Impacto</div>
+      <div class="footer-tagline" data-i18n="foot.tagline">Infraestrutura de Impacto</div>
       <div class="footer-copy">© <span id="yr"></span> ReFaz</div>
     </div>
     <ul class="footer-links">
@@ -163,5 +173,6 @@
   </div>
 </footer>
 <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+<script src="/i18n/i18n.js" defer></script>
 </body>
 </html>

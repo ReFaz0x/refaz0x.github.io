@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contato — ReFaz</title>
+  <link rel="stylesheet" href="refaz.css">
+  <link rel="stylesheet" href="/i18n/i18n.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html">ReFaz</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="projects.html" data-i18n="nav.projects">Projetos</a></li>
+      <li><a href="publications.html" data-i18n="nav.research">Pesquisa</a></li>
+      <li><a href="about.html" data-i18n="nav.about">Sobre</a></li>
+      <li><a href="https://blockchainnaescola.github.io/website/" data-i18n="nav.education">Educação</a></li>
+      <li>
+        <div class="lang-switch" aria-label="Idioma">
+          <button data-lang="pt">PT</button>
+          <button data-lang="en">EN</button>
+          <button data-lang="es">ES</button>
+          <button data-lang="zh">中文</button>
+          <button data-lang="ja">日本語</button>
+        </div>
+      </li>
+      <li><a href="Contact.html" class="nav-cta active" data-i18n="nav.contact">Contato</a></li>
+    </ul>
+    <button class="nav-mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+  </div>
+</nav>
+
+<main>
+  <div class="wrap">
+
+    <section class="hero">
+      <span class="section-label" data-i18n="contact.heroLabel">Fale Conosco</span>
+      <h1 class="hero-quote" data-i18n="contact.heroQuote">Parcerias, projetos e propostas.</h1>
+      <p class="hero-sub" data-i18n="contact.heroSub">Envie uma mensagem com contexto — tema, audiência, formato — e respondemos rápido.</p>
+    </section>
+
+    <section class="section">
+      <span class="section-label" data-i18n="contact.s1label">Time</span>
+      <div class="grid-2">
+        <div class="card">
+          <span class="card-label" data-i18n="about.mLabel">Co-fundador · CTO</span>
+          <h3 class="card-title">Marcelo Silva</h3>
+          <hr>
+          <p class="card-body" data-i18n="contact.mBody">Pesquisa, educação e arquitetura de sistemas Web3.</p>
+          <div style="margin-top:16px; display:flex; flex-direction:column; gap:8px;">
+            <a href="https://x.com/MarceloReFi" target="_blank" class="card-link">X (Twitter) →</a>
+            <a href="https://www.linkedin.com/in/marcelo-silva-0581b9216/" target="_blank" class="card-link">LinkedIn →</a>
+            <a href="https://marcelorefi.github.io" target="_blank" class="card-link" data-i18n="about.mLink">Website Pessoal →</a>
+          </div>
+        </div>
+        <div class="card">
+          <span class="card-label" data-i18n="contact.vLabel">Co-fundador · Legal</span>
+          <h3 class="card-title">Verber Souza</h3>
+          <hr>
+          <p class="card-body" data-i18n="contact.vBody">Engenharia jurídica e estratégia Web3 no contexto regulatório brasileiro.</p>
+          <div style="margin-top:16px; display:flex; flex-direction:column; gap:8px;">
+            <a href="https://www.instagram.com/verb4l/" target="_blank" class="card-link">Instagram →</a>
+            <a href="https://www.linkedin.com/in/verber-souza/" target="_blank" class="card-link">LinkedIn →</a>
+            <a href="https://verber-souza.webflow.io/" target="_blank" class="card-link" data-i18n="contact.vLink">Website →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <span class="section-label" data-i18n="contact.s2label">Proposta Direta</span>
+      <div class="card" style="max-width:600px;">
+        <h3 class="card-title" data-i18n="contact.directTitle">Parcerias & Projetos</h3>
+        <hr>
+        <p class="card-body" data-i18n="contact.directBody">Para parcerias estratégicas, projetos institucionais ou propostas de pesquisa, escreva para:</p>
+        <a class="btn btn-primary" style="margin-top:20px; display:inline-block;" href="mailto:hello@refaz.studio">hello@refaz.studio</a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">ReFaz</div>
+      <div class="footer-tagline" data-i18n="foot.tagline">Infraestrutura de Impacto</div>
+      <div class="footer-copy">© <span id="yr"></span> ReFaz</div>
+    </div>
+    <ul class="footer-links">
+      <li><a href="https://linkedin.com/company/refaz" target="_blank">LinkedIn</a></li>
+      <li><a href="https://github.com/ReFaz0x" target="_blank">GitHub</a></li>
+      <li><a href="mailto:hello@refaz.studio">hello@refaz.studio</a></li>
+    </ul>
+  </div>
+</footer>
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+<script src="/i18n/i18n.js" defer></script>
+</body>
+</html>
