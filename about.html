@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sobre — ReFaz</title>
   <link rel="stylesheet" href="refaz.css">
+  <link rel="stylesheet" href="/i18n/i18n.css">
 </head>
 <body>
 
@@ -12,11 +13,20 @@
   <div class="nav-inner">
     <a class="nav-brand" href="index.html">ReFaz</a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="projects.html">Projetos</a></li>
-      <li><a href="publications.html">Pesquisa</a></li>
-      <li><a href="about.html" class="active">Sobre</a></li>
+      <li><a href="projects.html" data-i18n="nav.projects">Projetos</a></li>
+      <li><a href="publications.html" data-i18n="nav.research">Pesquisa</a></li>
+      <li><a href="about.html" class="active" data-i18n="nav.about">Sobre</a></li>
       <li><a href="https://blockchainnaescola.github.io/website/">BnE</a></li>
-      <li><a href="Contact.html" class="nav-cta">Contato</a></li>
+      <li>
+        <div class="lang-switch" aria-label="Idioma">
+          <button data-lang="pt">PT</button>
+          <button data-lang="en">EN</button>
+          <button data-lang="es">ES</button>
+          <button data-lang="zh">中文</button>
+          <button data-lang="ja">日本語</button>
+        </div>
+      </li>
+      <li><a href="Contact.html" class="nav-cta" data-i18n="nav.contact">Contato</a></li>
     </ul>
     <button class="nav-mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
   </div>
@@ -26,35 +36,35 @@
   <div class="wrap">
 
     <section class="hero">
-      <span class="section-label">Equipe</span>
-      <h1 class="hero-quote">"A equipe que você não pode replicar."</h1>
-      <p class="hero-sub">O contexto é o nosso produto. Redes coordenadas pelos fundadores operam em 20+ países.</p>
+      <span class="section-label" data-i18n="about.heroLabel">Equipe</span>
+      <h1 class="hero-quote" data-i18n="about.heroQuote">"A equipe que você não pode replicar."</h1>
+      <p class="hero-sub" data-i18n="about.heroSub">O contexto é o nosso produto. Redes coordenadas pelos fundadores operam em 20+ países.</p>
     </section>
 
     <section class="section">
-      <span class="section-label">Legal & Research</span>
+      <span class="section-label" data-i18n="about.sectionLegal">Legal & Research</span>
       <div class="grid-2">
         <div class="card">
           <div style="display:flex; gap:16px; align-items:center; margin-bottom:8px;">
             <img src="team-verber.jpg" alt="Verber Souza" style="width:84px; height:84px; object-fit:cover; border:1px solid var(--ink); flex-shrink:0;">
             <div>
-              <span class="card-label">Co-fundador</span>
+              <span class="card-label" data-i18n="about.vLabel">Co-fundador</span>
               <h2 class="card-title" style="font-size:22px; margin-bottom:0;">Verber Souza</h2>
             </div>
           </div>
           <hr>
-          <p class="card-body" style="margin-top:8px;">
+          <p class="card-body" style="margin-top:8px;" data-i18n="about.vBody">
             Estratégia jurídica e execução de impacto no ecossistema Web3 brasileiro.
           </p>
           <ul style="margin-top:16px; padding-left:16px; font-size:13px; color:var(--ink-sub); line-height:2;">
-            <li>Assegurou R$ 3 Mi em reparações para vítimas de Brumadinho-MG</li>
-            <li>VP da Comissão de Criptoativos da OAB-MG</li>
-            <li>Infraestrutura jurídica da 1ª plataforma BR de créditos de biodiversidade tokenizados</li>
+            <li data-i18n="about.v1">Assegurou R$ 3 Mi em reparações para vítimas de Brumadinho-MG</li>
+            <li data-i18n="about.v2">VP da Comissão de Criptoativos da OAB-MG</li>
+            <li data-i18n="about.v3">Infraestrutura jurídica da 1ª plataforma BR de créditos de biodiversidade tokenizados</li>
           </ul>
           <div style="margin-top:20px; display:flex; gap:8px; flex-wrap:wrap;">
             <span class="chip">OAB-MG</span>
-            <span class="chip">Legal Engineering</span>
-            <span class="chip">Biodiversity Tokens</span>
+            <span class="chip" data-i18n="about.vChipLegal">Legal Engineering</span>
+            <span class="chip" data-i18n="about.vChipBio">Biodiversity Tokens</span>
           </div>
           <a class="card-link" style="margin-top:16px;" href="https://www.linkedin.com/in/verber-souza/" target="_blank">LinkedIn →</a>
         </div>
@@ -63,25 +73,25 @@
           <div style="display:flex; gap:16px; align-items:center; margin-bottom:8px;">
             <img src="team-marcelo.jpg" alt="Marcelo Silva" style="width:84px; height:84px; object-fit:cover; border:1px solid var(--ink); flex-shrink:0;">
             <div>
-              <span class="card-label">Co-fundador · CTO</span>
+              <span class="card-label" data-i18n="about.mLabel">Co-fundador · CTO</span>
               <h2 class="card-title" style="font-size:22px; margin-bottom:0;">Marcelo Silva <span style="font-weight:400;font-size:14px;">PhD</span></h2>
             </div>
           </div>
           <hr>
-          <p class="card-body" style="margin-top:8px;">
+          <p class="card-body" style="margin-top:8px;" data-i18n="about.mBody">
             Pesquisador, educador e arquiteto de sistemas de impacto global.
           </p>
           <ul style="margin-top:16px; padding-left:16px; font-size:13px; color:var(--ink-sub); line-height:2;">
-            <li>+$5 Mi USD mobilizados para impacto global</li>
-            <li>100+ eventos · 29 países · 30k certificados emitidos</li>
-            <li>Criador do Blockchain na Escola</li>
+            <li data-i18n="about.m1">+$5 Mi USD mobilizados para impacto global</li>
+            <li data-i18n="about.m2">100+ eventos · 29 países · 30k certificados emitidos</li>
+            <li data-i18n="about.m3">Criador do Blockchain na Escola</li>
           </ul>
           <div style="margin-top:20px; display:flex; gap:8px; flex-wrap:wrap;">
-            <span class="chip">PhD Research</span>
+            <span class="chip" data-i18n="about.mChipPhd">PhD Research</span>
             <span class="chip">EdTech</span>
-            <span class="chip">29+ Países</span>
+            <span class="chip" data-i18n="about.mChipCountries">29+ Países</span>
           </div>
-          <a class="card-link" style="margin-top:16px;" href="https://marcelorefi.github.io" target="_blank">Website Pessoal →</a>
+          <a class="card-link" style="margin-top:16px;" href="https://marcelorefi.github.io" target="_blank" data-i18n="about.mLink">Website Pessoal →</a>
         </div>
       </div>
     </section>
@@ -94,7 +104,7 @@
   <div class="footer-inner">
     <div>
       <div class="footer-brand">ReFaz</div>
-      <div class="footer-tagline">Infraestrutura de Impacto</div>
+      <div class="footer-tagline" data-i18n="foot.tagline">Infraestrutura de Impacto</div>
       <div class="footer-copy">© <span id="yr"></span> ReFaz</div>
     </div>
     <ul class="footer-links">
@@ -105,5 +115,6 @@
   </div>
 </footer>
 <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+<script src="/i18n/i18n.js" defer></script>
 </body>
 </html>

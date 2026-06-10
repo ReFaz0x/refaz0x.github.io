@@ -3,7 +3,6 @@
   "nav.research": "Research",
   "nav.about": "About",
   "nav.contact": "Contact",
-
   "hero.eyebrow": "WEB3 INFRASTRUCTURE · BRAZIL",
   "hero.title": "The impact capital allocation gap",
   "hero.lede": "Web3 startups with sophisticated products navigate local regulation with uncertainty; sustainability projects don't speak the allocator's language. Without institutional certainty, the cost of allocating capital spikes and shuts the investor out. ReFaz connects these worlds.",
@@ -12,7 +11,6 @@
   "hero.stat2": "in capital mobilized for impact",
   "hero.stat3": "users",
   "hero.caption": "ReFaz · Brazil · 2025",
-
   "diag.label": "DIAGNOSIS",
   "diag.title": "Two blocked ecosystems, one root cause",
   "diag.c1t": "Socio-environmental Impact Generators",
@@ -22,7 +20,6 @@
   "diag.c3t": "Capital Allocators",
   "diag.c3b": "They can't reach initiatives that generate real impact or startups with proven growth.",
   "diag.callout": "<b>ROOT CAUSE</b> — Information asymmetry raises the cost of trust and paralyzes capital allocation.",
-
   "sol.label": "THE SOLUTION",
   "sol.title": "Strategy and technology for social development",
   "sol.lede": "A Web3 boutique tackling the core problem through four integrated verticals.",
@@ -36,7 +33,6 @@
   "sol.i3tag": "40 users · testing round",
   "sol.i4p": "EdTech + social impact",
   "sol.i4tag": "30k+ certificates issued",
-
   "how.label": "HOW IT WORKS",
   "how.title": "100% aligned with the global IFRS S1 &amp; S2 standards",
   "how.inK": "INPUT",
@@ -47,11 +43,9 @@
   "how.motor3": "Blockchain Timestamping",
   "how.outK": "OUTPUT",
   "how.outV": "An asset perfectly legible to the global asset manager",
-
   "track.label": "TRACTION &amp; VALIDATION",
   "track.title": "Validated where it truly matters",
   "track.lede": "Our solutions and products didn't win startup competitions — they're validated by the institutions that write the rules of the financial and governmental game in Brazil.",
-
   "met.label": "USAGE METRICS",
   "met.title": "Impact in real numbers",
   "met.l1": "tasks created · Balaio",
@@ -59,10 +53,8 @@
   "met.l3": "onchain certificates · BnE via 101.xyz",
   "met.l4": "certificates issued · Blockchain na Escola",
   "met.l5": "students · Intro to Web3 EduLatam",
-
   "cli.label": "CLIENTS &amp; ECOSYSTEMS",
   "cli.title": "Who trusts our work or products",
-
   "com.label": "PARTNER COMMUNITIES",
   "com.title": "Networks that build together",
   "com.d1": "Global community of builders in the Avalanche ecosystem",
@@ -74,7 +66,6 @@
   "com.d7": "Global regenerative finance network connecting local and global movements",
   "com.d8": "Web3 community promoting co-management of agroforests in Brazil",
   "com.d9": "Collaborative infrastructure to build resilience to extreme events.",
-
   "team.label": "TEAM",
   "team.title": "The team you can't replicate",
   "team.subhead": "Context is our product.",
@@ -87,8 +78,27 @@
   "team.m2": "100+ events · 29 countries · 30k certificates issued",
   "team.m3": "Creator of Blockchain na Escola",
   "team.m4": "(Postdoctoral) Member of the Center for Studies in International Cooperation for Development (CECID)",
-
   "foot.tag": "Infrastructure and strategy in emerging technologies for development.",
   "foot.copy": "© 2025 ReFaz · Belo Horizonte, Brazil",
-  "foot.contact": "Get in touch"
+  "foot.contact": "Get in touch",
+  "about.heroLabel": "Team",
+  "about.heroQuote": "\"The team you can't replicate.\"",
+  "about.heroSub": "Context is our product. Founder-coordinated networks operate in 20+ countries.",
+  "about.sectionLegal": "Legal &amp; Research",
+  "about.vLabel": "Co-founder",
+  "about.vBody": "Legal strategy and impact execution in the Brazilian Web3 ecosystem.",
+  "about.v1": "Secured R$ 3M in reparations for victims of Brumadinho-MG",
+  "about.v2": "VP of the OAB-MG Crypto-assets Commission",
+  "about.v3": "Legal infrastructure for Brazil's first tokenized biodiversity-credit platform",
+  "about.vChipLegal": "Legal Engineering",
+  "about.vChipBio": "Biodiversity Tokens",
+  "about.mLabel": "Co-founder · CTO",
+  "about.mBody": "Researcher, educator, and architect of global impact systems.",
+  "about.m1": "$5M+ USD mobilized for global impact",
+  "about.m2": "100+ events · 29 countries · 30k certificates issued",
+  "about.m3": "Creator of Blockchain na Escola",
+  "about.mChipPhd": "PhD Research",
+  "about.mChipCountries": "29+ Countries",
+  "about.mLink": "Personal Website →",
+  "foot.tagline": "Impact Infrastructure"
 }

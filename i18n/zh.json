@@ -3,7 +3,6 @@
   "nav.research": "研究",
   "nav.about": "关于",
   "nav.contact": "联系",
-
   "hero.eyebrow": "WEB3 基础设施 · 巴西",
   "hero.title": "影响力资本配置的缺口",
   "hero.lede": "拥有成熟产品的 Web3 初创企业在本地监管中举步维艰，而可持续发展项目又无法用资本配置方的语言表达自己。缺乏制度层面的确定性，资本配置成本飙升，将出资方拒之门外。ReFaz 连接这两个世界。",
@@ -12,7 +11,6 @@
   "hero.stat2": "动员用于影响力的资本",
   "hero.stat3": "名用户",
   "hero.caption": "ReFaz · 巴西 · 2025",
-
   "diag.label": "诊断",
   "diag.title": "两个受阻的生态系统，同一个根本原因",
   "diag.c1t": "社会与环境影响力的创造者",
@@ -22,7 +20,6 @@
   "diag.c3t": "资本配置方",
   "diag.c3b": "他们无法触及真正产生影响力的项目，以及增长得到验证的初创企业。",
   "diag.callout": "<b>根本原因</b> — 信息不对称推高了信任成本，使资本配置陷入停滞。",
-
   "sol.label": "解决方案",
   "sol.title": "服务社会发展的战略与技术",
   "sol.lede": "一家 Web3 精品机构，通过四条整合的业务线攻克核心问题。",
@@ -36,7 +33,6 @@
   "sol.i3tag": "40 名用户 · 测试阶段",
   "sol.i4p": "教育科技 + 社会影响力",
   "sol.i4tag": "已颁发 30k+ 证书",
-
   "how.label": "运作方式",
   "how.title": "100% 符合 IFRS S1 &amp; S2 全球标准",
   "how.inK": "输入",
@@ -47,11 +43,9 @@
   "how.motor3": "区块链时间戳",
   "how.outK": "输出",
   "how.outV": "对全球资产管理方完全可读的资产",
-
   "track.label": "成果与验证",
   "track.title": "在真正重要的地方得到验证",
   "track.lede": "我们的解决方案和产品并非靠赢得创业大赛——而是由在巴西制定金融与政府规则的机构所验证。",
-
   "met.label": "使用数据",
   "met.title": "用真实数字呈现的影响力",
   "met.l1": "已创建任务 · Balaio",
@@ -59,10 +53,8 @@
   "met.l3": "链上证书 · BnE 通过 101.xyz",
   "met.l4": "已颁发证书 · Blockchain na Escola",
   "met.l5": "学员 · Intro to Web3 EduLatam",
-
   "cli.label": "客户与生态系统",
   "cli.title": "信任我们工作或产品的伙伴",
-
   "com.label": "合作社区",
   "com.title": "共同建设的网络",
   "com.d1": "Avalanche 生态系统的全球建设者社区",
@@ -74,7 +66,6 @@
   "com.d7": "连接本地与全球运动的再生金融全球网络",
   "com.d8": "在巴西推动农林共管的 Web3 社区",
   "com.d9": "用于增强极端事件韧性的协作基础设施。",
-
   "team.label": "团队",
   "team.title": "无法复制的团队",
   "team.subhead": "情境就是我们的产品。",
@@ -87,8 +78,27 @@
   "team.m2": "100+ 场活动 · 29 个国家 · 已颁发 30k 证书",
   "team.m3": "Blockchain na Escola 的创始人",
   "team.m4": "（博士后）国际发展合作研究中心（CECID）成员",
-
   "foot.tag": "面向发展的新兴技术基础设施与战略。",
   "foot.copy": "© 2025 ReFaz · 巴西贝洛奥里藏特",
-  "foot.contact": "联系我们"
+  "foot.contact": "联系我们",
+  "about.heroLabel": "团队",
+  "about.heroQuote": "「无法复制的团队。」",
+  "about.heroSub": "情境就是我们的产品。由创始人协调的网络在 20 多个国家运作。",
+  "about.sectionLegal": "法务与研究",
+  "about.vLabel": "联合创始人",
+  "about.vBody": "巴西 Web3 生态系统中的法律战略与影响力落地。",
+  "about.v1": "为巴西米纳斯吉拉斯州布鲁马迪纽的受害者争取到 300 万雷亚尔赔偿",
+  "about.v2": "巴西律师协会米纳斯吉拉斯分会（OAB-MG）加密资产委员会副主席",
+  "about.v3": "巴西首个代币化生物多样性信用平台的法律基础设施",
+  "about.vChipLegal": "法律工程",
+  "about.vChipBio": "生物多样性代币",
+  "about.mLabel": "联合创始人 · CTO",
+  "about.mBody": "研究者、教育者，全球影响力系统的架构师。",
+  "about.m1": "为全球影响力动员超过 500 万美元",
+  "about.m2": "100+ 场活动 · 29 个国家 · 已颁发 30k 证书",
+  "about.m3": "Blockchain na Escola 的创始人",
+  "about.mChipPhd": "博士研究",
+  "about.mChipCountries": "29+ 个国家",
+  "about.mLink": "个人网站 →",
+  "foot.tagline": "影响力基础设施"
 }
