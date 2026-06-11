@@ -190,7 +190,7 @@
 
       <h2 class="section-title" data-i18n="mc.s3title">Tarefa como primitiva de crédito</h2>
 
-      <p class="section-sub" data-i18n="mc.s3sub">Uma operação de crédito é, estruturalmente, idêntica a uma tarefa com escrow. O credor cria a tarefa que descreve os termos. O tomador adiciona o colateral numa tarefa privada e cede o TaskID. O contrato faz o resto — nenhuma linha nova, só uma nova leitura do que já existe.</p>
+      <p class="section-sub" data-i18n="mc.s3sub">Uma operação de crédito é, estruturalmente, idêntica a uma tarefa com escrow. A operação nasce como uma tarefa — criada pelo credor (oferta) ou pelo tomador (demanda) — que descreve os termos. Quando há colateral, ele é travado numa tarefa privada e o TaskID é cedido. O contrato faz o resto — nenhuma linha nova, só uma nova leitura do que já existe.</p>
 
       <div style="border:1px solid var(--ink);">
 
@@ -214,7 +214,7 @@
 
           <div style="padding:14px 20px; font-size:14px; border-right:1px solid var(--ink);" data-i18n="mc.tblL2">Garantia / colateral</div>
 
-          <div style="padding:14px 20px; font-size:14px; color:var(--ink-sub);" data-i18n="mc.tblR2">Colateral travado em tarefa privada criada pelo requerente</div>
+          <div style="padding:14px 20px; font-size:14px; color:var(--ink-sub);" data-i18n="mc.tblR2">Colateral opcional, travado em tarefa privada quando as partes acordam</div>
 
         </div>
 
@@ -226,11 +226,19 @@
 
         </div>
 
-        <div style="display:grid; grid-template-columns:1fr 1fr;">
+        <div style="display:grid; grid-template-columns:1fr 1fr; border-bottom:1px solid var(--ink);">
 
           <div style="padding:14px 20px; font-size:14px; border-right:1px solid var(--ink);" data-i18n="mc.tblL4">Liberação dos fundos</div>
 
           <div style="padding:14px 20px; font-size:14px; color:var(--ink-sub);" data-i18n="mc.tblR4">Pagamento automático atrelado à aprovação</div>
+
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr;">
+
+          <div style="padding:14px 20px; font-size:14px; border-right:1px solid var(--ink);" data-i18n="mc.tblL5">Repagamento do empréstimo</div>
+
+          <div style="padding:14px 20px; font-size:14px; color:var(--ink-sub);" data-i18n="mc.tblR5">Settlement pelo trilho; forma e prazo privados entre as partes</div>
 
         </div>
 
@@ -303,17 +311,17 @@
 
         <div class="stat-block">
 
-          <div class="stat-num">3%</div>
+          <div class="stat-num">2%</div>
 
-          <div class="stat-label" data-i18n="mc.s6stat1">Na criação de tarefas</div>
+          <div class="stat-label" data-i18n="mc.s6stat1">Na criação da tarefa</div>
 
         </div>
 
         <div class="stat-block">
 
-          <div class="stat-num">2%</div>
+          <div class="stat-num">3%</div>
 
-          <div class="stat-label" data-i18n="mc.s6stat2">No claim de rewards</div>
+          <div class="stat-label" data-i18n="mc.s6stat2">No fechamento do contrato</div>
 
         </div>
 
@@ -329,7 +337,7 @@
 
         <p class="card-body" style="font-size:15px; max-width:760px;" data-i18n="mc.c5body">
 
-          Toda operação que passa pelo trilho gera receita na concessão e na liquidação — sem custo marginal de aquisição por transação. Em cima do trilho, empresas de crédito entram para oferecer produtos, garantias e serviços. O Balaio vira o ponto de encontro entre quem precisa de capital e quem o oferece, e cobra pela infraestrutura, não pelo risco.
+          O Balaio cobra apenas na originação — na criação da tarefa e no fechamento do contrato. O pagamento acontece sempre pelo trilho, mas seus termos são privados entre credor e tomador; não há cobrança após a originação, o que mantém a receita desacoplada do repagamento e deixa a inadimplência externa ao trilho. Em cima do trilho, empresas de crédito entram para oferecer produtos, garantias e serviços. O Balaio vira o ponto de encontro entre quem precisa de capital e quem o oferece, e cobra pela infraestrutura, não pelo risco.
 
         </p>
 
