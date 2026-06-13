@@ -223,5 +223,22 @@
   "mc.s8title": "La oportunidad fuera del radar del crédito tradicional",
   "mc.s8sub": "El marco cripto brasileño maduró, el microcrédito sigue represado por el costo de operación, y nadie unió las dos puntas con un producto que ya está funcionando. ReFaz trae lo que no se replica: riel en producción, redes ya contratadas, y la capa de adecuación regulatoria que transforma una buena idea de crédito en un activo legible para el capital.",
   "mc.refLabel": "Referencias de la Tesis",
-  "mc.cta": "Hablar con ReFaz"
+  "mc.cta": "Hablar con ReFaz",
+  "mc.s9label": "Cómo Esto Escala",
+  "mc.s9title": "De 2 pools piloto a una infraestructura abierta",
+  "mc.s9sub": "El mismo riel que corre Gaviões y Casa Hacker puede albergar cualquier comunidad con demanda calificada. Cada asignador crea su pool — Balaio provee el riel, el compliance y la liquidación.",
+  "mc.s9link": "Proyección de Crecimiento →",
+  "mc.s9stat1": "pools ofertadas",
+  "mc.s9stat2": "pools · marco inv.",
+  "pools.heroLabel": "Balaio · Proyección de Crecimiento",
+  "pools.heroQuote": "10 Pools de Microcrédito Estructurado",
+  "pools.heroSub": "Oferta abierta para asignadores, captadores y prestadores de servicio. Crédito productivo en comunidades calificadas. Riel onchain. Compliance incluido.",
+  "pools.wfLabel": "Waterfall por pool · año base",
+  "pools.wfTitle": "Cómo fluye el dinero",
+  "pools.wfSub": "R$200.000 desplegados. Volumen originado ~R$600.000/año (3× rotación). Ingresos totales generados: R$81.600/pool/año.",
+  "pools.invLabel": "Oferta al Inversor",
+  "pools.invTitle": "Dos capas de retorno",
+  "pools.invSub": "El inversor elige en qué pool(s) invertir. Cada pool puede ofrecer % diferentes de retorno ReFaz. El % es colectivo, proporcional a la aportación individual en cada pool. Un mismo inversor puede tener diferentes retornos sobre el margen ReFaz de diferentes pools.",
+  "pools.ctaTitle": "Tu dinero aquí.",
+  "pools.ctaSub": "Pool #10 · R$200.000 — Crea una pool con el tema que tenga sentido para tu ecosistema. Elige el captador, negocia el % de ReFaz y define dónde quieres participar."
 }
