@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Balaio — Projeção de Crescimento · ReFaz</title>
+  <link rel="stylesheet" href="refaz.css">
+  <link rel="stylesheet" href="/i18n/i18n.css">
+  <style>
+    .chip-terra { background: var(--terra); color: #fff; }
+
+    .pools-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 1px solid var(--ink);
+      margin-top: 8px;
+    }
+    .pools-stats-cell {
+      padding: 24px;
+      border-right: 1px solid var(--ink);
+    }
+    .pools-stats-cell:last-child { border-right: none; }
+
+    .theme-head {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 20px;
+      border-top: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      flex-wrap: wrap;
+    }
+    .theme-num  { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; }
+    .theme-name { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+    .theme-sub  { font-size: 12px; color: var(--ink-sub); }
+
+    .pool-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--ink);
+      border-top: none;
+    }
+    .pool-card { padding: 24px; border-right: 1px solid var(--ink); }
+    .pool-card:last-child { border-right: none; }
+    .pool-card hr { border: none; border-top: 1px solid var(--ink); margin: 14px 0; }
+
+    .calc-sliders {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-bottom: 24px;
+    }
+    .calc-result {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--ink);
+      margin-bottom: 8px;
+    }
+    .calc-cell { padding: 20px; }
+    .calc-cell:not(:last-child) { border-right: 1px solid var(--ink); }
+
+    .slider-ticks {
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+      color: var(--ink-sub);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 4px;
+    }
+    input[type=range] { width: 100%; accent-color: var(--terra); display: block; }
+
+    .comp-table { width: 100%; border-collapse: collapse; font-family: var(--font); }
+    .comp-table th, .comp-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--ink);
+      text-align: left;
+      font-size: 13px;
+      font-family: var(--font);
+    }
+    .comp-table th { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+    .comp-table tr:last-child td { border-bottom: none; }
+
+    @media (max-width: 900px) {
+      .pools-stats-grid { grid-template-columns: 1fr 1fr; }
+      .pools-stats-cell:nth-child(2)  { border-right: none; }
+      .pools-stats-cell:nth-child(3)  { border-top: 1px solid var(--ink); }
+      .pools-stats-cell:nth-child(4)  { border-top: 1px solid var(--ink); border-right: none; }
+      .pool-grid { grid-template-columns: 1fr; }
+      .pool-card { border-right: none; border-bottom: 1px solid var(--ink); }
+      .pool-card:last-child { border-bottom: none; }
+      .calc-sliders { grid-template-columns: 1fr; }
+      .calc-result  { grid-template-columns: 1fr; }
+      .calc-cell:not(:last-child) { border-right: none; border-bottom: 1px solid var(--ink); }
+    }
+    @media (max-width: 600px) {
+      .pools-stats-grid { grid-template-columns: 1fr; }
+      .pools-stats-cell { border-right: none; border-bottom: 1px solid var(--ink); }
+      .pools-stats-cell:last-child { border-bottom: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html">ReFaz</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="projects.html" data-i18n="nav.projects">Projetos</a></li>
+      <li><a href="publications.html" data-i18n="nav.research">Pesquisa</a></li>
+      <li><a href="about.html" data-i18n="nav.about">Sobre</a></li>
+      <li><a href="https://blockchainnaescola.github.io/website/" data-i18n="nav.education">Educação</a></li>
+      <li>
+        <div class="lang-switch" aria-label="Idioma">
+          <button data-lang="pt">PT</button>
+          <button data-lang="en">EN</button>
+        </div>
+      </li>
+      <li><a href="Contact.html" class="nav-cta" data-i18n="nav.contact">Contato</a></li>
+    </ul>
+    <button class="nav-mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+  </div>
+</nav>
+
+<main>
+  <div class="wrap">
+
+    <!-- HERO -->
+    <section class="hero">
+      <span class="section-label" data-i18n="pools.heroLabel">Balaio · Projeção de Crescimento</span>
+      <h1 class="hero-quote" data-i18n="pools.heroQuote">10 Pools de Microcrédito Estruturado</h1>
+      <p class="hero-sub" data-i18n="pools.heroSub">Oferta aberta para alocadores, captadores e prestadores de serviço. Crédito produtivo em comunidades qualificadas. Rail onchain. Compliance incluído.</p>
+      <div class="hero-chips">
+        <span class="chip chip-terra">R$2.000.000 disponíveis</span>
+        <span class="chip">10 pools · R$200k cada</span>
+        <span class="chip chip-moss">Rail em produção</span>
+        <span class="chip">Celo · Gnosis</span>
+      </div>
+      <div class="pools-stats-grid">
+        <div class="pools-stats-cell">
+          <div class="stat-num">22%</div>
+          <div class="stat-label">retorno mín. a.a.</div>
+        </div>
+        <div class="pools-stats-cell">
+          <div class="stat-num">3+2%</div>
+          <div class="stat-label">rail auto-retido</div>
+        </div>
+        <div class="pools-stats-cell">
+          <div class="stat-num">50p</div>
+          <div class="stat-label">marco investidores</div>
+        </div>
+        <div class="pools-stats-cell">
+          <div class="stat-num">3×</div>
+          <div class="stat-label">giro anual por pool</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WATERFALL -->
+    <section class="section">
+      <span class="section-label">Waterfall por pool · ano base</span>
+      <h2 class="section-title" data-i18n="pools.wfTitle">Como o dinheiro flui</h2>
+      <p class="section-sub" data-i18n="pools.wfSub">R$200.000 deployados. Volume originado ~R$600.000/ano (3× giro). Receita total gerada: R$81.600/pool/ano.</p>
+
+      <div style="overflow-x:auto; margin-bottom:32px;">
+        <div style="border:1px solid var(--ink); min-width:480px;">
+
+          <!-- Row 1: Alocador -->
+          <div style="display:grid; grid-template-columns:1fr 180px; border-bottom:1px solid var(--ink);">
+            <div style="padding:16px 20px; border-right:1px solid var(--ink);">
+              <div style="font-weight:700; margin-bottom:4px;">Alocador / Investidor</div>
+              <div style="font-size:12px; color:var(--ink-sub); margin-bottom:10px;">retorno sobre capital · yield proporcional ao aporte · risco fica com o alocador</div>
+              <div style="height:4px; background:var(--moss); width:54%;"></div>
+            </div>
+            <div style="padding:16px 20px;">
+              <div style="font-weight:700;">R$44.000</div>
+              <div style="font-size:12px; color:var(--ink-sub);">22% a.a.</div>
+            </div>
+          </div>
+
+          <!-- Row 2: Infraestrutura (par → bg-card) -->
+          <div style="display:grid; grid-template-columns:1fr 180px; border-bottom:1px solid var(--ink); background:var(--bg-card);">
+            <div style="padding:16px 20px; border-right:1px solid var(--ink);">
+              <div style="font-weight:700; margin-bottom:4px;">Infraestrutura — Balaio rail (3%+2%)</div>
+              <div style="font-size:12px; color:var(--ink-sub); margin-bottom:10px;">auto-retida · custo marginal ~zero (smart contracts) · excedente = margem ReFaz</div>
+              <div style="height:4px; background:var(--ink); width:37%;"></div>
+            </div>
+            <div style="padding:16px 20px;">
+              <div style="font-weight:700;">R$30.000</div>
+              <div style="font-size:12px; color:var(--ink-sub);">5% do volume</div>
+            </div>
+          </div>
+
+          <!-- Row 3: Captador -->
+          <div style="display:grid; grid-template-columns:1fr 180px; border-bottom:1px solid var(--ink);">
+            <div style="padding:16px 20px; border-right:1px solid var(--ink);">
+              <div style="font-weight:700; margin-bottom:4px;">Captador — originação qualificada</div>
+              <div style="font-size:12px; color:var(--ink-sub); margin-bottom:10px;">10% dos juros brutos · retido no settlement · só ganha quando a operação liquida</div>
+              <div style="height:4px; background:var(--ochre); width:12%;"></div>
+            </div>
+            <div style="padding:16px 20px;">
+              <div style="font-weight:700;">R$9.600</div>
+              <div style="font-size:12px; color:var(--ink-sub);">10% dos juros</div>
+            </div>
+          </div>
+
+          <!-- Row 4: Margem ReFaz (par → bg-card) -->
+          <div style="display:grid; grid-template-columns:1fr 180px; background:var(--bg-card);">
+            <div style="padding:16px 20px; border-right:1px solid var(--ink);">
+              <div style="font-weight:700; margin-bottom:4px;">Margem ReFaz — curadoria e operação</div>
+              <div style="font-size:12px; color:var(--ink-sub); margin-bottom:10px;">10% dos juros brutos · rail ~integralmente margem líquida · ganho total ReFaz: R$39.600/pool</div>
+              <div style="height:4px; background:var(--terra); width:12%;"></div>
+            </div>
+            <div style="padding:16px 20px;">
+              <div style="font-weight:700;">R$9.600</div>
+              <div style="font-size:12px; color:var(--ink-sub);">10% dos juros</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Stats below waterfall -->
+      <div class="grid-3">
+        <div class="stat-block">
+          <div class="stat-num">R$39.600</div>
+          <div class="stat-label">ReFaz / pool / ano</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-num">R$396.000</div>
+          <div class="stat-label">ReFaz · 10 pools / ano</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-num" style="color:var(--terra);">R$1.980.000</div>
+          <div class="stat-label">ReFaz · 50 pools / ano ★</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OFERTA AO INVESTIDOR -->
+    <section class="section">
+      <span class="section-label" data-i18n="pools.invLabel">Oferta ao Investidor</span>
+      <h2 class="section-title" data-i18n="pools.invTitle">Duas camadas de retorno</h2>
+      <p class="section-sub" data-i18n="pools.invSub">O investidor escolhe em qual(is) pool(s) aportar. Cada pool pode oferecer % diferentes de retorno ReFaz. A % é coletiva, proporcional ao aporte individual em cada pool. Um mesmo investidor pode ter diferentes retornos sobre a margem ReFaz de diferentes pools.</p>
+
+      <!-- Explanatory card -->
+      <div class="card" style="margin-bottom:24px;">
+        <p class="card-body" style="font-size:15px; max-width:760px;">O investidor escolhe em qual(is) pool(s) aportar. Recebe 22% a.a. proporcional ao seu aporte (Camada 1). Quando 50 pools estiverem ativas, passa a receber também a % negociada dos ganhos ReFaz daquela pool, proporcional ao seu aporte (Camada 2). Cada pool pode ter % diferentes.</p>
+      </div>
+
+      <!-- Grid 2 — Camadas -->
+      <div class="grid-2" style="margin-bottom:24px;">
+
+        <div class="card">
+          <div class="card-label">CAMADA 1 · IMEDIATO</div>
+          <div class="stat-num" style="color:var(--moss); margin-bottom:8px;">22% a.a.</div>
+          <p class="card-body" style="margin-bottom:12px;">Yield proporcional ao aporte na pool. Ativo desde o 1º ciclo.</p>
+          <hr>
+          <p class="card-body" style="font-size:12px;">R$100k aportado → R$22k/ano · R$200k aportado → R$44k/ano</p>
+        </div>
+
+        <div class="card" style="background:var(--bg-card);">
+          <div class="card-label">CAMADA 2 · APÓS 50 POOLS ATIVAS</div>
+          <div class="stat-num" style="margin-bottom:8px;">+ X% ReFaz</div>
+          <p class="card-body" style="margin-bottom:12px;">% dos ganhos ReFaz desta pool, proporcional ao aporte do investidor. Negociado por pool.</p>
+          <hr>
+          <p class="card-body" style="font-size:12px;">O marco de 50 pools activa o gatilho. Diferentes pools, diferentes %s.</p>
+        </div>
+
+      </div>
+
+      <!-- Calculator card -->
+      <div class="card" style="margin-bottom:24px;">
+        <div class="card-label">Calculadora por pool</div>
+
+        <div class="calc-sliders">
+
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:6px;">
+              <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-sub);">Meu aporte nesta pool</div>
+              <div id="aporte-v" style="font-size:20px; font-weight:700;">R$200.000</div>
+            </div>
+            <input type="range" id="aporte" min="10000" max="200000" step="10000" value="200000">
+            <div class="slider-ticks">
+              <span>R$10k</span>
+              <span>R$100k</span>
+              <span>R$200k</span>
+            </div>
+          </div>
+
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:6px;">
+              <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-sub);">% do ReFaz desta pool para investidores</div>
+              <div id="pct-v" style="font-size:20px; font-weight:700; color:var(--terra);">50%</div>
+            </div>
+            <input type="range" id="pct" min="10" max="100" step="5" value="50">
+            <div class="slider-ticks">
+              <span>10%</span>
+              <span>55%</span>
+              <span>100%</span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="calc-result">
+          <div class="calc-cell">
+            <div class="card-label">CAMADA 1 / ANO</div>
+            <div id="r-l1" style="font-size:24px; font-weight:700; color:var(--moss); margin-bottom:4px;">—</div>
+            <div style="font-size:12px; color:var(--ink-sub);">yield da pool</div>
+          </div>
+          <div class="calc-cell" style="background:var(--bg-card);">
+            <div class="card-label">CAMADA 2 / ANO</div>
+            <div id="r-l2" style="font-size:24px; font-weight:700; color:var(--terra); margin-bottom:4px;">—</div>
+            <div style="font-size:12px; color:var(--ink-sub);">% ReFaz desta pool</div>
+          </div>
+          <div class="calc-cell">
+            <div class="card-label">TOTAL / ANO</div>
+            <div id="r-total" style="font-size:24px; font-weight:700; margin-bottom:4px;">—</div>
+            <div id="r-roi" style="font-size:13px; font-weight:700; color:var(--terra);">—</div>
+          </div>
+        </div>
+
+        <p style="font-size:11px; color:var(--ink-sub); margin-top:12px;">* Camada 2 ativa após 50 pools. O ROI % é idêntico para qualquer valor de aporte — o que varia é o volume absoluto.</p>
+      </div>
+
+      <!-- Comparative table -->
+      <div style="border:1px solid var(--ink);">
+        <div style="padding:14px 20px; background:var(--bg-card); border-bottom:1px solid var(--ink);">
+          <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em;">ROI POR % DE REFAZ OFERECIDA · APORTE INTEGRAL R$200K</div>
+        </div>
+        <div style="overflow-x:auto;">
+          <table class="comp-table">
+            <thead>
+              <tr>
+                <th>% ReFaz</th>
+                <th>Camada 1</th>
+                <th>Camada 2</th>
+                <th>ROI total</th>
+                <th>vs CDI ~11%</th>
+              </tr>
+            </thead>
+            <tbody id="comp-body"></tbody>
+          </table>
+        </div>
+        <p style="font-size:11px; color:var(--ink-sub); padding:12px 16px; border-top:1px solid var(--ink);">* Calculado sobre aporte integral de R$200k por pool. Camada 2 pressupõe 50 pools ativas.</p>
+      </div>
+    </section>
+
+    <!-- POOL CARDS — TEMA 01: Tecnologias Emergentes -->
+    <section class="section">
+      <div class="theme-head">
+        <span class="theme-num" style="color:var(--terra);">01</span>
+        <span class="theme-name">Tecnologias Emergentes</span>
+        <span class="theme-sub">Ecossistemas digitais e infraestrutura cripto</span>
+      </div>
+      <div class="pool-grid">
+
+        <div class="pool-card">
+          <div class="card-label" style="color:var(--terra);">Pool #1</div>
+          <h3 style="font-size:16px; font-weight:700; font-family:var(--font); margin-bottom:12px;">Stablecoins</h3>
+          <p class="card-body" style="margin-bottom:14px;">Capital de giro para negócios que operam com moedas digitais estáveis — remessas, pagamentos internacionais, liquidações cross-border.</p>
+          <hr>
+          <div style="display:flex; gap:8px; align-items:flex-start;">
+            <span class="card-label" style="color:var(--terra); flex-shrink:0;">Captador</span>
+            <span class="card-body" style="font-size:12px;">Exchanges, fintechs Web3, DAOs</span>
+          </div>
+        </div>
+
+        <div class="pool-card">
+          <div class="card-label" style="color:var(--terra);">Pool #2</div>
+          <h3 style="font-size:16px; font-weight:700; font-family:var(--font); margin-bottom:12px;">Foundation</h3>
+          <p class="card-body" style="margin-bottom:14px;">Crédito para builders com grant confirmado ou pipeline ativo. O compromisso da fundação valida a tração do tomador perante o alocador.</p>
+          <hr>
+          <div style="display:flex; gap:8px; align-items:flex-start;">
+            <span class="card-label" style="color:var(--terra); flex-shrink:0;">Captador</span>
+            <span class="card-body" style="font-size:12px;">Celo, Ethereum Foundation, XRPL Commons</span>
+          </div>
+        </div>
+
+        <div class="pool-card">
+          <div class="card-label" style="color:var(--terra);">Pool #3</div>
+          <h3 style="font-size:16px; font-weight:700; font-family:var(--font); margin-bottom:12px;">Grants</h3>
+          <p class="card-body" style="margin-bottom:14px;">Micro-antecipação de receita de grant: o grant aprovado ou em análise serve como lastro da operação de crédito.</p>
+          <hr>
+          <div style="display:flex; gap:8px; align-items:flex-start;">
+            <span class="card-label" style="color:var(--terra); flex-shrink:0;">Captador</span>
+            <span class="card-body" style="font-size:12px;">OSCIPs, aceleradoras com pipeline de captação pública</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- POOL CARDS — TEMA 02: Inovação -->
+    <section class="section">
+      <div class="theme-head">
+        <span class="theme-num" style="color:var(--moss);">02</span>
+        <span class="theme-name">Inovação</span>
+        <span class="theme-sub">Startups e projetos em fase de escala</span>
+      </div>
+      <div class="pool-grid">
+
+        <div class="pool-card">
+          <div class="card-label" style="color:var(--moss);">Pool #4</div>
+          <h3 style="font-size:16px; font-weight:700; font-family:var(--font); margin-bottom:12px;">Resiliência</h3>
+          <p class="card-body" style="margin-bottom:14px;">Para negócios que sobreviveram a choques e demonstram adaptabilidade. Tração comprovada, capital para a próxima fase.</p>
+          <hr>
+          <div style="display:flex; gap:8px; align-items:flex-start;">
+            <span class="card-label" style="color:var(--moss); flex-shrink:0;">Captador</span>
+            <span class="card-body" style="font-size:12px;">Incubadoras e aceleradoras pós-MVP</span>
+          </div>
+        </div>
+
+        <div class="pool-card">
+          <div class="card-label" style="color:var(--moss);">Pool #5</div>
+          <h3 style="font-size:16px; font-weight:700; font-family:var(--font); margin-bottom:12px;">Futuro</h3>
+          <p class="card-body" style="margin-bottom:14px;">Para projetos em fase de scale com métricas de crescimento verificáveis. Pré-série A ou equivalente em impacto.</p>
+          <hr>
+          <div style="display:flex; gap:8px; align-items:flex-start;">
+            <span class="card-label" style="color:var(--moss); flex-shrink:0;">Captador</span>
+            <span class="card-body" style="font-size:12px;">Fundos de impacto early-stage, angel networks</span>
+          </div>
+        </div>
+
+        <div class="pool-card">
+          <div class="card-label" style="color:var(--moss);">Pool #6</div>
+          <h3 style="font-size:16px; font-weight:700; font-family:var(--font); margin-bottom:12px;">Território</h3>
+          <p class="card-body" style="margin-bottom:14px;">Crédito geo-referenciado para empreendedores de uma região com identidade econômica definida e densidade comunitária.</p>
+          <hr>
+          <div style="display:flex; gap:8px; align-items:flex-start;">
+            <span class="card-label" style="color:var(--moss); flex-shrink:0;">Captador</span>
+            <span class="card-body" style="font-size:12px;">Prefeituras, associações regionais, Sebrae local</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- POOL CARDS — TEMA 03: Desenvolvimento -->
+    <section class="section">
+      <div class="theme-head">
+        <span class="theme-num" style="color:#8B6510;">03</span>
+        <span class="theme-name">Desenvolvimento</span>
+        <span class="theme-sub">Empreendedorismo comunitário e identitário</span>
+      </div>
+      <div class="pool-grid">
+
+        <div class="pool-card">
+          <div class="card-label" style="color:#8B6510;">Pool #7</div>
+          <h3 style="font-size:16px; font-weight:700; font-family:var(--font); margin-bottom:12px;">Comunitarismo Empreendedor</h3>
+          <p class="card-body" style="margin-bottom:14px;">Para empreendedores dentro de comunidades organizadas. O tecido comunitário funciona como rede de garantia coletiva.</p>
+          <hr>
+          <div style="display:flex; gap:8px; align-items:flex-start;">
+            <span class="card-label" style="color:#8B6510; flex-shrink:0;">Captador</span>
+            <span class="card-body" style="font-size:12px;">Organizações comunitárias, lideranças locais, cooperativas</span>
+          </div>
+        </div>
+
+        <div class="pool-card">
+          <div class="card-label" style="color:#8B6510;">Pool #8</div>
+          <h3 style="font-size:16px; font-weight:700; font-family:var(--font); margin-bottom:12px;">Identidade</h3>
+          <p class="card-body" style="margin-bottom:14px;">Para empreendedores cujo capital identitário é a vantagem competitiva — LGBTQIA+, indígenas, afrobrasileiros.</p>
+          <hr>
+          <div style="display:flex; gap:8px; align-items:flex-start;">
+            <span class="card-label" style="color:#8B6510; flex-shrink:0;">Captador</span>
+            <span class="card-body" style="font-size:12px;">OSCIPs de diversidade, coletivos identitários, fundos DEI</span>
+          </div>
+        </div>
+
+        <div class="pool-card">
+          <div class="card-label" style="color:#8B6510;">Pool #9</div>
+          <h3 style="font-size:16px; font-weight:700; font-family:var(--font); margin-bottom:12px;">Salto</h3>
+          <p class="card-body" style="margin-bottom:14px;">Para o menor empreendimento: MEI, ambulante, artesão. Ticket mínimo, giro rápido, lastro no próprio trabalho.</p>
+          <hr>
+          <div style="display:flex; gap:8px; align-items:flex-start;">
+            <span class="card-label" style="color:#8B6510; flex-shrink:0;">Captador</span>
+            <span class="card-body" style="font-size:12px;">SESC, SENAC, Sebrae, cooperativas de trabalho</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- POOL #10 CTA -->
+    <section class="section">
+      <div style="border:2px solid var(--ink); background:var(--bg-card); text-align:center; padding:48px;">
+        <span class="section-label" style="color:var(--moss); display:block; text-align:center;">Sua pool aqui</span>
+        <h2 class="hero-quote" style="font-style:italic; font-weight:700; margin-bottom:24px;" data-i18n="pools.ctaTitle">Seu dinheiro aqui.</h2>
+        <p class="hero-sub" style="max-width:560px; margin:0 auto 32px;" data-i18n="pools.ctaSub">Pool #10 · R$200.000 — Crie uma pool com o tema que faz sentido para o seu ecossistema. Escolha o captador, negocie a % de ReFaz e defina onde quer participar.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-bottom:32px;">
+          <span class="chip">22% a.a. na pool</span>
+          <span class="chip chip-ochre">+ % ReFaz negociada</span>
+          <span class="chip">após 50 pools ativas</span>
+        </div>
+        <a class="btn btn-terra" href="Contact.html">Quero conversar →</a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">ReFaz</div>
+      <div class="footer-tagline" data-i18n="foot.tagline">Infraestrutura de Impacto</div>
+      <div class="footer-copy">© <span id="yr"></span> ReFaz</div>
+    </div>
+    <ul class="footer-links">
+      <li><a href="https://linkedin.com/company/refaz" target="_blank">LinkedIn</a></li>
+      <li><a href="https://github.com/ReFaz0x" target="_blank">GitHub</a></li>
+      <li><a href="mailto:hello@refaz.studio">hello@refaz.studio</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+var POOL = 200000, YIELD = 0.22, REFAZ_POOL = 39600;
+
+function fmt(n) {
+  return 'R$' + Math.round(n).toLocaleString('pt-BR');
+}
+
+function calc() {
+  var aporte = +document.getElementById('aporte').value;
+  var pct    = +document.getElementById('pct').value / 100;
+  var prop   = aporte / POOL;
+  var l1     = aporte * YIELD;
+  var l2     = REFAZ_POOL * pct * prop;
+  var total  = l1 + l2;
+  var roi    = (total / aporte * 100).toFixed(1).replace('.', ',');
+  document.getElementById('aporte-v').textContent = fmt(aporte);
+  document.getElementById('pct-v').textContent    = Math.round(pct * 100) + '%';
+  document.getElementById('r-l1').textContent     = fmt(l1);
+  document.getElementById('r-l2').textContent     = fmt(l2);
+  document.getElementById('r-total').textContent  = fmt(total);
+  document.getElementById('r-roi').textContent    = roi + '% a.a.';
+}
+
+['aporte', 'pct'].forEach(function(id) {
+  document.getElementById(id).addEventListener('input', calc);
+});
+
+function buildTable() {
+  var pcts = [0, 20, 30, 50, 75, 100];
+  var rows = pcts.map(function(p) {
+    var l1  = POOL * YIELD;
+    var l2  = REFAZ_POOL * p / 100;
+    var tot = l1 + l2;
+    var roi = (tot / POOL * 100).toFixed(1);
+    var vs  = (tot / POOL * 100 - 11).toFixed(1);
+    return '<tr' + (p === 50 ? ' style="background:var(--bg-card)"' : '') + '>' +
+      '<td style="font-weight:700;color:var(--terra)">' + p + '%</td>' +
+      '<td style="color:var(--moss)">' + fmt(l1) + '</td>' +
+      '<td>' + fmt(l2) + '</td>' +
+      '<td style="font-weight:700">' + roi + '% a.a.</td>' +
+      '<td style="font-weight:700;color:var(--terra)">+' + vs + 'pp vs CDI</td>' +
+      '</tr>';
+  });
+  document.getElementById('comp-body').innerHTML = rows.join('');
+}
+
+buildTable();
+calc();
+</script>
+<script src="/i18n/i18n.js" defer></script>
+
+</body>
+</html>
